@@ -1,0 +1,21 @@
+providers = ["python"]
+
+[variables]
+WSGI_APPLICATION = "alhassan.wsgi.application"
+DJANGO_SETTINGS_MODULE = "alhassan.settings"
+SECRET_KEY = "django-insecure-math-platform-railway-2024-xyz123"
+DEBUG = "False"
+ALLOWED_HOSTS = ".railway.app,.up.railway.app,localhost,127.0.0.1"
+PORT = "8000"
+STATIC_URL = "/static/"
+STATIC_ROOT = "staticfiles"
+PYTHONPATH = "/app"
+
+[phases.build]
+cmds = [
+    "pip install -r requirements.txt",
+    "python manage.py collectstatic --noinput"
+]
+
+[phases.deploy]
+cmd = "python manage.py migrate && gunicorn alhassan.wsgi:application --bind 0.0.0.0:$PORT"

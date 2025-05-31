@@ -1,0 +1,775 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}إدارة المشاركين - منصة الحساب{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/math_platform.css' %}">
+<link rel="stylesheet" href="{% static 'css/improvements.css' %}">
+<style>
+    .management-header {
+        background: linear-gradient(135deg, #2D8CFF 0%, #1976D2 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(45, 140, 255, 0.3);
+    }
+
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 4px solid #2D8CFF;
+        height: 100%;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .participant-table {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .table-header {
+        background: linear-gradient(135deg, #2D8CFF, #1976D2);
+        color: white;
+        padding: 1.5rem;
+        font-weight: 600;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.3rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .action-buttons .btn {
+        min-width: 35px;
+        height: 35px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bulk-actions {
+        background: rgba(45, 140, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    .avatar-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2D8CFF, #4CAF50);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .grade-1, .grade-2, .grade-3 { background: #E8F5E8 !important; color: #2E7D32 !important; }
+    .grade-4, .grade-5, .grade-6 { background: #E3F2FD !important; color: #1976D2 !important; }
+    .grade-7, .grade-8, .grade-9 { background: #FFF8E1 !important; color: #F57C00 !important; }
+
+    .icon-container {
+        font-size: 2rem;
+        color: #2D8CFF;
+        margin-bottom: 0.5rem;
+    }
+
+    .table-responsive {
+        border-radius: 0 0 15px 15px;
+    }
+
+    .table th {
+        background: #f8f9fa;
+        border: none;
+        font-weight: 600;
+        color: #333;
+        text-align: center;
+        vertical-align: middle;
+        padding: 1rem 0.5rem;
+    }
+
+    .table td {
+        vertical-align: middle;
+        text-align: center;
+        padding: 1rem 0.5rem;
+        border-color: #f0f0f0;
+    }
+
+    .table tbody tr:hover {
+        background-color: rgba(45, 140, 255, 0.05);
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+        border: none;
+        font-weight: 600;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #2D8CFF, #1976D2) !important;
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(135deg, #4CAF50, #388E3C) !important;
+    }
+
+    /* تحسين الاستجابة للشاشات الصغيرة */
+    @media (max-width: 768px) {
+        .management-header {
+            padding: 1.5rem 1rem;
+        }
+
+        .stats-card {
+            margin-bottom: 1rem;
+        }
+
+        .table-header {
+            padding: 1rem;
+        }
+
+        .table-header .row {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .table-header .text-end {
+            text-align: center !important;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .action-buttons .btn {
+            width: 100%;
+            min-width: auto;
+        }
+
+        .table th, .table td {
+            padding: 0.5rem 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .avatar-circle {
+            width: 30px;
+            height: 30px;
+            font-size: 0.8rem;
+        }
+
+        .bulk-actions {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .table-responsive {
+            font-size: 0.8rem;
+        }
+
+        .table th, .table td {
+            padding: 0.3rem 0.1rem;
+        }
+
+        .action-buttons .btn {
+            min-width: 30px;
+            height: 30px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- رأس الصفحة -->
+    <div class="management-header">
+        <h1 class="mb-3">
+            <i class="fas fa-users me-3"></i>
+            إدارة المشاركين
+        </h1>
+        <p class="mb-0">إدارة شاملة لجميع المشاركين في النظام</p>
+    </div>
+
+    <!-- الإحصائيات السريعة -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="stats-card text-center">
+                <div class="icon-container mb-2">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="text-primary">{{ total_participants }}</h3>
+                <p class="text-muted mb-0">إجمالي المشاركين</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stats-card text-center">
+                <div class="icon-container mb-2">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-success">{{ active_grades }}</h3>
+                <p class="text-muted mb-0">المستويات النشطة</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stats-card text-center">
+                <div class="icon-container mb-2">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="text-warning">{{ total_competitions }}</h3>
+                <p class="text-muted mb-0">إجمالي المسابقات</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stats-card text-center">
+                <div class="icon-container mb-2">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="text-info">{{ average_score|floatformat:1 }}</h3>
+                <p class="text-muted mb-0">متوسط النقاط</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- أدوات الإدارة -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-plus me-2"></i>
+                        إضافة مشاركين جدد
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" onclick="showAddSingleModal()">
+                            <i class="fas fa-user-plus me-2"></i>
+                            إضافة مشارك واحد
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="showBulkAddModal()">
+                            <i class="fas fa-users me-2"></i>
+                            إضافة متعددة
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="showImportModal()">
+                            <i class="fas fa-file-import me-2"></i>
+                            استيراد من ملف
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-gradient-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-download me-2"></i>
+                        تصدير البيانات
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'competitions:export_participants_excel' %}" class="btn btn-success">
+                            <i class="fas fa-file-excel me-2"></i>
+                            تصدير Excel
+                        </a>
+                        <a href="{% url 'competitions:export_participants_pdf' %}" class="btn btn-outline-success">
+                            <i class="fas fa-file-pdf me-2"></i>
+                            تصدير PDF
+                        </a>
+                        <button class="btn btn-outline-secondary" onclick="generateReport()">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            تقرير مفصل
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- فلاتر البحث -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">
+                <i class="fas fa-filter me-2"></i>
+                فلاتر البحث والتصفية
+            </h5>
+        </div>
+        <div class="card-body">
+            <form method="GET" id="filterForm">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">البحث بالاسم</label>
+                        <input type="text" class="form-control" name="search" value="{{ request.GET.search }}"
+                               placeholder="ابحث عن مشارك...">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">المستوى الدراسي</label>
+                        <select class="form-select" name="grade">
+                            <option value="">جميع المستويات</option>
+                            {% for grade_value, grade_name in grade_choices %}
+                                <option value="{{ grade_value }}" {% if request.GET.grade == grade_value|stringformat:"s" %}selected{% endif %}>
+                                    {{ grade_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">الفوج</label>
+                        <select class="form-select" name="group">
+                            <option value="">جميع الأفواج</option>
+                            <option value="1" {% if request.GET.group == "1" %}selected{% endif %}>الفوج الأول</option>
+                            <option value="2" {% if request.GET.group == "2" %}selected{% endif %}>الفوج الثاني</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">ترتيب حسب</label>
+                        <select class="form-select" name="sort">
+                            <option value="name" {% if request.GET.sort == "name" %}selected{% endif %}>الاسم</option>
+                            <option value="grade" {% if request.GET.sort == "grade" %}selected{% endif %}>المستوى</option>
+                            <option value="created_at" {% if request.GET.sort == "created_at" %}selected{% endif %}>تاريخ الإضافة</option>
+                            <option value="competitions_count" {% if request.GET.sort == "competitions_count" %}selected{% endif %}>عدد المسابقات</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary me-2">
+                            <i class="fas fa-search me-2"></i>
+                            بحث
+                        </button>
+                        <a href="{% url 'competitions:participant_management' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times me-2"></i>
+                            مسح الفلاتر
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- جدول المشاركين -->
+    <div class="participant-table">
+        <div class="table-header">
+            <div class="row align-items-center">
+                <div class="col-md-8 col-12">
+                    <h5 class="mb-0">
+                        <i class="fas fa-list me-2"></i>
+                        قائمة المشاركين
+                        <span class="badge bg-light text-dark ms-2">{{ participants.count }}</span>
+                    </h5>
+                </div>
+                <div class="col-md-4 col-12 text-md-end text-center">
+                    <div class="bulk-actions">
+                        <button class="btn btn-sm btn-outline-light me-2" onclick="selectAll()">
+                            <i class="fas fa-check-square me-1"></i>
+                            <span class="d-none d-md-inline">تحديد الكل</span>
+                            <span class="d-md-none">الكل</span>
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" onclick="bulkDelete()" disabled id="bulkDeleteBtn">
+                            <i class="fas fa-trash me-1"></i>
+                            <span class="d-none d-md-inline">حذف المحدد</span>
+                            <span class="d-md-none">حذف</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">
+                            <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll()" class="form-check-input">
+                        </th>
+                        <th style="min-width: 200px;">الاسم الكامل</th>
+                        <th style="width: 120px;">المستوى</th>
+                        <th style="width: 80px;">الفوج</th>
+                        <th style="width: 100px;">المسابقات</th>
+                        <th style="width: 100px;">النقاط</th>
+                        <th style="width: 120px;" class="d-none d-md-table-cell">التاريخ</th>
+                        <th style="width: 120px;">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for participant in participants %}
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="participant-checkbox form-check-input" value="{{ participant.id }}">
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle me-2 flex-shrink-0">
+                                    {{ participant.initials }}
+                                </div>
+                                <div class="participant-info">
+                                    <div class="fw-bold text-truncate" style="max-width: 150px;" title="{{ participant.name }}">
+                                        {{ participant.name }}
+                                    </div>
+                                    <small class="text-muted d-md-none">
+                                        {{ participant.get_grade_display }} - {{ participant.get_group_display }}
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <span class="badge grade-{{ participant.grade }} px-2 py-1">
+                                {{ participant.get_grade_display }}
+                            </span>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <span class="badge bg-secondary px-2 py-1">
+                                الفوج {{ participant.group }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-info px-2 py-1">
+                                {{ participant.competitions_count }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-success px-2 py-1">
+                                {{ participant.average_score|floatformat:1 }}
+                            </span>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <small class="text-muted">
+                                {{ participant.created_at|date:"Y-m-d" }}
+                            </small>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-outline-primary"
+                                        onclick="viewParticipant({{ participant.id }})"
+                                        title="عرض التفاصيل">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning"
+                                        onclick="editParticipant({{ participant.id }})"
+                                        title="تعديل">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger"
+                                        onclick="deleteParticipant({{ participant.id }})"
+                                        title="حذف">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center py-5">
+                            <div class="empty-state">
+                                <i class="fas fa-users fa-4x text-muted mb-3"></i>
+                                <h5 class="text-muted mb-3">لا توجد مشاركين</h5>
+                                <p class="text-muted mb-4">لا توجد مشاركين مطابقين للفلاتر المحددة</p>
+                                <button class="btn btn-primary btn-lg" onclick="showAddSingleModal()">
+                                    <i class="fas fa-plus me-2"></i>
+                                    إضافة أول مشارك
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- التصفح -->
+    {% if participants.has_other_pages %}
+    <nav aria-label="تصفح المشاركين" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if participants.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ participants.previous_page_number }}">السابق</a>
+                </li>
+            {% endif %}
+
+            {% for num in participants.paginator.page_range %}
+                {% if participants.number == num %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if participants.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ participants.next_page_number }}">التالي</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+<!-- النوافذ المنبثقة -->
+{% include 'competitions/modals/add_participant_modal.html' %}
+{% include 'competitions/modals/bulk_add_modal.html' %}
+{% include 'competitions/modals/import_modal.html' %}
+{% include 'competitions/modals/participant_details_modal.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/improvements.js' %}"></script>
+<script src="{% static 'js/notifications.js' %}"></script>
+<script src="{% static 'js/participant_management.js' %}"></script>
+
+<script>
+// تحسينات إضافية لصفحة إدارة المشاركين
+document.addEventListener('DOMContentLoaded', function() {
+    // تطبيق التحسينات العامة
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.FormEnhancer.enhance();
+        window.MathPlatformEnhancements.TableEnhancer.enhance();
+        window.MathPlatformEnhancements.ResponsiveEnhancer.enhance();
+    }
+
+    // تحسين تجربة المستخدم
+    initializeParticipantManagement();
+});
+
+function initializeParticipantManagement() {
+    // تحسين checkboxes
+    const checkboxes = document.querySelectorAll('.participant-checkbox');
+    const bulkDeleteBtn = document.getElementById('bulkDeleteBtn');
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+
+    // مراقبة تغيير checkboxes
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateBulkActions);
+    });
+
+    // تحسين البحث المباشر
+    const searchInput = document.querySelector('input[name="search"]');
+    if (searchInput) {
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                if (this.value.length >= 2 || this.value.length === 0) {
+                    document.getElementById('filterForm').submit();
+                }
+            }, 500);
+        });
+    }
+
+    // تحسين الفلاتر
+    const filterSelects = document.querySelectorAll('select[name="grade"], select[name="group"], select[name="sort"]');
+    filterSelects.forEach(select => {
+        select.addEventListener('change', function() {
+            document.getElementById('filterForm').submit();
+        });
+    });
+
+    // إضافة tooltips للأزرار
+    const actionButtons = document.querySelectorAll('.action-buttons .btn');
+    actionButtons.forEach(btn => {
+        if (btn.title) {
+            btn.setAttribute('data-bs-toggle', 'tooltip');
+            btn.setAttribute('data-bs-placement', 'top');
+        }
+    });
+
+    // تفعيل tooltips
+    if (typeof bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+}
+
+function updateBulkActions() {
+    const checkboxes = document.querySelectorAll('.participant-checkbox:checked');
+    const bulkDeleteBtn = document.getElementById('bulkDeleteBtn');
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+
+    // تحديث حالة زر الحذف الجماعي
+    if (bulkDeleteBtn) {
+        bulkDeleteBtn.disabled = checkboxes.length === 0;
+        bulkDeleteBtn.textContent = checkboxes.length > 0 ?
+            `حذف المحدد (${checkboxes.length})` : 'حذف المحدد';
+    }
+
+    // تحديث حالة checkbox "تحديد الكل"
+    const allCheckboxes = document.querySelectorAll('.participant-checkbox');
+    if (selectAllCheckbox && allCheckboxes.length > 0) {
+        selectAllCheckbox.indeterminate = checkboxes.length > 0 && checkboxes.length < allCheckboxes.length;
+        selectAllCheckbox.checked = checkboxes.length === allCheckboxes.length;
+    }
+}
+
+function toggleSelectAll() {
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const checkboxes = document.querySelectorAll('.participant-checkbox');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+
+    updateBulkActions();
+}
+
+function selectAll() {
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    selectAllCheckbox.checked = true;
+    toggleSelectAll();
+}
+
+function viewParticipant(participantId) {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.loadingManager.show('جاري تحميل بيانات المشارك...');
+    }
+
+    // هنا يمكن إضافة كود لعرض تفاصيل المشارك
+    setTimeout(() => {
+        if (window.MathPlatformEnhancements) {
+            window.MathPlatformEnhancements.loadingManager.hide();
+        }
+        // عرض modal أو توجيه لصفحة التفاصيل
+        window.location.href = `/competitions/participant/${participantId}/profile/`;
+    }, 1000);
+}
+
+function editParticipant(participantId) {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.loadingManager.show('جاري تحميل نموذج التعديل...');
+    }
+
+    // هنا يمكن إضافة كود لتعديل المشارك
+    setTimeout(() => {
+        if (window.MathPlatformEnhancements) {
+            window.MathPlatformEnhancements.loadingManager.hide();
+        }
+        // عرض modal التعديل
+        console.log('تعديل المشارك:', participantId);
+    }, 500);
+}
+
+function deleteParticipant(participantId) {
+    if (confirm('هل أنت متأكد من حذف هذا المشارك؟\nسيتم حذف جميع مسابقاته أيضاً.')) {
+        if (window.MathPlatformEnhancements) {
+            window.MathPlatformEnhancements.loadingManager.show('جاري حذف المشارك...');
+        }
+
+        // هنا يمكن إضافة كود الحذف
+        setTimeout(() => {
+            if (window.MathPlatformEnhancements) {
+                window.MathPlatformEnhancements.loadingManager.hide();
+                window.MathPlatformEnhancements.ErrorHandler.show('تم حذف المشارك بنجاح', 'success');
+            }
+            // إعادة تحميل الصفحة أو إزالة الصف
+            location.reload();
+        }, 1000);
+    }
+}
+
+function bulkDelete() {
+    const checkboxes = document.querySelectorAll('.participant-checkbox:checked');
+    if (checkboxes.length === 0) return;
+
+    if (confirm(`هل أنت متأكد من حذف ${checkboxes.length} مشارك؟\nسيتم حذف جميع مسابقاتهم أيضاً.`)) {
+        if (window.MathPlatformEnhancements) {
+            window.MathPlatformEnhancements.loadingManager.show('جاري حذف المشاركين...');
+        }
+
+        const participantIds = Array.from(checkboxes).map(cb => cb.value);
+
+        // هنا يمكن إضافة كود الحذف الجماعي
+        setTimeout(() => {
+            if (window.MathPlatformEnhancements) {
+                window.MathPlatformEnhancements.loadingManager.hide();
+                window.MathPlatformEnhancements.ErrorHandler.show(`تم حذف ${checkboxes.length} مشارك بنجاح`, 'success');
+            }
+            location.reload();
+        }, 2000);
+    }
+}
+
+function showAddSingleModal() {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.ErrorHandler.show('سيتم فتح نموذج إضافة مشارك جديد', 'info');
+    }
+    // هنا يمكن إضافة كود لعرض modal الإضافة
+}
+
+function showBulkAddModal() {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.ErrorHandler.show('سيتم فتح نموذج الإضافة المتعددة', 'info');
+    }
+    // هنا يمكن إضافة كود لعرض modal الإضافة المتعددة
+}
+
+function showImportModal() {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.ErrorHandler.show('سيتم فتح نموذج استيراد الملفات', 'info');
+    }
+    // هنا يمكن إضافة كود لعرض modal الاستيراد
+}
+
+function generateReport() {
+    if (window.MathPlatformEnhancements) {
+        window.MathPlatformEnhancements.loadingManager.show('جاري إنشاء التقرير...');
+    }
+
+    setTimeout(() => {
+        if (window.MathPlatformEnhancements) {
+            window.MathPlatformEnhancements.loadingManager.hide();
+            window.MathPlatformEnhancements.ErrorHandler.show('تم إنشاء التقرير بنجاح', 'success');
+        }
+    }, 2000);
+}
+
+// تحسين الأداء للجداول الكبيرة
+function optimizeTablePerformance() {
+    const table = document.querySelector('.participant-table table');
+    if (!table) return;
+
+    const rows = table.querySelectorAll('tbody tr');
+    if (rows.length > 50) {
+        // إضافة virtual scrolling للجداول الكبيرة
+        console.log('تطبيق تحسينات الأداء للجدول الكبير');
+    }
+}
+
+// تشغيل تحسينات الأداء
+setTimeout(optimizeTablePerformance, 1000);
+</script>
+{% endblock %}

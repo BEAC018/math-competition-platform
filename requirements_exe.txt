@@ -1,0 +1,27 @@
+# متطلبات بناء الملف التنفيذي
+# Requirements for building executable
+
+# Core framework
+Django>=5.2,<6.0
+
+# Production server (for development testing)
+gunicorn>=21.2.0
+whitenoise>=6.5.0
+
+# Database
+psycopg2-binary>=2.9.7
+dj-database-url>=2.1.0
+
+# Data processing libraries
+pandas>=2.0.0
+openpyxl>=3.1.0
+xlrd>=2.0.0
+Pillow>=10.0.0
+reportlab>=4.0.0
+
+# PyInstaller for building executable
+pyinstaller>=6.0.0
+
+# Additional dependencies for executable
+pywin32>=306  # Windows-specific
+pycryptodome>=3.19.0  # For encryption support

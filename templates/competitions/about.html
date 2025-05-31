@@ -1,0 +1,244 @@
+{% extends 'base/base.html' %}
+
+{% block title %}✨ عن منصة تحدي الرياضيات - منصة تعليمية ممتعة للأطفال{% endblock %}
+
+{% block content %}
+<style>
+    .fun-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .fun-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .feature-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .math-icon {
+        font-size: 3rem;
+        background: linear-gradient(45deg, #FF9800, #FF5722);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .colorful-text {
+        background: linear-gradient(45deg, #4FC3F7, #29B6F6, #03A9F4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+    }
+
+    .fun-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 25px;
+    }
+</style>
+
+<div class="container-fluid px-0">
+    <!-- Header Section -->
+    <div class="fun-bg text-white py-5 mb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="mb-4">
+                        <span class="math-icon">🧮</span>
+                        <span class="math-icon">📚</span>
+                        <span class="math-icon">✨</span>
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4">
+                        ✨ منصة تحدي الرياضيات
+                    </h1>
+                    <p class="lead fs-3 mb-4">
+                        🎯 مرحباً بكم في منصتكم التعليمية التفاعلية!
+                    </p>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="p-3">
+                                <h2 class="display-4">🧮</h2>
+                                <h5>مسابقات مشوقة</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="p-3">
+                                <h2 class="display-4">📊</h2>
+                                <h5>نتائج فورية</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="p-3">
+                                <h2 class="display-4">🎯</h2>
+                                <h5>تحديات ذكية</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- About Section -->
+                <div class="card border-0 shadow-lg mb-5" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-5">
+                            <h2 class="colorful-text display-5 mb-4">
+                                🌟 ماذا نقدم لكم؟
+                            </h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="card feature-card text-white mb-4">
+                                    <div class="card-body text-center p-4">
+                                        <h3 class="mb-3">
+                                            <i class="fas fa-graduation-cap me-2"></i>
+                                            📚 تقوية مهارات التلاميذ
+                                        </h3>
+                                        <p class="fs-5 mb-0">
+                                            نسعى من خلالها إلى تقوية مهارات التلاميذ في مادة الرياضيات من خلال مسابقات مشوقة وتحديات ذكية
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features Grid -->
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <div class="card fun-card text-white h-100">
+                                    <div class="card-body text-center p-4">
+                                        <div class="mb-3">
+                                            <span style="font-size: 3rem;">🧮</span>
+                                        </div>
+                                        <h4 class="mb-3">مسابقات مشوقة وتحديات ذكية</h4>
+                                        <p class="mb-0">تمارين تناسب جميع المستويات من الأول ابتدائي إلى الثالثة إعدادي</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card fun-card text-white h-100">
+                                    <div class="card-body text-center p-4">
+                                        <div class="mb-3">
+                                            <span style="font-size: 3rem;">📊</span>
+                                        </div>
+                                        <h4 class="mb-3">نتائج فورية وتتبع التقدم</h4>
+                                        <p class="mb-0">احصل على نتائجك فوراً وتابع تطور مستواك في الرياضيات</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card fun-card text-white h-100">
+                                    <div class="card-body text-center p-4">
+                                        <div class="mb-3">
+                                            <span style="font-size: 3rem;">✨</span>
+                                        </div>
+                                        <h4 class="mb-3">واجهة سهلة وممتعة</h4>
+                                        <p class="mb-0">تصميم مرح وألوان زاهية تجعل التعلم أكثر متعة</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card fun-card text-white h-100">
+                                    <div class="card-body text-center p-4">
+                                        <div class="mb-3">
+                                            <span style="font-size: 3rem;">🎯</span>
+                                        </div>
+                                        <h4 class="mb-3">تحديات متدرجة الصعوبة</h4>
+                                        <p class="mb-0">ابدأ من المستوى السهل وتدرج حتى تصل للمستوى المتقدم</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Motivational Quote -->
+                        <div class="card border-0 shadow-lg mb-5" style="background: linear-gradient(135deg, #66BB6A 0%, #4CAF50 100%); border-radius: 20px;">
+                            <div class="card-body text-center text-white p-5">
+                                <h2 class="display-6 mb-4">🌟 شارك، تعلم، وحقق نتائج رائعة في جو ممتع ومفيد!</h2>
+                                <h3 class="fw-bold">💪 "نؤمن أن كل متعلم قادر على التفوق!"</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Use Section -->
+                <div class="card border-0 shadow-lg mb-5" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <h2 class="colorful-text display-6">
+                                🚀 كيف تبدأ رحلتك معنا؟
+                            </h2>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <div class="mb-3">
+                                        <span style="font-size: 4rem;">1️⃣</span>
+                                    </div>
+                                    <h4 class="text-primary">سجل دخولك</h4>
+                                    <p>أنشئ حساباً جديداً أو سجل دخولك</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <div class="mb-3">
+                                        <span style="font-size: 4rem;">2️⃣</span>
+                                    </div>
+                                    <h4 class="text-primary">اختر مستواك</h4>
+                                    <p>اختر المستوى المناسب لصفك الدراسي</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <div class="mb-3">
+                                        <span style="font-size: 4rem;">3️⃣</span>
+                                    </div>
+                                    <h4 class="text-primary">ابدأ التحدي</h4>
+                                    <p>أجب على الأسئلة واحصل على نتائجك</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mb-5">
+                    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%); border-radius: 25px;">
+                        <div class="card-body p-5">
+                            {% if user.is_authenticated %}
+                                <h3 class="text-white mb-4">🎯 جاهز للتحدي؟</h3>
+                                <a href="{% url 'competitions:start_competition' %}" class="btn btn-light btn-lg px-5 py-3" style="border-radius: 15px; font-weight: bold;">
+                                    <i class="fas fa-rocket me-2"></i> 🚀 ابدأ المسابقة الآن
+                                </a>
+                            {% else %}
+                                <h3 class="text-white mb-4">🌟 انضم إلى عائلة المتفوقين!</h3>
+                                <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg px-5 py-3" style="border-radius: 15px; font-weight: bold;">
+                                    <i class="fas fa-star me-2"></i> ✨ انضم الآن مجاناً
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

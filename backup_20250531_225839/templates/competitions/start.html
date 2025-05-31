@@ -1,0 +1,1943 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}بدء مسابقة جديدة - منصة الحساب للرياضيات{% endblock %}
+
+{% block extra_css %}
+<style>
+    .bg-purple {
+        background-color: #6f42c1 !important;
+    }
+
+    .participant-card {
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        border: 1px solid transparent;
+        min-height: 100px;
+        border-radius: 8px;
+        max-width: 100%;
+    }
+
+    .participant-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
+        border-color: #007bff !important;
+    }
+
+    .participant-card.selected {
+        border-color: #28a745 !important;
+        background-color: #f8fff9 !important;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2) !important;
+    }
+
+    .participant-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .participant-info {
+        font-size: 0.7rem;
+        color: #6c757d;
+        line-height: 1;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .bg-gradient-warning {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* تحسينات للشاشات الصغيرة */
+    @media (max-width: 576px) {
+        .participant-card {
+            min-height: 90px;
+        }
+
+        .participant-name {
+            font-size: 0.75rem;
+        }
+
+        .participant-info {
+            font-size: 0.65rem;
+        }
+    }
+
+    /* تحسينات للشاشات المتوسطة */
+    @media (min-width: 768px) and (max-width: 991px) {
+        .participant-card {
+            min-height: 95px;
+        }
+    }
+
+    /* تحسينات للشاشات الكبيرة */
+    @media (min-width: 1200px) {
+        .participant-card {
+            min-height: 105px;
+        }
+    }
+
+    /* تحسين توزيع الشبكة */
+    #participantsGrid {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    #participantsGrid::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #participantsGrid::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    #participantsGrid::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+
+    #participantsGrid::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* تحسينات البحث */
+    #participantSearchInput {
+        border-radius: 8px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+    }
+
+    #participantSearchInput:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    #clearSearchBtn {
+        border-radius: 0 8px 8px 0;
+        border: 2px solid #e9ecef;
+        border-left: none;
+    }
+
+    .input-group-text {
+        border-radius: 8px 0 0 8px;
+        border: 2px solid #e9ecef;
+        border-right: none;
+        background-color: #f8f9fa;
+    }
+
+    /* تحسين عداد المشاركين */
+    #participantsCounter {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 6px;
+        padding: 8px 12px;
+        border: 1px solid #dee2e6;
+        display: inline-block;
+    }
+
+    /* تحسين رسالة عدم وجود نتائج */
+    #noSearchResults {
+        border-radius: 8px;
+        border-left: 4px solid #ffc107;
+        background-color: #fff3cd;
+    }
+
+    /* تحسين عرض الأسماء في البطاقات */
+    .participant-name {
+        min-height: 60px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .participant-card {
+        min-height: 120px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .participant-card:hover {
+        border-color: #007bff;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row g-0">
+    <div class="col-12">
+        <div class="card shadow-lg border-0 rounded-lg mt-4">
+            <div class="card-header bg-gradient-primary text-white text-center py-4">
+                <div class="mb-3">
+                    <i class="fas fa-rocket fa-3x text-shadow"></i>
+                </div>
+                <h2 class="my-2 text-shadow">🚀 بدء مسابقة جديدة</h2>
+                <p class="mb-0">اختر المشارك ومستوى الصعوبة وابدأ التحدي!</p>
+            </div>
+            <div class="card-body">
+                <!-- زر إضافة مشارك جديد - بارز وواضح -->
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-success btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#newAddParticipantModal">
+                        <i class="fas fa-user-plus me-2"></i>
+                        ➕ إضافة مشارك جديد
+                    </button>
+                    <p class="lead">ابدأ مسابقة رياضية جديدة</p>
+                </div>
+
+                <form method="post" action="{% url 'competitions:start_competition' %}" id="competition-form">
+                    {% csrf_token %}
+
+                    <!-- النظام الهرمي الجديد لاختيار المشاركين -->
+
+                    <!-- المرحلة الأولى: اختيار المستوى الدراسي -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-graduation-cap me-2"></i>
+                                🎯 المرحلة الأولى: اختيار المستوى الدراسي
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="gradeFilter" class="form-label">
+                                    <i class="fas fa-school me-1"></i>
+                                    المستوى الدراسي
+                                </label>
+                                <select class="form-select form-select-lg" id="gradeFilter" name="grade_filter" required>
+                                    <option value="">-- اختر المستوى الدراسي أولاً --</option>
+                                    {% for grade_value, grade_stats in grade_stats.items %}
+                                        <option value="{{ grade_value }}" {% if current_grade == grade_value|stringformat:"s" %}selected{% endif %}>
+                                            {% if grade_value == 1 %}🎒{% elif grade_value == 2 %}📚{% elif grade_value == 3 %}📖{% elif grade_value == 4 %}📝{% elif grade_value == 5 %}📊{% elif grade_value == 6 %}🎓{% elif grade_value == 7 %}🏫{% elif grade_value == 8 %}🎯{% elif grade_value == 9 %}🏆{% endif %}
+                                            {{ grade_stats.display }} ({{ grade_stats.count }} مشارك)
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    👈 الرجاء اختيار المستوى الدراسي أولاً لعرض المشاركين
+                                </div>
+                            </div>
+
+                            <!-- إحصائيات سريعة -->
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="h5 text-primary mb-1" id="totalParticipants">
+                                        {{ total_participants|default:0 }}
+                                    </div>
+                                    <small class="text-muted">إجمالي المشاركين</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="h5 text-success mb-1">{{ grade_stats|length }}</div>
+                                    <small class="text-muted">مستوى متاح</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="h5 text-info mb-1">9</div>
+                                    <small class="text-muted">مستوى كامل</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المرحلة الثانية: اختيار المشارك -->
+                    <div class="card mb-4" id="participantSelectionCard" style="display: none;">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-user me-2"></i>
+                                👤 المرحلة الثانية: اختيار المشارك
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="participantsLoadingMessage" class="text-center py-3" style="display: none;">
+                                <i class="fas fa-spinner fa-spin me-2"></i>
+                                جاري تحميل المشاركين...
+                            </div>
+
+                            <div id="noParticipantsMessage" class="alert alert-warning" style="display: none;">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                لا يوجد مشاركون في هذا المستوى الدراسي.
+                                <button type="button" class="btn btn-sm btn-success ms-2" data-bs-toggle="modal" data-bs-target="#newAddParticipantModal">
+                                    إضافة مشارك جديد
+                                </button>
+                            </div>
+
+                            <!-- مربع البحث -->
+                            <div id="participantSearchContainer" class="mb-3" style="display: none;">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="participantSearchInput" placeholder="🔍 ابحث عن المشارك بالاسم..." autocomplete="off">
+                                    <button class="btn btn-outline-secondary" type="button" id="clearSearchBtn" onclick="clearParticipantSearch()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    <i class="fas fa-lightbulb me-1"></i>
+                                    💡 اكتب جزء من الاسم للبحث السريع
+                                </div>
+                            </div>
+
+                            <!-- معلومات المشاركين -->
+                            <div class="mb-2" id="participantsInfo" style="display: none;">
+                                <div class="alert alert-info py-2 mb-2">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    <small>المشاركين موزعين على 4 أسطر لسهولة الاختيار. استخدم البحث للعثور على مشارك محدد.</small>
+                                </div>
+                            </div>
+
+                            <!-- عداد النتائج -->
+                            <div id="participantsCounter" class="mb-2" style="display: none;">
+                                <small class="text-muted">
+                                    <i class="fas fa-users me-1"></i>
+                                    عدد المشاركين: <span id="participantsCount">0</span>
+                                </small>
+                            </div>
+
+                            <!-- شبكة المشاركين -->
+                            <div id="participantsGrid" class="row g-2" style="display: none;">
+                                <!-- سيتم تحميل المشاركين هنا عبر AJAX -->
+                            </div>
+
+                            <!-- رسالة عدم وجود نتائج بحث -->
+                            <div id="noSearchResults" class="alert alert-warning" style="display: none;">
+                                <i class="fas fa-search me-2"></i>
+                                لا توجد نتائج للبحث "<span id="searchTerm"></span>". جرب كلمات أخرى أو امسح البحث لعرض جميع المشاركين.
+                            </div>
+
+                            <!-- عرض المشارك المختار -->
+                            <div id="selectedParticipantDisplay" class="alert alert-info mt-3" style="display: none;">
+                                <i class="fas fa-user-check me-2"></i>
+                                <span id="selectedParticipantText"></span>
+                                <button type="button" class="btn btn-sm btn-outline-secondary ms-2" onclick="clearParticipantSelection()">
+                                    تغيير الاختيار
+                                </button>
+                            </div>
+
+                            <!-- حقل مخفي للمشارك المختار -->
+                            <input type="hidden" name="participant_name" id="participant_id" required>
+
+                            <div class="form-text mt-2">
+                                <i class="fas fa-lightbulb me-1"></i>
+                                💡 نصيحة: انقر على بطاقة المشارك لاختياره
+                            </div>
+
+                            <!-- أدوات إدارة المشاركين -->
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#manageParticipantsModal">
+                                        <i class="fas fa-cog me-2"></i> إدارة المشاركين
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-outline-success w-100" onclick="refreshParticipants()">
+                                        <i class="fas fa-sync-alt me-2"></i> 🔄 تحديث القائمة
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المرحلة الثالثة: اختيار مستوى الصعوبة -->
+                    <div class="card mb-4" id="difficultySelectionCard" style="display: none;">
+                        <div class="card-header bg-warning text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-star me-2"></i>
+                                🎯 المرحلة الثالثة: اختيار مستوى الصعوبة
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-text mb-3">
+                                <i class="fas fa-info-circle me-1"></i>
+                                اختر مستوى الصعوبة المناسب للمشارك المحدد
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- المرحلة الأولى - المستويات الأساسية -->
+                            <div class="card border-primary mb-4">
+                                <div class="card-header bg-gradient-primary text-white">
+                                    <h4 class="mb-0">
+                                        <i class="fas fa-graduation-cap me-2"></i>
+                                        🎓 المرحلة الأولى - المستويات الأساسية
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty1" value="1" checked>
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty1">
+                                            <div>
+                                                <h5 class="mb-1">🟢 المستوى الأول</h5>
+                                                <small class="text-muted">➕ جمع (8) + ➖ طرح (7) | أعداد 1-10 | ⏱️ 15 ثانية/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-success rounded-pill">🟢 سهل</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty2" value="2">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty2">
+                                            <div>
+                                                <h5 class="mb-1">🔵 المستوى الثاني</h5>
+                                                <small class="text-muted">➕ جمع (5) + ➖ طرح (5) + ✖️ ضرب (5) | أعداد 3-20 | ⏱️ 15 ثانية/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-info rounded-pill">🔵 متوسط</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty3" value="3">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty3">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الثالث</h5>
+                                                <small class="text-muted">جمع (4) + طرح (4) + ضرب (5) + قسمة (2) | أعداد 5-30 | 15 ثانية/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-warning rounded-pill">متوسط+</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty4" value="4">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty4">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الرابع</h5>
+                                                <small class="text-muted">جمع (4) + طرح (4) + ضرب (5) + قسمة (2) | أعداد 9-40 | 15 ثانية/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-danger rounded-pill">صعب</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty5" value="5">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty5">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الخامس</h5>
+                                                <small class="text-muted">جمع (4) + طرح (4) + ضرب (5) + قسمة (2) | أعداد 21-99 | 10 ثوانٍ/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-dark rounded-pill">صعب+</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty6" value="6">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty6">
+                                            <div>
+                                                <h5 class="mb-1">المستوى السادس</h5>
+                                                <small class="text-muted">جمع (4) + طرح (4) + ضرب (4) + قسمة (3) | أعداد 25-99 | 10 ثوانٍ/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-dark rounded-pill">متقدم</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- المرحلة الثانية - المستويات المتقدمة -->
+                            <div class="card border-warning mb-4">
+                                <div class="card-header bg-gradient-warning text-white">
+                                    <h4 class="mb-0">
+                                        <i class="fas fa-star me-2"></i>
+                                        🌟 المرحلة الثانية - المستويات المتقدمة
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty7" value="7">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty7">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الأول - المرحلة الثانية</h5>
+                                                <small class="text-muted">أعداد صحيحة موجبة وسالبة + أولوية العمليات + مسائل تطبيقية | 10 ثوانٍ/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-purple rounded-pill">متقدم</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty8" value="8">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty8">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الثاني - المرحلة الثانية</h5>
+                                                <small class="text-muted">كسور وأعداد عشرية + تعابير جبرية + مسائل تطبيقية | 10 ثوانٍ/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-purple rounded-pill">متقدم+</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check card border-0 shadow-sm p-3 mb-3">
+                                        <input class="form-check-input" type="radio" name="difficulty" id="difficulty9" value="9">
+                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="difficulty9">
+                                            <div>
+                                                <h5 class="mb-1">المستوى الثالث - المرحلة الثانية</h5>
+                                                <small class="text-muted">معادلات + هندسة + مثلثات + مسائل تطبيقية | 10 ثوانٍ/سؤال</small>
+                                            </div>
+                                            <span class="badge bg-purple rounded-pill">خبير</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h5 class="mb-3">توزيع الأسئلة حسب المستوى</h5>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>المستوى</th>
+                                        <th>جمع</th>
+                                        <th>طرح</th>
+                                        <th>ضرب</th>
+                                        <th>قسمة</th>
+                                        <th>أخرى</th>
+                                        <th>المجموع</th>
+                                        <th>الوقت/سؤال</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-primary">
+                                        <td colspan="8" class="text-center fw-bold">المرحلة الأولى - المستويات الأساسية</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الأول</td>
+                                        <td>8</td>
+                                        <td>7</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15 ثانية</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الثاني</td>
+                                        <td>5</td>
+                                        <td>5</td>
+                                        <td>5</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15 ثانية</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الثالث</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15 ثانية</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الرابع</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15 ثانية</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الخامس</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>10 ثوانٍ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى السادس</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>10 ثوانٍ</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="8" class="text-center fw-bold">المرحلة الثانية - المستويات المتقدمة</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الأول - المرحلة 2</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>10 ثوانٍ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الثاني - المرحلة 2</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>10 ثوانٍ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>المستوى الثالث - المرحلة 2</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>10 ثوانٍ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="small text-muted">
+                            <strong>ملاحظة:</strong> "أخرى" تشمل: عمليات مختلطة، كسور وأعداد عشرية، جبر، هندسة، مثلثات، ومسائل تطبيقية
+                        </div>
+                    </div>
+
+                    <!-- زر بدء المسابقة -->
+                    <div class="text-center mt-4" id="startCompetitionSection" style="display: none;">
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle me-2"></i>
+                            جميع الخطوات مكتملة! يمكنك الآن بدء المسابقة
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg px-5" id="start-competition-btn">
+                            <i class="fas fa-rocket me-2"></i>
+                            🚀 ابدأ المسابقة
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Add Participant Modal -->
+            <div class="modal fade" id="addParticipantModal" tabindex="-1" aria-labelledby="addParticipantModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addParticipantModalLabel">إضافة مشارك جديد</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="participantForm" method="post" action="{% url 'competitions:add_participant' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <ul class="nav nav-tabs mb-3" id="participantTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="single-tab" data-bs-toggle="tab" data-bs-target="#single" type="button" role="tab" aria-controls="single" aria-selected="true">إضافة مشارك واحد</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="excel-tab" data-bs-toggle="tab" data-bs-target="#excel" type="button" role="tab" aria-controls="excel" aria-selected="false">استيراد من ملف Excel</button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="participantTabsContent">
+                                    <!-- Single Participant Tab -->
+                                    <div class="tab-pane fade show active" id="single" role="tabpanel" aria-labelledby="single-tab">
+                                        <div class="mb-3">
+                                            <label for="new_participant_name" class="form-label">الاسم الكامل</label>
+                                            <input type="text" class="form-control" id="new_participant_name" name="participant_name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="grade" class="form-label">الصف</label>
+                                            <select class="form-select" id="grade" name="grade">
+                                                <option value="" selected disabled>-- اختر الصف --</option>
+                                                <option value="1">الأول ابتدائي</option>
+                                                <option value="2">الثاني ابتدائي</option>
+                                                <option value="3">الثالث ابتدائي</option>
+                                                <option value="4">الرابع ابتدائي</option>
+                                                <option value="5">الخامس ابتدائي</option>
+                                                <option value="6">السادس ابتدائي</option>
+                                                <option value="7">الأول إعدادي</option>
+                                                <option value="8">الثاني إعدادي</option>
+                                                <option value="9">الثالث إعدادي</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="group" class="form-label">الفوج</label>
+                                            <select class="form-select" id="group" name="group">
+                                                <option value="1">الفوج الأول</option>
+                                                <option value="2">الفوج الثاني</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Excel File Upload Tab -->
+                                    <div class="tab-pane fade" id="excel" role="tabpanel" aria-labelledby="excel-tab">
+                                        <div class="mb-3">
+                                            <label for="participant_file" class="form-label">ملف Excel أو CSV</label>
+                                            <input type="file" class="form-control" id="participant_file" name="participant_file" accept=".xlsx,.csv">
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <h6>تنسيق الملف المطلوب:</h6>
+                                            <ul>
+                                                <li>يجب أن يحتوي الملف على الأعمدة التالية: <code>name</code> و <code>grade</code> و <code>group</code> (اختياري)</li>
+                                                <li><code>name</code>: اسم المشارك</li>
+                                                <li><code>grade</code>: رقم الصف (1-9)</li>
+                                                <li><code>group</code>: رقم الفوج (1 أو 2) - اختياري، الافتراضي هو 1</li>
+                                            </ul>
+                                            <p>يمكن تحميل <a href="#" onclick="downloadSampleFile()">نموذج</a> للملف المطلوب.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                            <button type="submit" form="participantForm" class="btn btn-primary">إضافة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النافذة الجديدة المحسنة لإضافة المشاركين -->
+            <div class="modal fade" id="newAddParticipantModal" tabindex="-1" aria-labelledby="newAddParticipantModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success text-white">
+                            <h5 class="modal-title" id="newAddParticipantModalLabel">
+                                <i class="fas fa-user-plus me-2"></i>
+                                ➕ إضافة مشارك جديد
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- تبويبات للاختيار بين الإضافة الفردية والجماعية -->
+                            <ul class="nav nav-pills nav-justified mb-4" id="addParticipantTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="single-participant-tab" data-bs-toggle="pill" data-bs-target="#single-participant" type="button" role="tab">
+                                        <i class="fas fa-user me-2"></i>
+                                        👤 مشارك واحد
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="multiple-participants-tab" data-bs-toggle="pill" data-bs-target="#multiple-participants" type="button" role="tab">
+                                        <i class="fas fa-users me-2"></i>
+                                        👥 عدة مشاركين
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="addParticipantTabsContent">
+                                <!-- تبويب الإضافة الفردية -->
+                                <div class="tab-pane fade show active" id="single-participant" role="tabpanel">
+                                    <form id="singleParticipantForm" method="post" action="{% url 'competitions:add_participant' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="add_type" value="single">
+
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="single_name" class="form-label">
+                                                    <i class="fas fa-signature me-1"></i>
+                                                    الاسم الكامل
+                                                </label>
+                                                <input type="text" class="form-control form-control-lg" id="single_name" name="name" required placeholder="أدخل الاسم الكامل للمشارك">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="single_grade" class="form-label">
+                                                    <i class="fas fa-graduation-cap me-1"></i>
+                                                    الصف الدراسي
+                                                </label>
+                                                <select class="form-select form-select-lg" id="single_grade" name="grade" required>
+                                                    <option value="">-- اختر الصف --</option>
+                                                    <option value="1">🎒 الأول ابتدائي</option>
+                                                    <option value="2">📚 الثاني ابتدائي</option>
+                                                    <option value="3">📖 الثالث ابتدائي</option>
+                                                    <option value="4">📝 الرابع ابتدائي</option>
+                                                    <option value="5">📊 الخامس ابتدائي</option>
+                                                    <option value="6">🎓 السادس ابتدائي</option>
+                                                    <option value="7">🏫 الأول إعدادي</option>
+                                                    <option value="8">🎯 الثاني إعدادي</option>
+                                                    <option value="9">🏆 الثالث إعدادي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="single_group" class="form-label">
+                                                    <i class="fas fa-layer-group me-1"></i>
+                                                    الفوج
+                                                </label>
+                                                <select class="form-select form-select-lg" id="single_group" name="group" required>
+                                                    <option value="1">🥇 الفوج الأول</option>
+                                                    <option value="2">🥈 الفوج الثاني</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-success btn-lg">
+                                                <i class="fas fa-plus-circle me-2"></i>
+                                                ✅ إضافة المشارك
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- تبويب الإضافة الجماعية -->
+                                <div class="tab-pane fade" id="multiple-participants" role="tabpanel">
+                                    <form id="multipleParticipantsForm" method="post" action="{% url 'competitions:add_participant' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="add_type" value="multiple">
+
+                                        <div class="mb-3">
+                                            <label for="participants_text" class="form-label">
+                                                <i class="fas fa-list me-1"></i>
+                                                أسماء المشاركين
+                                            </label>
+                                            <textarea class="form-control" id="participants_text" name="participants_text" rows="6" required placeholder="أدخل أسماء المشاركين، كل اسم في سطر منفصل:
+
+أحمد محمد علي
+فاطمة أحمد حسن
+محمد عبدالله سالم
+..."></textarea>
+                                            <div class="form-text">
+                                                <i class="fas fa-info-circle me-1"></i>
+                                                أدخل كل اسم في سطر منفصل. يمكنك إضافة عدد غير محدود من المشاركين.
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="bulk_grade" class="form-label">
+                                                    <i class="fas fa-graduation-cap me-1"></i>
+                                                    الصف الدراسي (للجميع)
+                                                </label>
+                                                <select class="form-select form-select-lg" id="bulk_grade" name="bulk_grade" required>
+                                                    <option value="">-- اختر الصف --</option>
+                                                    <option value="1">🎒 الأول ابتدائي</option>
+                                                    <option value="2">📚 الثاني ابتدائي</option>
+                                                    <option value="3">📖 الثالث ابتدائي</option>
+                                                    <option value="4">📝 الرابع ابتدائي</option>
+                                                    <option value="5">📊 الخامس ابتدائي</option>
+                                                    <option value="6">🎓 السادس ابتدائي</option>
+                                                    <option value="7">🏫 الأول إعدادي</option>
+                                                    <option value="8">🎯 الثاني إعدادي</option>
+                                                    <option value="9">🏆 الثالث إعدادي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="bulk_group" class="form-label">
+                                                    <i class="fas fa-layer-group me-1"></i>
+                                                    الفوج (للجميع)
+                                                </label>
+                                                <select class="form-select form-select-lg" id="bulk_group" name="bulk_group" required>
+                                                    <option value="1">🥇 الفوج الأول</option>
+                                                    <option value="2">🥈 الفوج الثاني</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-success btn-lg">
+                                                <i class="fas fa-users-plus me-2"></i>
+                                                ✅ إضافة جميع المشاركين
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                <i class="fas fa-times me-1"></i>
+                                إلغاء
+                            </button>
+                            <div class="text-muted small">
+                                <i class="fas fa-lightbulb me-1"></i>
+                                نصيحة: يمكنك إضافة مشارك واحد أو عدة مشاركين في نفس الوقت
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Select Participants Modal -->
+            <div class="modal fade" id="selectParticipantsModal" tabindex="-1" aria-labelledby="selectParticipantsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="selectParticipantsModalLabel">
+                                <i class="fas fa-users text-primary me-2"></i> اختيار المشاركين
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="searchParticipants" placeholder="🔍 البحث عن مشارك...">
+                            </div>
+                            <div class="row" id="participantsList">
+                                {% for participant in participants %}
+                                <div class="col-md-6 mb-2 participant-item" data-name="{{ participant.name|lower }}">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body p-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                        <span class="fw-bold">{{ participant.name|slice:":1"|upper }}{{ participant.name|slice:"1:2"|upper }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1">🧑‍🎓 {{ participant.name|slice:":1"|upper }}{{ participant.name|slice:"1:2"|upper }}.</h6>
+                                                    <small class="text-muted">{{ participant.get_grade_display|slice:":6" }} - {{ participant.get_group_display|slice:":6" }}</small>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-outline-primary" onclick="selectParticipant('{{ participant.id }}', '🧑‍🎓 {{ participant.name|slice:":1"|upper }}{{ participant.name|slice:"1:2"|upper }}. ({{ participant.get_grade_display|slice:":6" }})')">
+                                                        اختيار
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <div class="col-12 text-center">
+                                    <p class="text-muted">لا يوجد مشاركون مسجلون</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Participants Modal -->
+            <div class="modal fade" id="manageParticipantsModal" tabindex="-1" aria-labelledby="manageParticipantsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="manageParticipantsModalLabel">
+                                <i class="fas fa-user-minus text-warning me-2"></i> إدارة المشاركين
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="delete-participants-form" action="{% url 'competitions:delete_multiple_participants' %}" method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="searchManageParticipants" placeholder="🔍 البحث عن مشارك للحذف...">
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="selectAllParticipants()">تحديد الكل</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deselectAllParticipants()">إلغاء التحديد</button>
+                                </div>
+                                <div class="row" id="manageParticipantsList">
+                                    {% for participant in participants %}
+                                    <div class="col-md-6 mb-2 manage-participant-item" data-name="{{ participant.name|lower }}">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body p-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-2">
+                                                        <input type="checkbox" name="participant_ids" value="{{ participant.id }}" class="form-check-input">
+                                                    </div>
+                                                    <div class="me-3">
+                                                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                                                            <span class="fw-bold small">{{ participant.name|slice:":1"|upper }}{{ participant.name|slice:"1:2"|upper }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="mb-1">🧑‍🎓 {{ participant.name|slice:":1"|upper }}{{ participant.name|slice:"1:2"|upper }}.</h6>
+                                                        <small class="text-muted">{{ participant.get_grade_display|slice:":6" }} - {{ participant.get_group_display|slice:":6" }}</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% empty %}
+                                    <div class="col-12 text-center">
+                                        <p class="text-muted">لا يوجد مشاركون مسجلون</p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                            <button type="submit" form="delete-participants-form" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من حذف المشاركين المحددين؟\n\n⚠️ سيتم حذف جميع مسابقاتهم أيضاً ولا يمكن التراجع عن هذا الإجراء.')">
+                                <i class="fas fa-trash-alt me-2"></i> 🗑️ حذف المحددين
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center py-3">
+                <div class="small">
+                    سيتم تقديم 15 سؤالاً لك، مدة كل سؤال 15 ثانية
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add form validation to ensure a participant is selected
+        const competitionForm = document.getElementById('competition-form');
+        const startBtn = document.getElementById('start-competition-btn');
+
+        console.log('🔧 Form elements found:');
+        console.log('- Competition form:', competitionForm);
+        console.log('- Start button:', startBtn);
+
+        // Form validation on submit - محدث للنظام الهرمي الجديد
+        competitionForm.addEventListener('submit', function(e) {
+            const participantIdInput = document.getElementById('participant_id');
+            const difficultyRadios = document.querySelectorAll('input[name="difficulty"]:checked');
+
+            // Check if participant is selected (النظام الهرمي الجديد)
+            if (!participantIdInput || participantIdInput.value === '') {
+                e.preventDefault();
+                alert('الرجاء اختيار مشارك قبل بدء المسابقة');
+                console.error('لم يتم اختيار مشارك');
+                return false;
+            }
+
+            // Check if difficulty level is selected
+            if (difficultyRadios.length === 0) {
+                e.preventDefault();
+                alert('الرجاء اختيار مستوى الصعوبة قبل بدء المسابقة');
+                console.error('لم يتم اختيار مستوى الصعوبة');
+                return false;
+            }
+
+            // Debug: Log the selected values
+            console.log('🚀 Form submission starting...');
+            console.log('Selected participant ID:', participantIdInput.value);
+            console.log('Selected difficulty:', difficultyRadios[0].value);
+            console.log('Form action:', competitionForm.action);
+            console.log('Form method:', competitionForm.method);
+
+            // إضافة تأكيد بصري
+            const submitBtn = document.getElementById('start-competition-btn');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري بدء المسابقة...';
+                console.log('✅ Submit button disabled and text updated');
+            }
+
+            console.log('✅ Form validation passed, proceeding with submission...');
+        });
+
+        // Add visual feedback for difficulty selection
+        const difficultyInputs = document.querySelectorAll('input[name="difficulty"]');
+        difficultyInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                // Remove previous selection styling
+                document.querySelectorAll('.form-check.card').forEach(card => {
+                    card.classList.remove('border-primary', 'bg-light');
+                });
+
+                // Add styling to selected card
+                if (this.checked) {
+                    const parentCard = this.closest('.form-check.card');
+                    parentCard.classList.add('border-primary', 'bg-light');
+
+                    // Show selected level in console for debugging
+                    console.log('Difficulty level selected:', this.value);
+                }
+            });
+        });
+
+        // Initialize the first difficulty level as selected visually
+        const firstDifficultyInput = document.getElementById('difficulty1');
+        if (firstDifficultyInput && firstDifficultyInput.checked) {
+            const parentCard = firstDifficultyInput.closest('.form-check.card');
+            parentCard.classList.add('border-primary', 'bg-light');
+        }
+
+        // Search functionality for participants selection modal
+        const searchParticipants = document.getElementById('searchParticipants');
+        if (searchParticipants) {
+            searchParticipants.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const participantItems = document.querySelectorAll('.participant-item');
+
+                participantItems.forEach(item => {
+                    const name = item.getAttribute('data-name');
+                    if (name.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Search functionality for manage participants modal
+        const searchManageParticipants = document.getElementById('searchManageParticipants');
+        if (searchManageParticipants) {
+            searchManageParticipants.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const participantItems = document.querySelectorAll('.manage-participant-item');
+
+                participantItems.forEach(item => {
+                    const name = item.getAttribute('data-name');
+                    if (name.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Direct click handler for the start button - محدث للنظام الهرمي الجديد
+        if (startBtn) {
+            console.log('Start button found:', startBtn);
+            // لا نحتاج لمعالج منفصل للنقر، النموذج سيتم إرساله تلقائياً
+            console.log('Start button configured for hierarchical system');
+        } else {
+            console.log('Start button not found!');
+        }
+        // Sorting participants by level
+        document.getElementById('sortByLevelBtn').addEventListener('click', function() {
+            const select = document.getElementById('participantSelect');
+            const options = Array.from(select.options).filter(option => option.value !== "");
+
+            // Sort options by grade (level)
+            options.sort((a, b) => {
+                const gradeA = parseInt(a.getAttribute('data-grade'));
+                const gradeB = parseInt(b.getAttribute('data-grade'));
+                return gradeA - gradeB;
+            });
+
+            // Remove current options (except the first disabled one)
+            for (let i = select.options.length - 1; i > 0; i--) {
+                select.remove(i);
+            }
+
+            // Add sorted options
+            options.forEach(option => {
+                select.add(option);
+            });
+        });
+
+        // Form validation
+        document.getElementById('participantForm').addEventListener('submit', function(e) {
+            const singleTabActive = document.getElementById('single-tab').classList.contains('active');
+            const excelTabActive = document.getElementById('excel-tab').classList.contains('active');
+
+            if (singleTabActive) {
+                const name = document.getElementById('new_participant_name').value.trim();
+                const grade = document.getElementById('grade').value;
+
+                if (!name || !grade) {
+                    e.preventDefault();
+                    alert('الرجاء ملء جميع الحقول المطلوبة');
+                }
+            } else if (excelTabActive) {
+                const file = document.getElementById('participant_file').files[0];
+
+                if (!file) {
+                    e.preventDefault();
+                    alert('الرجاء اختيار ملف Excel أو CSV');
+                }
+            }
+        });
+    });
+
+    // Function to download a sample Excel file template
+    function downloadSampleFile() {
+        // Code to download sample Excel template
+        alert('سيتم توفير نموذج للتحميل قريبا');
+    }
+
+    // Function to filter participants by grade level
+    function filterParticipantsByGrade() {
+        const gradeFilter = document.getElementById('gradeFilter').value;
+        if (!gradeFilter) {
+            alert('الرجاء اختيار المستوى الدراسي');
+            return;
+        }
+        // Redirect to the same page with the grade filter parameter
+        window.location.href = `{% url 'competitions:start_competition' %}?grade=${gradeFilter}`;
+    }
+
+    // Add fullscreen toggle button
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create fullscreen button
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'btn btn-outline-light position-absolute';
+        fullscreenBtn.style.top = '10px';
+        fullscreenBtn.style.left = '10px';
+        fullscreenBtn.style.zIndex = '1000';
+        fullscreenBtn.id = 'fullscreen-btn';
+
+        // Add to the card header
+        const cardHeader = document.querySelector('.card-header');
+        cardHeader.style.position = 'relative';
+        cardHeader.appendChild(fullscreenBtn);
+
+        // Update button based on current fullscreen state
+        if (document.fullscreenElement || localStorage.getItem('fullscreenMode') === 'true') {
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            fullscreenBtn.title = 'إلغاء ملء الشاشة';
+        } else {
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            fullscreenBtn.title = 'ملء الشاشة';
+        }
+
+        // Add fullscreen functionality
+        fullscreenBtn.addEventListener('click', function() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+                });
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                fullscreenBtn.title = 'إلغاء ملء الشاشة';
+                localStorage.setItem('fullscreenMode', 'true');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                    fullscreenBtn.title = 'ملء الشاشة';
+                    localStorage.setItem('fullscreenMode', 'false');
+                }
+            }
+
+            // Keep the fullscreen button visible for a few seconds after clicking
+            fullscreenBtn.style.opacity = '1';
+            clearTimeout(window.hideButtonTimeout);
+            window.hideButtonTimeout = setTimeout(() => {
+                fullscreenBtn.style.opacity = '0';
+                fullscreenBtn.style.transition = 'opacity 0.5s';
+            }, 3000);
+        });
+
+        // Show the button when mouse moves
+        document.addEventListener('mousemove', function() {
+            fullscreenBtn.style.opacity = '1';
+            clearTimeout(window.hideButtonTimeout);
+            window.hideButtonTimeout = setTimeout(() => {
+                fullscreenBtn.style.opacity = '0';
+            }, 3000);
+        });
+
+        // Initially hide the button after 3 seconds
+        setTimeout(() => {
+            fullscreenBtn.style.opacity = '0';
+            fullscreenBtn.style.transition = 'opacity 0.5s';
+        }, 3000);
+    });
+    function downloadSampleFile() {
+        // Create CSV content
+        const csvContent = 'name,grade,group\nطالب نموذج 1,1,1\nطالب نموذج 2,2,1\nطالب نموذج 3,3,2\nطالب نموذج 4,4,2';
+
+        // Create a blob with the CSV content
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+        // Create a download link and trigger the download
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.setAttribute('href', url);
+        link.setAttribute('download', 'participants_template.csv');
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Function to toggle all checkboxes
+    function toggleAllCheckboxes() {
+        const selectAllCheckbox = document.getElementById('select-all-checkbox');
+        const participantCheckboxes = document.querySelectorAll('.participant-checkbox');
+
+        participantCheckboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+
+        updateDeleteButton();
+    }
+
+    // Function to update delete button state
+    function updateDeleteButton() {
+        const participantCheckboxes = document.querySelectorAll('.participant-checkbox:checked');
+        const deleteButton = document.getElementById('delete-selected-btn');
+
+        deleteButton.disabled = participantCheckboxes.length === 0;
+    }
+
+    // Function to select a participant from the modal
+    function selectParticipant(participantId, participantDisplayName) {
+        const participantSelect = document.getElementById('participantSelect');
+        participantSelect.value = participantId;
+
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('selectParticipantsModal'));
+        modal.hide();
+
+        // Show success message
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
+        alertDiv.innerHTML = `
+            <i class="fas fa-check-circle me-2"></i>
+            تم اختيار المشارك: <strong>${participantDisplayName}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        const cardBody = document.querySelector('.card-body');
+        cardBody.insertBefore(alertDiv, cardBody.firstChild);
+
+        // Auto-remove alert after 3 seconds
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.remove();
+            }
+        }, 3000);
+    }
+
+    // Function to select all participants in manage modal
+    function selectAllParticipants() {
+        const checkboxes = document.querySelectorAll('#manageParticipantsList input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        });
+    }
+
+    // Function to deselect all participants in manage modal
+    function deselectAllParticipants() {
+        const checkboxes = document.querySelectorAll('#manageParticipantsList input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    }
+
+    // إصلاح مشاكل النوافذ المنبثقة
+    document.addEventListener('DOMContentLoaded', function() {
+        // تأكد من تحميل Bootstrap بشكل صحيح
+        if (typeof bootstrap !== 'undefined') {
+            console.log('Bootstrap loaded successfully');
+
+            // إعادة تهيئة جميع النوافذ المنبثقة
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                // تأكد من الإعدادات الصحيحة
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.zIndex = '1055';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+
+                // إضافة event listeners
+                modal.addEventListener('show.bs.modal', function() {
+                    console.log('Modal showing:', modal.id);
+                    document.body.style.overflow = 'hidden';
+                });
+
+                modal.addEventListener('hidden.bs.modal', function() {
+                    console.log('Modal hidden:', modal.id);
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // إصلاح مشكلة backdrop
+            const backdrops = document.querySelectorAll('.modal-backdrop');
+            backdrops.forEach(backdrop => {
+                backdrop.style.position = 'fixed';
+                backdrop.style.top = '0';
+                backdrop.style.left = '0';
+                backdrop.style.width = '100vw';
+                backdrop.style.height = '100vh';
+                backdrop.style.zIndex = '1050';
+            });
+        } else {
+            console.error('Bootstrap not loaded!');
+        }
+    });
+
+    // Function to clear all participants
+    function clearAllParticipants() {
+        if (confirm('هل أنت متأكد من حذف جميع المشاركين؟\n\n⚠️ سيتم حذف جميع مسابقاتهم أيضاً ولا يمكن التراجع عن هذا الإجراء.')) {
+            // Create a form and submit it
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '{% url "competitions:clear_all_participants" %}';
+
+            // Add CSRF token
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            const csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = 'csrfmiddlewaretoken';
+            csrfInput.value = csrfToken;
+            form.appendChild(csrfInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+
+    // JavaScript للنافذة الجديدة المحسنة
+    document.addEventListener('DOMContentLoaded', function() {
+        // تحسين تجربة النافذة الجديدة
+        const newModal = document.getElementById('newAddParticipantModal');
+        const singleForm = document.getElementById('singleParticipantForm');
+        const multipleForm = document.getElementById('multipleParticipantsForm');
+
+        // إعادة تعيين النماذج عند فتح النافذة
+        if (newModal) {
+            newModal.addEventListener('show.bs.modal', function() {
+                // إعادة تعيين النماذج
+                if (singleForm) singleForm.reset();
+                if (multipleForm) multipleForm.reset();
+
+                // التركيز على الحقل الأول
+                setTimeout(() => {
+                    const firstInput = document.getElementById('single_name');
+                    if (firstInput) firstInput.focus();
+                }, 300);
+            });
+        }
+
+        // تحسين تجربة الإضافة الجماعية
+        const participantsTextarea = document.getElementById('participants_text');
+        if (participantsTextarea) {
+            participantsTextarea.addEventListener('input', function() {
+                const lines = this.value.split('\n').filter(line => line.trim());
+                const count = lines.length;
+
+                // إظهار عدد المشاركين
+                let countDisplay = this.parentElement.querySelector('.participant-count');
+                if (!countDisplay) {
+                    countDisplay = document.createElement('div');
+                    countDisplay.className = 'participant-count text-muted small mt-1';
+                    this.parentElement.appendChild(countDisplay);
+                }
+
+                if (count > 0) {
+                    countDisplay.innerHTML = `<i class="fas fa-users me-1"></i>عدد المشاركين: ${count}`;
+                } else {
+                    countDisplay.innerHTML = '';
+                }
+            });
+        }
+
+        // تحسين التبديل بين التبويبات
+        const tabButtons = document.querySelectorAll('#addParticipantTabs button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (this.id === 'single-participant-tab') {
+                        const nameInput = document.getElementById('single_name');
+                        if (nameInput) nameInput.focus();
+                    } else if (this.id === 'multiple-participants-tab') {
+                        const textArea = document.getElementById('participants_text');
+                        if (textArea) textArea.focus();
+                    }
+                }, 100);
+            });
+        });
+
+        // تحسين إرسال النماذج مع AJAX
+        if (singleForm) {
+            singleForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // منع الإرسال العادي
+
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري الإضافة...';
+                }
+
+                // إرسال البيانات بـ AJAX
+                const formData = new FormData(this);
+                formData.append('from_new_modal', 'true');
+
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    // إعادة تحميل الصفحة لإظهار المشاركين الجدد
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('خطأ في إضافة المشارك:', error);
+                    // إعادة تحميل الصفحة في حالة الخطأ
+                    window.location.reload();
+                });
+            });
+        }
+
+        if (multipleForm) {
+            multipleForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // منع الإرسال العادي
+
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري إضافة المشاركين...';
+                }
+
+                // إرسال البيانات بـ AJAX
+                const formData = new FormData(this);
+                formData.append('from_new_modal', 'true');
+
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    // إعادة تحميل الصفحة لإظهار المشاركين الجدد
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('خطأ في إضافة المشاركين:', error);
+                    // إعادة تحميل الصفحة في حالة الخطأ
+                    window.location.reload();
+                });
+            });
+        }
+
+        // إغلاق النافذة وإعادة تحميل الصفحة عند النجاح
+        function handleSuccessfulAddition() {
+            // إغلاق النافذة
+            const modal = bootstrap.Modal.getInstance(newModal);
+            if (modal) {
+                modal.hide();
+            }
+
+            // إعادة تحميل الصفحة لإظهار المشاركين الجدد
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        }
+
+        // التحقق من رسائل النجاح لإغلاق النافذة
+        const successMessages = document.querySelectorAll('.alert-success');
+        const modalCloseSignal = document.querySelector('.alert-info');
+
+        if (successMessages.length > 0 && modalCloseSignal && modalCloseSignal.textContent.includes('modal_success_close')) {
+            // إذا كانت هناك رسالة نجاح من النافذة الجديدة، أغلق النافذة وأعد تحميل الصفحة
+            setTimeout(() => {
+                const modal = bootstrap.Modal.getInstance(newModal);
+                if (modal) {
+                    modal.hide();
+                }
+
+                // إعادة تحميل الصفحة لإظهار المشاركين الجدد
+                setTimeout(() => {
+                    window.location.reload();
+                }, 300);
+            }, 1500);
+        }
+
+        // النظام الهرمي الجديد لاختيار المشاركين
+        const gradeFilter = document.getElementById('gradeFilter');
+        const participantSelectionCard = document.getElementById('participantSelectionCard');
+        const difficultySelectionCard = document.getElementById('difficultySelectionCard');
+        const participantsGrid = document.getElementById('participantsGrid');
+        const participantsLoadingMessage = document.getElementById('participantsLoadingMessage');
+        const noParticipantsMessage = document.getElementById('noParticipantsMessage');
+        const selectedParticipantDisplay = document.getElementById('selectedParticipantDisplay');
+        const selectedParticipantText = document.getElementById('selectedParticipantText');
+        const participantIdInput = document.getElementById('participant_id');
+
+        // تعيين مستوى الصعوبة تلقائياً حسب المستوى الدراسي
+        function setAutomaticDifficulty(grade) {
+            // خريطة المستويات الدراسية إلى مستويات الصعوبة
+            const gradeTodifficulty = {
+                '3': '3',  // الثالث ابتدائي -> مستوى صعوبة 3
+                '4': '4',  // الرابع ابتدائي -> مستوى صعوبة 4
+                '5': '5',  // الخامس ابتدائي -> مستوى صعوبة 5
+                '6': '6',  // السادس ابتدائي -> مستوى صعوبة 6
+                '7': '7',  // الأول متوسط -> مستوى صعوبة 7
+                '8': '8',  // الثاني متوسط -> مستوى صعوبة 8
+                '9': '9'   // الثالث متوسط -> مستوى صعوبة 9
+            };
+
+            const targetDifficulty = gradeTodifficulty[grade];
+            if (targetDifficulty) {
+                // إلغاء تحديد جميع مستويات الصعوبة
+                document.querySelectorAll('input[name="difficulty"]').forEach(radio => {
+                    radio.checked = false;
+                });
+
+                // تحديد المستوى المناسب
+                const targetRadio = document.querySelector(`input[name="difficulty"][value="${targetDifficulty}"]`);
+                if (targetRadio) {
+                    targetRadio.checked = true;
+
+                    // إخفاء قسم اختيار مستوى الصعوبة لأنه تم تعيينه تلقائياً
+                    const difficultySelectionCard = document.getElementById('difficultySelectionCard');
+                    if (difficultySelectionCard) {
+                        difficultySelectionCard.style.display = 'none';
+                    }
+
+                    // إظهار رسالة توضيحية
+                    if (window.notifications) {
+                        notifications.info(`تم تعيين مستوى الصعوبة ${targetDifficulty} تلقائياً للمستوى الدراسي المختار`);
+                    }
+
+                    console.log(`تم تعيين مستوى الصعوبة ${targetDifficulty} للمستوى الدراسي ${grade}`);
+                }
+            }
+        }
+
+        // تصفية المشاركين حسب المستوى المختار
+        if (gradeFilter) {
+            gradeFilter.addEventListener('change', function() {
+                const selectedGrade = this.value;
+                if (selectedGrade) {
+                    // تعيين مستوى الصعوبة تلقائياً
+                    setAutomaticDifficulty(selectedGrade);
+
+                    // جلب المشاركين
+                    fetchParticipantsByGrade(selectedGrade);
+                } else {
+                    hideParticipantsList();
+
+                    // مسح تحديد مستوى الصعوبة
+                    document.querySelectorAll('input[name="difficulty"]').forEach(radio => {
+                        radio.checked = false;
+                    });
+                }
+            });
+        }
+
+        // جلب المشاركين حسب المستوى عبر AJAX
+        function fetchParticipantsByGrade(grade) {
+            // إظهار رسالة التحميل
+            participantSelectionCard.style.display = 'block';
+            participantsLoadingMessage.style.display = 'block';
+            participantsGrid.style.display = 'none';
+            noParticipantsMessage.style.display = 'none';
+            selectedParticipantDisplay.style.display = 'none';
+
+            // إرسال طلب AJAX
+            fetch(`{% url 'competitions:get_participants_by_grade' %}?grade=${grade}`, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                participantsLoadingMessage.style.display = 'none';
+
+                if (data.success && data.participants.length > 0) {
+                    displayParticipants(data.participants);
+                } else {
+                    showNoParticipantsMessage();
+                }
+            })
+            .catch(error => {
+                console.error('خطأ في جلب المشاركين:', error);
+                participantsLoadingMessage.style.display = 'none';
+                showNoParticipantsMessage();
+            });
+        }
+
+        // متغيرات البحث
+        let allParticipants = [];
+        let filteredParticipants = [];
+
+        // عرض المشاركين في الشبكة
+        function displayParticipants(participants) {
+            // حفظ جميع المشاركين للبحث
+            allParticipants = participants;
+            filteredParticipants = participants;
+
+            renderParticipants(participants);
+
+            // إظهار مربع البحث والعداد
+            const searchContainer = document.getElementById('participantSearchContainer');
+            const counterContainer = document.getElementById('participantsCounter');
+            const participantsInfo = document.getElementById('participantsInfo');
+
+            if (searchContainer) searchContainer.style.display = 'block';
+            if (counterContainer) counterContainer.style.display = 'block';
+            if (participantsInfo) participantsInfo.style.display = 'block';
+
+            // تحديث العداد
+            updateParticipantsCounter(participants.length);
+
+            // إعداد البحث
+            setupParticipantSearch();
+        }
+
+        // رسم المشاركين
+        function renderParticipants(participants) {
+            participantsGrid.innerHTML = '';
+
+            participants.forEach(participant => {
+                const participantCard = createParticipantCard(participant);
+                participantsGrid.appendChild(participantCard);
+            });
+
+            participantsGrid.style.display = 'block';
+
+            // إخفاء/إظهار رسالة عدم وجود نتائج
+            const noSearchResults = document.getElementById('noSearchResults');
+            if (participants.length === 0 && allParticipants.length > 0) {
+                noSearchResults.style.display = 'block';
+                participantsGrid.style.display = 'none';
+            } else {
+                noSearchResults.style.display = 'none';
+            }
+        }
+
+        // تحديث عداد المشاركين
+        function updateParticipantsCounter(count) {
+            const counter = document.getElementById('participantsCount');
+            if (counter) {
+                counter.textContent = count;
+            }
+        }
+
+        // إعداد وظيفة البحث
+        function setupParticipantSearch() {
+            const searchInput = document.getElementById('participantSearchInput');
+            if (!searchInput) return;
+
+            // إزالة المستمعين السابقين
+            searchInput.removeEventListener('input', handleParticipantSearch);
+            searchInput.removeEventListener('keyup', handleParticipantSearch);
+
+            // إضافة مستمع جديد
+            searchInput.addEventListener('input', handleParticipantSearch);
+            searchInput.addEventListener('keyup', handleParticipantSearch);
+        }
+
+        // معالج البحث
+        function handleParticipantSearch(event) {
+            const searchTerm = event.target.value.trim().toLowerCase();
+
+            if (searchTerm === '') {
+                // إظهار جميع المشاركين
+                filteredParticipants = allParticipants;
+                renderParticipants(allParticipants);
+                updateParticipantsCounter(allParticipants.length);
+            } else {
+                // تصفية المشاركين
+                filteredParticipants = allParticipants.filter(participant =>
+                    participant.name.toLowerCase().includes(searchTerm)
+                );
+
+                // تحديث النص في رسالة عدم وجود نتائج
+                const searchTermSpan = document.getElementById('searchTerm');
+                if (searchTermSpan) {
+                    searchTermSpan.textContent = event.target.value;
+                }
+
+                renderParticipants(filteredParticipants);
+                updateParticipantsCounter(filteredParticipants.length);
+            }
+        }
+
+        // مسح البحث
+        window.clearParticipantSearch = function() {
+            const searchInput = document.getElementById('participantSearchInput');
+            if (searchInput) {
+                searchInput.value = '';
+                filteredParticipants = allParticipants;
+                renderParticipants(allParticipants);
+                updateParticipantsCounter(allParticipants.length);
+                searchInput.focus();
+            }
+        }
+
+        // إنشاء بطاقة مشارك محسنة
+        function createParticipantCard(participant) {
+            const col = document.createElement('div');
+            col.className = 'col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 mb-2';
+
+            // تقسيم الاسم إلى كلمات وتوزيعها على 4 أسطر
+            const nameWords = participant.name.split(' ');
+            let nameLines = ['', '', '', ''];
+
+            // توزيع الكلمات على الأسطر
+            nameWords.forEach((word, index) => {
+                const lineIndex = index % 4;
+                if (nameLines[lineIndex] !== '') {
+                    nameLines[lineIndex] += ' ';
+                }
+                nameLines[lineIndex] += word;
+            });
+
+            // إنشاء HTML للأسطر
+            const nameHTML = nameLines
+                .filter(line => line.trim() !== '')
+                .map(line => `<div style="font-size: 0.7rem; line-height: 1.1; font-weight: 600;">${line}</div>`)
+                .join('');
+
+            col.innerHTML = `
+                <div class="card participant-card h-100 border-0 shadow-sm" onclick="selectParticipantFromGrid(${participant.id}, '${participant.name}', '${participant.grade_display}', '${participant.group_display}')" style="cursor: pointer; transition: all 0.2s; border-radius: 8px; min-height: 120px;">
+                    <div class="card-body text-center p-2 d-flex flex-column justify-content-between">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-1" style="width: 28px; height: 28px;">
+                            <span class="fw-bold" style="font-size: 0.65rem;">${participant.initials}</span>
+                        </div>
+                        <div class="participant-name mb-1" title="${participant.name}" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                            ${nameHTML}
+                        </div>
+                        <div class="participant-info">
+                            <small class="text-muted d-block" style="font-size: 0.6rem; line-height: 1;">
+                                ${participant.short_grade}
+                            </small>
+                            <small class="text-muted d-block" style="font-size: 0.55rem;">
+                                ${participant.short_group}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // إضافة تأثيرات التفاعل محسنة
+            const card = col.querySelector('.participant-card');
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.12)';
+                this.style.borderColor = '#007bff';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                this.style.borderColor = 'transparent';
+            });
+
+            return col;
+        }
+
+        // اختيار مشارك من الشبكة
+        window.selectParticipantFromGrid = function(participantId, participantName, gradeDisplay, groupDisplay) {
+            // تحديث الحقل المخفي
+            participantIdInput.value = participantId;
+
+            // عرض المشارك المختار
+            selectedParticipantText.innerHTML = `
+                <strong>${participantName}</strong> - ${gradeDisplay} - ${groupDisplay}
+            `;
+            selectedParticipantDisplay.style.display = 'block';
+
+            // لا نحتاج لإظهار قسم اختيار مستوى الصعوبة لأنه يتم تعيينه تلقائياً
+            // difficultySelectionCard.style.display = 'block';
+
+            // تمييز البطاقة المختارة
+            document.querySelectorAll('.participant-card').forEach(card => {
+                card.classList.remove('selected', 'border-success', 'bg-light');
+            });
+
+            event.currentTarget.classList.add('selected');
+
+            // التمرير إلى قسم البدء مباشرة (لأن الصعوبة تم تعيينها تلقائياً)
+            const startSection = document.getElementById('startCompetitionSection');
+            if (startSection && startSection.style.display !== 'none') {
+                startSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // التحقق من إمكانية إظهار زر البدء
+            checkStartButtonVisibility();
+        }
+
+        // مسح اختيار المشارك
+        window.clearParticipantSelection = function() {
+            participantIdInput.value = '';
+            selectedParticipantDisplay.style.display = 'none';
+            difficultySelectionCard.style.display = 'none';
+
+            // إزالة التمييز من جميع البطاقات
+            document.querySelectorAll('.participant-card').forEach(card => {
+                card.classList.remove('selected', 'border-success', 'bg-light');
+            });
+        }
+
+        // إخفاء قائمة المشاركين
+        function hideParticipantsList() {
+            participantSelectionCard.style.display = 'none';
+            difficultySelectionCard.style.display = 'none';
+
+            // إخفاء الرسالة التوضيحية أيضاً
+            const participantsInfo = document.getElementById('participantsInfo');
+            if (participantsInfo) {
+                participantsInfo.style.display = 'none';
+            }
+
+            clearParticipantSelection();
+        }
+
+        // عرض رسالة عدم وجود مشاركين
+        function showNoParticipantsMessage() {
+            participantsGrid.style.display = 'none';
+            noParticipantsMessage.style.display = 'block';
+        }
+
+        // تحديث قائمة المشاركين
+        window.refreshParticipants = function() {
+            const selectedGrade = gradeFilter.value;
+            if (selectedGrade) {
+                fetchParticipantsByGrade(selectedGrade);
+            }
+        }
+
+        // التحقق من إمكانية إظهار زر البدء
+        function checkStartButtonVisibility() {
+            const participantSelected = participantIdInput.value !== '';
+            const difficultySelected = document.querySelector('input[name="difficulty"]:checked') !== null;
+            const startSection = document.getElementById('startCompetitionSection');
+
+            console.log('Checking start button visibility:');
+            console.log('- Participant selected:', participantSelected, 'ID:', participantIdInput.value);
+            console.log('- Difficulty selected:', difficultySelected);
+
+            if (participantSelected && difficultySelected) {
+                startSection.style.display = 'block';
+                startSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                console.log('✅ Start button shown');
+            } else {
+                startSection.style.display = 'none';
+                console.log('❌ Start button hidden');
+            }
+        }
+
+        // مراقبة تغيير مستوى الصعوبة
+        document.querySelectorAll('input[name="difficulty"]').forEach(radio => {
+            radio.addEventListener('change', checkStartButtonVisibility);
+        });
+
+        // تحميل المشاركين إذا كان هناك مستوى محدد مسبقاً
+        if (gradeFilter && gradeFilter.value) {
+            fetchParticipantsByGrade(gradeFilter.value);
+        }
+    });
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+<!-- تضمين ملف JavaScript للإشعارات -->
+<script src="{% static 'js/notifications.js' %}"></script>
+{% endblock %}

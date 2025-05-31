@@ -1,0 +1,234 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}تفاصيل جلسة {{ session.student_name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .session-header {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .detail-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .detail-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .stat-label {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .stat-value {
+        font-weight: 700;
+        color: #3498db;
+    }
+
+    .download-section {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #27ae60, #229954);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+    }
+
+    .excel-btn {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+
+    .pdf-btn {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="session-header">
+        <h1 class="display-5 mb-3">
+            <i class="fas fa-user-graduate me-3"></i>
+            تفاصيل جلسة {{ session.student_name }}
+        </h1>
+        <p class="lead mb-0">
+            {{ session.get_grade_display }} - {{ session.get_difficulty_display }}
+        </p>
+        <small class="text-light">
+            <i class="fas fa-calendar me-2"></i>
+            {{ session.created_at|date:"d F Y - H:i" }}
+        </small>
+    </div>
+
+    <div class="row">
+        <!-- النتائج الأساسية -->
+        <div class="col-md-6">
+            <div class="detail-card">
+                <h4 class="mb-3">
+                    <i class="fas fa-chart-bar me-2 text-primary"></i>
+                    النتائج الأساسية
+                </h4>
+                
+                <div class="stat-item">
+                    <span class="stat-label">النقاط الإجمالية:</span>
+                    <span class="stat-value">{{ session.total_score }}</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">إجمالي الأسئلة:</span>
+                    <span class="stat-value">{{ session.total_questions }}</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">الإجابات الصحيحة:</span>
+                    <span class="stat-value">{{ session.correct_answers }}</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">معدل النجاح:</span>
+                    <span class="stat-value">{{ success_rate }}%</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">الوقت المستغرق:</span>
+                    <span class="stat-value">{{ duration_minutes }} دقيقة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- النتائج التفصيلية -->
+        <div class="col-md-6">
+            <div class="detail-card">
+                <h4 class="mb-3">
+                    <i class="fas fa-calculator me-2 text-success"></i>
+                    النتائج حسب العملية
+                </h4>
+                
+                <div class="stat-item">
+                    <span class="stat-label">
+                        <i class="fas fa-plus text-primary me-2"></i>الجمع:
+                    </span>
+                    <span class="stat-value">
+                        {{ session.addition_correct }}/{{ session.addition_total }}
+                        ({{ session.addition_percentage }}%)
+                    </span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">
+                        <i class="fas fa-minus text-warning me-2"></i>الطرح:
+                    </span>
+                    <span class="stat-value">
+                        {{ session.subtraction_correct }}/{{ session.subtraction_total }}
+                        ({{ session.subtraction_percentage }}%)
+                    </span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">
+                        <i class="fas fa-times text-success me-2"></i>الضرب:
+                    </span>
+                    <span class="stat-value">
+                        {{ session.multiplication_correct }}/{{ session.multiplication_total }}
+                        ({{ session.multiplication_percentage }}%)
+                    </span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-label">
+                        <i class="fas fa-divide text-info me-2"></i>القسمة:
+                    </span>
+                    <span class="stat-value">
+                        {{ session.division_correct }}/{{ session.division_total }}
+                        ({{ session.division_percentage }}%)
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم التحميل -->
+    <div class="download-section">
+        <h4 class="mb-3">
+            <i class="fas fa-download me-2"></i>
+            تحميل النتائج
+        </h4>
+        <p class="text-muted mb-4">
+            يمكنك تحميل تفاصيل هذه الجلسة بصيغ مختلفة
+        </p>
+        
+        <button class="btn download-btn excel-btn" onclick="downloadExcel()">
+            <i class="fas fa-file-excel me-2"></i>
+            تحميل Excel
+        </button>
+        
+        <button class="btn download-btn pdf-btn" onclick="downloadPDF()">
+            <i class="fas fa-file-pdf me-2"></i>
+            تحميل PDF
+        </button>
+    </div>
+
+    <!-- أزرار التنقل -->
+    <div class="text-center mt-4">
+        <a href="{% url 'competitions:student_analytics' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-right me-2"></i>
+            العودة للإحصائيات
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function downloadExcel() {
+        // إرسال طلب لتحميل Excel
+        window.location.href = `{% url 'competitions:export_student_session_excel' session.id %}`;
+    }
+
+    function downloadPDF() {
+        // إرسال طلب لتحميل PDF
+        window.location.href = `{% url 'competitions:export_student_session_pdf' session.id %}`;
+    }
+</script>
+{% endblock %}

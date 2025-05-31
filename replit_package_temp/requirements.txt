@@ -1,0 +1,20 @@
+# Core framework
+Django>=5.2,<6.0
+
+# Production server
+gunicorn>=21.2.0
+whitenoise>=6.5.0
+
+# Database
+psycopg2-binary>=2.9.7
+dj-database-url>=2.1.0
+
+# Data processing libraries
+pandas>=2.0.0
+openpyxl>=3.1.0  # For Excel file support
+xlrd>=2.0.0  # For older Excel formats
+Pillow>=10.0.0  # For ImageField support in Django
+reportlab>=4.0.0  # For PDF generation
+
+# For sharing/tunneling purposes (optional)
+pyngrok>=7.0.0

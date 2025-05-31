@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+
+{% block title %}تعديل الملف الشخصي - منصة الحسان للرياضيات{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-lg mt-4 mb-4">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="my-2">تعديل الملف الشخصي</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">الصورة الشخصية</label>
+                                
+                                <div class="profile-image-container mb-3">
+                                    {% if user.profile.profile_image %}
+                                        <img id="profile-preview" src="{{ user.profile.profile_image.url }}" alt="{{ user.get_full_name }}" 
+                                             class="img-fluid rounded-circle shadow profile-image mb-2" 
+                                             style="width: 180px; height: 180px; object-fit: cover;">
+                                    {% else %}
+                                        <div id="profile-preview-placeholder" class="profile-image-placeholder rounded-circle shadow mx-auto d-flex align-items-center justify-content-center bg-light mb-2" 
+                                             style="width: 180px; height: 180px;">
+                                            <i class="fas fa-user fa-4x text-secondary"></i>
+                                        </div>
+                                        <img id="profile-preview" class="d-none img-fluid rounded-circle shadow profile-image mb-2" 
+                                             style="width: 180px; height: 180px; object-fit: cover;">
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                    <label class="btn btn-outline-primary w-100" for="id_profile_image">
+                                        <i class="fas fa-upload me-2"></i> اختر صورة
+                                    </label>
+                                    <input type="file" name="profile_image" id="id_profile_image" accept="image/*" class="d-none" onchange="previewImage(this);">
+                                </div>
+                                
+                                <div class="form-text small text-center">
+                                    ينصح باستخدام صور بدقة عالية (500×500 بكسل على الأقل)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="id_first_name" class="form-label">الاسم الأول</label>
+                                <input type="text" class="form-control" id="id_first_name" name="first_name" value="{{ user.first_name }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="id_last_name" class="form-label">الاسم الأخير</label>
+                                <input type="text" class="form-control" id="id_last_name" name="last_name" value="{{ user.last_name }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="id_email" class="form-label">البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="id_email" name="email" value="{{ user.email }}">
+                            </div>
+                            
+                            {% if user.profile.is_student %}
+                            <div class="mb-3">
+                                <label for="id_grade" class="form-label">الصف الدراسي</label>
+                                <select class="form-select" id="id_grade" name="grade">
+                                    <option value="">-- اختر الصف --</option>
+                                    {% for grade_value, grade_name in grade_choices %}
+                                        <option value="{{ grade_value }}" {% if user.profile.grade == grade_value %}selected{% endif %}>{{ grade_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            {% endif %}
+                            
+                            <div class="mb-3">
+                                <label for="id_date_of_birth" class="form-label">تاريخ الميلاد</label>
+                                <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" 
+                                       value="{% if user.profile.date_of_birth %}{{ user.profile.date_of_birth|date:'Y-m-d' }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 col-md-6 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-save me-2"></i> حفظ التغييرات
+                        </button>
+                        <a href="{% url 'accounts:profile' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times me-2"></i> إلغاء
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                var preview = document.getElementById('profile-preview');
+                var placeholder = document.getElementById('profile-preview-placeholder');
+                
+                if (placeholder) {
+                    placeholder.classList.add('d-none');
+                }
+                
+                preview.classList.remove('d-none');
+                preview.src = e.target.result;
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% endblock %}

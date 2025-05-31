@@ -1,0 +1,122 @@
+{% load score_display %}
+
+{% if result %}
+<div class="score-display-container {% if size == 'small' %}score-small{% elif size == 'large' %}score-large{% endif %}">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-3">
+            <!-- النتيجة الأساسية -->
+            <div class="text-center mb-3">
+                <h5 class="mb-2">
+                    <span class="badge {{ score_data.badge_class }} fs-6 px-3 py-2">
+                        {{ score_data.performance_emoji }} {{ score_data.performance_level }}
+                    </span>
+                </h5>
+            </div>
+            
+            <!-- عرض النتائج بالصيغ المختلفة -->
+            <div class="row g-2">
+                <!-- النتيجة الأصلية -->
+                <div class="col-6">
+                    <div class="text-center p-2 bg-light rounded">
+                        <div class="small text-muted mb-1">✅ النتيجة</div>
+                        <div class="fw-bold {{ score_data.color_class }}">
+                            {{ score_data.original }}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- النسبة المئوية -->
+                <div class="col-6">
+                    <div class="text-center p-2 bg-light rounded">
+                        <div class="small text-muted mb-1">💯 النسبة المئوية</div>
+                        <div class="fw-bold {{ score_data.color_class }}">
+                            {{ score_data.percentage_100 }}
+                        </div>
+                    </div>
+                </div>
+                
+                {% if show_details %}
+                <!-- النسبة من 10 -->
+                <div class="col-6">
+                    <div class="text-center p-2 bg-light rounded">
+                        <div class="small text-muted mb-1">🔟 على 10</div>
+                        <div class="fw-bold {{ score_data.color_class }}">
+                            {{ score_data.percentage_10 }}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- النسبة من 20 -->
+                <div class="col-6">
+                    <div class="text-center p-2 bg-light rounded">
+                        <div class="small text-muted mb-1">🔢 على 20</div>
+                        <div class="fw-bold {{ score_data.color_class }}">
+                            {{ score_data.percentage_20 }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            {% if show_details and size != 'small' %}
+            <!-- شريط التقدم -->
+            <div class="mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <small class="text-muted">مستوى الأداء</small>
+                    <small class="fw-bold {{ score_data.color_class }}">{{ result.percentage_100 }}%</small>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar {{ score_data.badge_class|slice:'3:' }}" 
+                         role="progressbar" 
+                         style="width: {{ result.percentage_100 }}%"
+                         aria-valuenow="{{ result.percentage_100 }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="text-center text-muted">
+    <i class="fas fa-question-circle fa-2x mb-2"></i>
+    <p>لا توجد نتيجة متاحة</p>
+</div>
+{% endif %}
+
+<style>
+.score-display-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.score-small {
+    max-width: 250px;
+}
+
+.score-large {
+    max-width: 500px;
+}
+
+.score-display-container .card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.score-display-container .card:hover {
+    transform: translateY(-2px);
+}
+
+.progress-bar.success {
+    background-color: #28a745 !important;
+}
+
+.progress-bar.warning {
+    background-color: #ffc107 !important;
+}
+
+.progress-bar.danger {
+    background-color: #dc3545 !important;
+}
+</style>

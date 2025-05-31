@@ -1,0 +1,4 @@
+الرابط العام: NgrokTunnel: "https://c4e9-105-157-119-224.ngrok-free.app" -> "http://localhost:8000"
+رابط التلاميذ: NgrokTunnel: "https://c4e9-105-157-119-224.ngrok-free.app" -> "http://localhost:8000"/student/login/
+رابط الأساتذة: NgrokTunnel: "https://c4e9-105-157-119-224.ngrok-free.app" -> "http://localhost:8000"/accounts/login/
+رمز الدخول: ben25

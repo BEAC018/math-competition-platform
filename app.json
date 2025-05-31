@@ -1,0 +1,49 @@
+{
+  "name": "Math Competition Platform",
+  "description": "منصة المسابقات الرياضية التفاعلية للتلاميذ - Interactive Math Competition Platform for Students",
+  "keywords": [
+    "django",
+    "education",
+    "math",
+    "competition",
+    "arabic",
+    "students",
+    "learning",
+    "interactive"
+  ],
+  "website": "https://github.com/your-username/math-competition-platform",
+  "repository": "https://github.com/your-username/math-competition-platform",
+  "logo": "https://via.placeholder.com/128x128/4FC3F7/FFFFFF?text=🎯",
+  "success_url": "/",
+  "env": {
+    "DJANGO_SECRET_KEY": {
+      "description": "Django secret key for security",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "Debug mode (should be False in production)",
+      "value": "False"
+    },
+    "DJANGO_SETTINGS_MODULE": {
+      "description": "Django settings module",
+      "value": "alhassan.settings"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:mini"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "python manage.py migrate && python manage.py collectstatic --noinput"
+  }
+}

@@ -1,0 +1,21 @@
+Icon Instructions
+===============
+
+To add application icons, you need to place the following files in this directory:
+
+1. For Windows:
+   - icon.ico - 256x256 pixels ICO file
+
+2. For macOS:
+   - icon.icns - ICNS file (can be created from a 1024x1024 PNG using iconutil)
+
+3. For Linux:
+   - icon.png - 512x512 pixels PNG file
+
+These icon files will be used when building the desktop application.
+
+You can create these icons using image editing software like GIMP, Photoshop, or online icon generators.
+
+For a simple placeholder, you can use any math-related icon or create a custom logo that represents the Alhassan Math Competition Platform.
+
+After placing the icon files in this directory, the electron-packager will automatically use them when building the application for distribution.

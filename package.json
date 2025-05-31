@@ -1,0 +1,27 @@
+{
+  "name": "alhassan-math-desktop",
+  "version": "1.0.0",
+  "description": "Desktop application for Alhassan Math Competition Platform",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . alhassan-math --overwrite --platform=win32 --arch=x64 --icon=assets/icon.ico --prune=true --out=release-builds",
+    "package-mac": "electron-packager . alhassan-math --overwrite --platform=darwin --arch=x64 --icon=assets/icon.icns --prune=true --out=release-builds",
+    "package-linux": "electron-packager . alhassan-math --overwrite --platform=linux --arch=x64 --icon=assets/icon.png --prune=true --out=release-builds",
+    "share": "node package_for_sharing.js"
+  },
+  "keywords": [
+    "math",
+    "education",
+    "competition"
+  ],
+  "author": "Alhassan Math Platform",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0"
+  }
+}

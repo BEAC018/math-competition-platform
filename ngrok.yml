@@ -1,0 +1,8 @@
+version: "2"
+authtoken: ""
+tunnels:
+  math-app:
+    addr: 127.0.0.1:8000
+    proto: http
+    bind_tls: true
+    inspect: true
