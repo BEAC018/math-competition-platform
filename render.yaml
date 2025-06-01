@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: math-competition-platform
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: |
+      python manage.py migrate --noinput
+      gunicorn alhassan.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: django-insecure-render-production-math-platform-2025-xyz789
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: "*.onrender.com,math-competition-platform.onrender.com"
+      - key: PYTHON_VERSION
+        value: "3.11.7"
+      - key: DISABLE_COLLECTSTATIC
+        value: "0"
+
+databases:
+  - name: math-competition-db
+    databaseName: math_competition
+    user: math_user
+    plan: free

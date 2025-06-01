@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-=&p@v@5!yyoz8r&x#8khzk9ae%61*su($5@b%h!#kg1b2nb!+g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '.ngrok.io', '.ngrok-free.app', '.ngrok.app', '.railway.app', 'testserver', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '.ngrok.io', '.ngrok-free.app', '.ngrok.app', '.railway.app', '.onrender.com', 'math-competition-platform.onrender.com', 'testserver', '*']
 
 # CSRF trusted origins for ngrok and other platforms
 CSRF_TRUSTED_ORIGINS = [
@@ -46,7 +46,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.ngrok.app',
     'https://*.railway.app',
     'https://*.herokuapp.com',
-    'https://*.render.com',
+    'https://*.onrender.com',
+    'https://math-competition-platform.onrender.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
