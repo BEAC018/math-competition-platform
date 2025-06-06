@@ -52,6 +52,10 @@ def home_view(request):
                 <a href="/admin/" class="btn admin">⚙️ لوحة الإدارة</a>
             </div>
 
+            <div style="margin: 20px 0;">
+                <a href="/accounts/create-admin/" class="btn" style="background: #f39c12;">🔑 إنشاء حساب المدير</a>
+            </div>
+
             <p style="color: #7f8c8d; margin-top: 30px;">
                 رمز دخول الطلاب: <strong>ben25</strong>
             </p>

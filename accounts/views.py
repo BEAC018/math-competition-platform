@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.conf import settings
+from django.http import HttpResponse
 from .models import StudentSession, TeacherProfile
 
 
@@ -69,3 +71,48 @@ def teacher_logout(request):
     logout(request)
     messages.success(request, 'تم تسجيل الخروج بنجاح')
     return redirect('teacher_login')
+
+
+def create_admin(request):
+    """إنشاء مدير تلقائ<|im_start|> - للاستخدام مرة واحدة فقط"""
+    try:
+        # التحقق من وجود مدير
+        if User.objects.filter(is_superuser=True).exists():
+            return HttpResponse("""
+            <div style="text-align: center; padding: 50px; font-family: Arial;">
+                <h2>✅ يوجد مدير بالفعل</h2>
+                <p>تم إنشاء حساب المدير مسبقاً</p>
+                <p><strong>اسم المستخدم:</strong> admin</p>
+                <p><strong>كلمة المرور:</strong> admin123456</p>
+                <a href="/accounts/login/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">دخول المعلمين</a>
+            </div>
+            """)
+
+        # إنشاء مدير جديد
+        admin_user = User.objects.create_superuser(
+            username='admin',
+            email='admin@mathcompetition.com',
+            password='admin123456',
+            first_name='مدير',
+            last_name='النظام'
+        )
+
+        return HttpResponse("""
+        <div style="text-align: center; padding: 50px; font-family: Arial;">
+            <h2>🎉 تم إنشاء المدير بنجاح!</h2>
+            <p><strong>اسم المستخدم:</strong> admin</p>
+            <p><strong>كلمة المرور:</strong> admin123456</p>
+            <p>يمكنك الآن الدخول كمعلم أو مدير</p>
+            <a href="/accounts/login/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">دخول المعلمين</a>
+            <a href="/admin/" style="background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">لوحة الإدارة</a>
+        </div>
+        """)
+
+    except Exception as e:
+        return HttpResponse(f"""
+        <div style="text-align: center; padding: 50px; font-family: Arial;">
+            <h2>❌ خطأ في إنشاء المدير</h2>
+            <p>{str(e)}</p>
+            <a href="/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">العودة للرئيسية</a>
+        </div>
+        """)
