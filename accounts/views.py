@@ -30,25 +30,32 @@ def student_login(request):
         student_name = request.POST.get('student_name')
         access_code = request.POST.get('access_code')
         grade_level = request.POST.get('grade_level')
-        
+        difficulty_level = request.POST.get('difficulty_level')
+
         # التحقق من رمز الدخول
         if access_code == settings.STUDENT_ACCESS_CODE:
+            # التحقق من اختيار مستوى الصعوبة
+            if not difficulty_level:
+                messages.error(request, 'يرجى اختيار مستوى الصعوبة')
+                return render(request, 'accounts/student_login.html')
+
             # إنشاء جلسة طالب جديدة
             session = StudentSession.objects.create(
                 student_name=student_name,
                 access_code=access_code,
                 grade_level=grade_level
             )
-            
+
             # حفظ معلومات الطالب في الجلسة
             request.session['student_id'] = session.id
             request.session['student_name'] = student_name
             request.session['grade_level'] = grade_level
-            
+            request.session['difficulty_level'] = difficulty_level
+
             return redirect('competition_start')
         else:
             messages.error(request, 'رمز الدخول غير صحيح')
-    
+
     return render(request, 'accounts/student_login.html')
 
 

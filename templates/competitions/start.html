@@ -14,6 +14,15 @@
             <h3 style="color: #2c3e50; margin-bottom: 15px;">معلومات المسابقة</h3>
             <p><strong>اسم الطالب:</strong> {{ student_name }}</p>
             <p><strong>المستوى الدراسي:</strong> {{ grade_level }}</p>
+            <p><strong>مستوى الصعوبة:</strong>
+                {% if difficulty_level == 'easy' %}
+                    <span style="color: #27ae60;">سهل 😊</span>
+                {% elif difficulty_level == 'hard' %}
+                    <span style="color: #e74c3c;">صعب 🔥</span>
+                {% else %}
+                    <span style="color: #f39c12;">متوسط 🤔</span>
+                {% endif %}
+            </p>
             <p><strong>عدد الأسئلة:</strong> {{ competition.total_questions }} سؤال</p>
             <p><strong>نوع الأسئلة:</strong> عمليات حسابية متنوعة</p>
         </div>

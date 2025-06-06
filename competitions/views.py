@@ -11,23 +11,25 @@ def competition_start(request):
     # التحقق من وجود جلسة طالب
     if 'student_name' not in request.session:
         return redirect('student_login')
-    
+
     student_name = request.session.get('student_name')
     grade_level = request.session.get('grade_level')
-    
+    difficulty_level = request.session.get('difficulty_level', 'medium')
+
     # إنشاء مسابقة جديدة
     competition = Competition.objects.create(
         student_name=student_name,
         grade_level=grade_level,
         total_questions=10
     )
-    
+
     # حفظ معرف المسابقة في الجلسة
     request.session['competition_id'] = competition.id
-    
+
     return render(request, 'competitions/start.html', {
         'student_name': student_name,
         'grade_level': grade_level,
+        'difficulty_level': difficulty_level,
         'competition': competition
     })
 
@@ -51,7 +53,8 @@ def get_question(request):
         return redirect('competition_results')
     
     # إنشاء سؤال رياضي عشوائي
-    question = generate_random_question(competition.grade_level)
+    difficulty_level = request.session.get('difficulty_level', 'medium')
+    question = generate_random_question(competition.grade_level, difficulty_level)
     
     context = {
         'question': question,
@@ -121,33 +124,54 @@ def competition_results(request):
     return render(request, 'competitions/results.html', context)
 
 
-def generate_random_question(grade_level):
-    """إنشاء سؤال رياضي عشوائي"""
+def generate_random_question(grade_level, difficulty_level='medium'):
+    """إنشاء سؤال رياضي عشوائي حسب مستوى الصعوبة"""
     operations = ['+', '-', '*', '/']
     operation = random.choice(operations)
-    
+
+    # تحديد نطاق الأرقام حسب مستوى الصعوبة
+    if difficulty_level == 'easy':
+        # سهل: أرقام صغيرة
+        add_range = (1, 20)
+        sub_range = (5, 30)
+        mul_range = (1, 5)
+        div_range = (2, 5)
+    elif difficulty_level == 'hard':
+        # صعب: أرقام كبيرة
+        add_range = (50, 200)
+        sub_range = (100, 500)
+        mul_range = (10, 25)
+        div_range = (5, 20)
+    else:
+        # متوسط: أرقام متوسطة
+        add_range = (10, 100)
+        sub_range = (20, 150)
+        mul_range = (2, 15)
+        div_range = (2, 12)
+
     if operation == '+':
-        a = random.randint(1, 50)
-        b = random.randint(1, 50)
+        a = random.randint(*add_range)
+        b = random.randint(*add_range)
         question = f"{a} + {b}"
         answer = a + b
     elif operation == '-':
-        a = random.randint(10, 100)
+        a = random.randint(*sub_range)
         b = random.randint(1, a)
         question = f"{a} - {b}"
         answer = a - b
     elif operation == '*':
-        a = random.randint(1, 12)
-        b = random.randint(1, 12)
+        a = random.randint(*mul_range)
+        b = random.randint(*mul_range)
         question = f"{a} × {b}"
         answer = a * b
     else:  # division
-        b = random.randint(2, 12)
-        answer = random.randint(1, 12)
+        b = random.randint(*div_range)
+        answer = random.randint(1, div_range[1])
         a = b * answer
         question = f"{a} ÷ {b}"
-    
+
     return {
         'text': question,
-        'answer': answer
+        'answer': answer,
+        'difficulty': difficulty_level
     }
