@@ -55,15 +55,34 @@ def student_login(request):
 @login_required
 def teacher_dashboard(request):
     """لوحة تحكم المعلم"""
-    # إنشاء ملف المعلم إذا لم يكن موجود
-    profile, created = TeacherProfile.objects.get_or_create(user=request.user)
-    
-    context = {
-        'teacher': request.user,
-        'profile': profile,
-        'recent_sessions': StudentSession.objects.filter(is_active=True)[:10]
-    }
-    return render(request, 'accounts/teacher_dashboard.html', context)
+    try:
+        # إنشاء ملف المعلم إذا لم يكن موجود
+        profile, created = TeacherProfile.objects.get_or_create(user=request.user)
+
+        # الحصول على آخر الجلسات
+        recent_sessions = StudentSession.objects.filter(is_active=True)[:10]
+
+        context = {
+            'teacher': request.user,
+            'profile': profile,
+            'recent_sessions': recent_sessions
+        }
+        return render(request, 'accounts/teacher_dashboard.html', context)
+
+    except Exception as e:
+        return HttpResponse(f"""
+        <div style="text-align: center; padding: 50px; font-family: Arial;">
+            <h2>👨‍🏫 لوحة تحكم المعلم</h2>
+            <p>مرحباً {request.user.get_full_name() or request.user.username}</p>
+            <p>جاري إعداد قاعدة البيانات...</p>
+            <p style="color: #e74c3c;">خطأ: {str(e)}</p>
+            <div style="margin: 20px 0;">
+                <a href="/dashboard/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;">📊 لوحة التحكم</a>
+                <a href="/admin/" style="background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;">⚙️ لوحة الإدارة</a>
+                <a href="/" style="background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;">🏠 الرئيسية</a>
+            </div>
+        </div>
+        """)
 
 
 def teacher_logout(request):

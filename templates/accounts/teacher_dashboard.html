@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}لوحة تحكم المعلم - منصة المسابقات الرياضية{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="header">
+        <h1>👨‍🏫 لوحة تحكم المعلم</h1>
+        <h2>مرحباً {{ teacher.get_full_name|default:teacher.username }}</h2>
+    </div>
+    
+    <!-- إحصائيات سريعة -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
+        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; text-align: center;">
+            <h3 style="margin: 0; font-size: 2em;">{{ recent_sessions|length }}</h3>
+            <p style="margin: 5px 0;">جلسات نشطة</p>
+        </div>
+        
+        <div style="background: #27ae60; color: white; padding: 20px; border-radius: 10px; text-align: center;">
+            <h3 style="margin: 0; font-size: 2em;">📊</h3>
+            <p style="margin: 5px 0;">الإحصائيات</p>
+        </div>
+        
+        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; text-align: center;">
+            <h3 style="margin: 0; font-size: 2em;">📋</h3>
+            <p style="margin: 5px 0;">التقارير</p>
+        </div>
+    </div>
+    
+    <!-- آخر الجلسات -->
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+        <h3 style="color: #2c3e50; margin-bottom: 15px;">📚 آخر جلسات الطلاب</h3>
+        
+        {% if recent_sessions %}
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #34495e; color: white;">
+                            <th style="padding: 10px; text-align: right;">اسم الطالب</th>
+                            <th style="padding: 10px; text-align: center;">المستوى</th>
+                            <th style="padding: 10px; text-align: center;">وقت البداية</th>
+                            <th style="padding: 10px; text-align: center;">الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for session in recent_sessions %}
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px;">{{ session.student_name }}</td>
+                            <td style="padding: 10px; text-align: center;">{{ session.grade_level }}</td>
+                            <td style="padding: 10px; text-align: center;">{{ session.session_start|date:"H:i" }}</td>
+                            <td style="padding: 10px; text-align: center;">
+                                {% if session.is_active %}
+                                    <span style="background: #27ae60; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em;">نشط</span>
+                                {% else %}
+                                    <span style="background: #95a5a6; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em;">منتهي</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p style="text-align: center; color: #7f8c8d; padding: 20px;">لا توجد جلسات حالياً</p>
+        {% endif %}
+    </div>
+    
+    <!-- أزرار العمل -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 30px 0;">
+        <a href="/dashboard/" class="btn" style="text-align: center;">📊 الإحصائيات المفصلة</a>
+        <a href="/dashboard/reports/" class="btn" style="text-align: center;">📋 تقارير الطلاب</a>
+        <a href="/admin/" class="btn admin" style="text-align: center;">⚙️ لوحة الإدارة</a>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/accounts/logout/">🚪 تسجيل الخروج</a>
+        <a href="/">🏠 الصفحة الرئيسية</a>
+    </div>
+</div>
+{% endblock %}
