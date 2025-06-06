@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}بداية المسابقة - منصة المسابقات الرياضية{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="header">
+        <h1>🧮 مسابقة الرياضيات</h1>
+        <h2>مرحباً {{ student_name }}</h2>
+    </div>
+    
+    <div style="text-align: center; margin: 30px 0;">
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #2c3e50; margin-bottom: 15px;">معلومات المسابقة</h3>
+            <p><strong>اسم الطالب:</strong> {{ student_name }}</p>
+            <p><strong>المستوى الدراسي:</strong> {{ grade_level }}</p>
+            <p><strong>عدد الأسئلة:</strong> {{ competition.total_questions }} سؤال</p>
+            <p><strong>نوع الأسئلة:</strong> عمليات حسابية متنوعة</p>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h4 style="color: #27ae60; margin-bottom: 10px;">📋 تعليمات المسابقة</h4>
+            <ul style="text-align: right; color: #2c3e50;">
+                <li>ستظهر لك {{ competition.total_questions }} أسئلة رياضية</li>
+                <li>اقرأ كل سؤال بعناية قبل الإجابة</li>
+                <li>أدخل الإجابة في المربع المخصص</li>
+                <li>اضغط "التالي" للانتقال للسؤال التالي</li>
+                <li>ستظهر النتيجة في النهاية</li>
+            </ul>
+        </div>
+        
+        <a href="/student/question/" class="btn btn-success" style="font-size: 18px; padding: 20px 40px;">
+            🚀 ابدأ المسابقة الآن
+        </a>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/accounts/student/login/">🔙 العودة لصفحة الدخول</a>
+    </div>
+</div>
+{% endblock %}

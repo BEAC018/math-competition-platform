@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}دخول المعلمين - منصة المسابقات الرياضية{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="header">
+        <h1>👨‍🏫 دخول المعلمين</h1>
+        <h2>لوحة تحكم المعلم</h2>
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-error">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required 
+                   placeholder="أدخل اسم المستخدم">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required 
+                   placeholder="أدخل كلمة المرور">
+        </div>
+        
+        <button type="submit" class="btn">🔐 دخول</button>
+    </form>
+    
+    <div class="nav-links">
+        <a href="/">🏠 الصفحة الرئيسية</a>
+        <a href="/accounts/student/login/">🎓 دخول الطلاب</a>
+        <a href="/admin/">⚙️ لوحة الإدارة</a>
+    </div>
+</div>
+{% endblock %}

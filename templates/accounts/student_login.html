@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}دخول الطلاب - منصة المسابقات الرياضية{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="header">
+        <h1>🎓 دخول الطلاب</h1>
+        <h2>مرحباً بك في منصة المسابقات الرياضية</h2>
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-error">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="student_name">اسم الطالب:</label>
+            <input type="text" id="student_name" name="student_name" required 
+                   placeholder="أدخل اسمك الكامل">
+        </div>
+        
+        <div class="form-group">
+            <label for="access_code">رمز الدخول:</label>
+            <input type="text" id="access_code" name="access_code" required 
+                   placeholder="أدخل رمز الدخول">
+            <small style="color: #7f8c8d;">رمز الدخول: ben25</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="grade_level">المستوى الدراسي:</label>
+            <select id="grade_level" name="grade_level" required>
+                <option value="">اختر المستوى</option>
+                <option value="الصف الأول">الصف الأول</option>
+                <option value="الصف الثاني">الصف الثاني</option>
+                <option value="الصف الثالث">الصف الثالث</option>
+                <option value="الصف الرابع">الصف الرابع</option>
+                <option value="الصف الخامس">الصف الخامس</option>
+                <option value="الصف السادس">الصف السادس</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-success">🚀 ابدأ المسابقة</button>
+    </form>
+    
+    <div class="nav-links">
+        <a href="/">🏠 الصفحة الرئيسية</a>
+        <a href="/accounts/login/">👨‍🏫 دخول المعلمين</a>
+    </div>
+</div>
+{% endblock %}
