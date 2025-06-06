@@ -102,7 +102,8 @@ def create_admin(request):
                 <h2>✅ يوجد مدير بالفعل</h2>
                 <p>تم إنشاء حساب المدير مسبقاً</p>
                 <p><strong>اسم المستخدم:</strong> admin</p>
-                <p><strong>كلمة المرور:</strong> admin123456</p>
+                <p><strong>كلمة المرور:</strong> ••••••••••</p>
+            <p style="color: #7f8c8d; font-size: 0.9em;">استخدم كلمة المرور التي تم إنشاؤها مسبقاً</p>
                 <a href="/accounts/login/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">دخول المعلمين</a>
             </div>
             """)
@@ -119,8 +120,14 @@ def create_admin(request):
         return HttpResponse("""
         <div style="text-align: center; padding: 50px; font-family: Arial;">
             <h2>🎉 تم إنشاء المدير بنجاح!</h2>
-            <p><strong>اسم المستخدم:</strong> admin</p>
-            <p><strong>كلمة المرور:</strong> admin123456</p>
+            <div style="background: #d4edda; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #c3e6cb;">
+                <h3 style="color: #155724; margin-bottom: 15px;">🔑 بيانات الدخول</h3>
+                <p><strong>اسم المستخدم:</strong> admin</p>
+                <p><strong>كلمة المرور:</strong> admin123456</p>
+                <p style="color: #856404; font-size: 0.9em; margin-top: 15px;">
+                    ⚠️ احفظ هذه البيانات في مكان آمن - لن تظهر مرة أخرى
+                </p>
+            </div>
             <p>يمكنك الآن الدخول كمعلم أو مدير</p>
             <a href="/accounts/login/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">دخول المعلمين</a>
             <a href="/admin/" style="background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">لوحة الإدارة</a>
@@ -135,3 +142,58 @@ def create_admin(request):
             <a href="/" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">العودة للرئيسية</a>
         </div>
         """)
+
+
+@login_required
+def change_password(request):
+    """تغيير كلمة المرور"""
+    if request.method == 'POST':
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+
+        # التحقق من كلمة المرور القديمة
+        if not request.user.check_password(old_password):
+            messages.error(request, 'كلمة المرور القديمة غير صحيحة')
+        elif new_password != confirm_password:
+            messages.error(request, 'كلمة المرور الجديدة غير متطابقة')
+        elif len(new_password) < 6:
+            messages.error(request, 'كلمة المرور يجب أن تكون 6 أحرف على الأقل')
+        else:
+            request.user.set_password(new_password)
+            request.user.save()
+            messages.success(request, 'تم تغيير كلمة المرور بنجاح')
+            return redirect('teacher_login')
+
+    from django.middleware.csrf import get_token
+    csrf_token = get_token(request)
+
+    return HttpResponse(f"""
+    <div style="max-width: 400px; margin: 50px auto; padding: 30px; border: 1px solid #ddd; border-radius: 10px; font-family: Arial;">
+        <h2 style="text-align: center; color: #2c3e50;">🔒 تغيير كلمة المرور</h2>
+        <form method="post" style="margin-top: 20px;">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #2c3e50;">كلمة المرور القديمة:</label>
+                <input type="password" name="old_password" required
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #2c3e50;">كلمة المرور الجديدة:</label>
+                <input type="password" name="new_password" required
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; color: #2c3e50;">تأكيد كلمة المرور:</label>
+                <input type="password" name="confirm_password" required
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 12px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                تغيير كلمة المرور
+            </button>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/accounts/dashboard/" style="color: #3498db; text-decoration: none;">العودة للوحة التحكم</a>
+        </div>
+    </div>
+    """)

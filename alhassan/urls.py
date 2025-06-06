@@ -56,9 +56,14 @@ def home_view(request):
                 <a href="/accounts/create-admin/" class="btn" style="background: #f39c12;">🔑 إنشاء حساب المدير</a>
             </div>
 
-            <p style="color: #7f8c8d; margin-top: 30px;">
-                رمز دخول الطلاب: <strong>ben25</strong>
-            </p>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 30px;">
+                <p style="color: #2c3e50; margin: 5px 0;">
+                    <strong>🎓 للطلاب:</strong> رمز الدخول: <span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 4px;">ben25</span>
+                </p>
+                <p style="color: #2c3e50; margin: 5px 0;">
+                    <strong>👨‍🏫 للمعلمين:</strong> استخدم حساب المدير المُنشأ
+                </p>
+            </div>
         </div>
     </body>
     </html>
