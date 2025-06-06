@@ -1,26 +1,32 @@
 """
-إعدادات Render للنشر
-Render deployment settings
+إعدادات Render للنشر - منصة المسابقات الرياضية
+Render deployment settings for Math Competition Platform
 """
 
 import os
 import dj_database_url
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-for-development')
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# Security settings
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-change-in-production')
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
+# Allowed hosts for Render
 ALLOWED_HOSTS = [
     '.onrender.com',
     'localhost',
     '127.0.0.1',
     '0.0.0.0',
+]
+
+# CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
 ]
 
 # Application definition
@@ -68,10 +74,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alhassan.wsgi.application'
 
-# Database
+# Database configuration
 if os.environ.get('DATABASE_URL'):
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+    # SSL configuration for PostgreSQL
+    DATABASES['default']['OPTIONS'] = {
+        'sslmode': 'require',
     }
 else:
     DATABASES = {
@@ -103,15 +113,19 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static files configuration
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
-# WhiteNoise configuration
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Only add to STATICFILES_DIRS if the directory exists
+static_dir = os.path.join(BASE_DIR, 'static')
+if os.path.exists(static_dir):
+    STATICFILES_DIRS = [static_dir]
+else:
+    STATICFILES_DIRS = []
+
+# WhiteNoise configuration for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'
@@ -120,20 +134,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Security settings
+# Security settings for production
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
-# CSRF settings
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.onrender.com',
-]
-
 # Student access code
 STUDENT_ACCESS_CODE = os.environ.get('STUDENT_ACCESS_CODE', 'ben25')
 
-# Logging
+# Logging configuration
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -142,10 +151,15 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
     },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
     'loggers': {
         'django': {
             'handlers': ['console'],
             'level': 'INFO',
+            'propagate': False,
         },
     },
 }

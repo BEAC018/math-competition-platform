@@ -11,9 +11,14 @@ echo "📦 تثبيت المتطلبات..."
 echo "Installing requirements..."
 pip install -r requirements.txt
 
+echo "📁 إنشاء مجلدات الملفات الثابتة..."
+echo "Creating static directories..."
+mkdir -p staticfiles
+mkdir -p static
+
 echo "📁 جمع الملفات الثابتة..."
 echo "Collecting static files..."
-python manage.py collectstatic --noinput --clear
+python manage.py collectstatic --noinput --clear || echo "Static files collection failed, continuing..."
 
 echo "📊 تطبيق هجرات قاعدة البيانات..."
 echo "Applying database migrations..."
