@@ -3,20 +3,21 @@ services:
     name: math-competition-platform
     env: python
     plan: free
-    buildCommand: |
-      pip install -r requirements.txt
-      python manage.py migrate
-      python manage.py collectstatic --noinput
-    startCommand: gunicorn alhassan.wsgi:application
+    buildCommand: ./build.sh
+    startCommand: gunicorn alhassan.wsgi:application --bind 0.0.0.0:$PORT --workers 1 --timeout 120
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: alhassan.production_settings
+        value: alhassan.render_settings
       - key: DEBUG
         value: False
       - key: STUDENT_ACCESS_CODE
         value: ben25
       - key: SECRET_KEY
         generateValue: true
+      - key: PORT
+        value: 10000
+      - key: PYTHONPATH
+        value: .
       - key: DATABASE_URL
         fromDatabase:
           name: math-competition-db
