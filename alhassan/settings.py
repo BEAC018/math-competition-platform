@@ -143,3 +143,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Student access code
 STUDENT_ACCESS_CODE = os.environ.get('STUDENT_ACCESS_CODE', 'ben25')
+
+# Error handlers
+handler500 = 'alhassan.error_handlers.handler500'
+handler404 = 'alhassan.error_handlers.handler404'
+
+# Debug mode
+DEBUG = False
+ALLOWED_HOSTS = ['*']

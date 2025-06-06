@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.http import HttpResponse
-from . import setup_views
+from . import setup_views, emergency_views
 
 def home_view(request):
     """Home page with navigation"""
@@ -54,8 +54,8 @@ def home_view(request):
             </div>
 
             <div style="margin: 20px 0;">
-                <a href="/setup/" class="btn" style="background: #e74c3c;">🔧 إعداد النظام</a>
-                <a href="/status/" class="btn" style="background: #95a5a6;">📊 حالة النظام</a>
+                <a href="/emergency/" class="btn" style="background: #e74c3c;">🚨 النظام الطارئ</a>
+                <a href="/emergency/student/" class="btn" style="background: #f39c12;">🎓 دخول طلاب طارئ</a>
             </div>
 
             <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 30px;">
@@ -79,6 +79,11 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('setup/', setup_views.setup_system, name='setup_system'),
     path('status/', setup_views.check_system_status, name='system_status'),
+    # النظام الطارئ - يعمل بدون قاعدة بيانات
+    path('emergency/', emergency_views.emergency_setup, name='emergency_setup'),
+    path('emergency/student/', emergency_views.emergency_student_login, name='emergency_student'),
+    path('emergency/competition/', emergency_views.emergency_competition, name='emergency_competition'),
+    path('emergency/check/', emergency_views.emergency_check_answer, name='emergency_check'),
 ]
 
 # Serve media files during development
