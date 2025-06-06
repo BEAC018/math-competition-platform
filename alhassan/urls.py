@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.http import HttpResponse
+from . import setup_views
 
 def home_view(request):
     """Home page with navigation"""
@@ -53,7 +54,8 @@ def home_view(request):
             </div>
 
             <div style="margin: 20px 0;">
-                <a href="/accounts/create-admin/" class="btn" style="background: #f39c12;">🔑 إنشاء حساب المدير</a>
+                <a href="/setup/" class="btn" style="background: #e74c3c;">🔧 إعداد النظام</a>
+                <a href="/status/" class="btn" style="background: #95a5a6;">📊 حالة النظام</a>
             </div>
 
             <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 30px;">
@@ -75,6 +77,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('student/', include('competitions.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('setup/', setup_views.setup_system, name='setup_system'),
+    path('status/', setup_views.check_system_status, name='system_status'),
 ]
 
 # Serve media files during development
