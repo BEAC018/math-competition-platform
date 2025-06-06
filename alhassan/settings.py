@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Note: Django apps (accounts, competitions, dashboard) need to be created
-    # 'accounts',
-    # 'competitions',
-    # 'dashboard',
+    # Math Competition Platform Apps
+    'accounts.apps.AccountsConfig',
+    'competitions.apps.CompetitionsConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
