@@ -1,0 +1,2155 @@
+INFO 2025-05-29 20:31:08,699 autoreload 4248 5504 Watching for file changes with StatReloader
+INFO 2025-05-29 20:47:51,553 autoreload 6684 7468 Watching for file changes with StatReloader
+WARNING 2025-05-29 20:47:52,191 log 6684 15220 Not Found: /favicon.ico
+WARNING 2025-05-29 20:47:52,194 basehttp 6684 15220 "GET /favicon.ico HTTP/1.1" 404 1126
+INFO 2025-05-29 20:47:57,557 basehttp 6684 15220 "GET / HTTP/1.1" 200 10949
+INFO 2025-05-29 20:47:57,659 basehttp 6684 15220 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-05-29 20:48:11,577 basehttp 6684 14320 "GET /competitions/history/ HTTP/1.1" 200 24974
+INFO 2025-05-29 20:48:22,119 basehttp 6684 1088 "GET /competitions/analytics/ HTTP/1.1" 200 13798
+INFO 2025-05-29 20:48:59,648 autoreload 3996 11016 Watching for file changes with StatReloader
+ERROR 2025-05-29 20:49:12,135 log 6684 15928 Internal Server Error: /competitions/export-excel/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 1550, in export_results_excel
+    for participant in participants:
+                       ^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'average_score' of 'Participant' object has no setter
+ERROR 2025-05-29 20:49:12,155 basehttp 6684 15928 "GET /competitions/export-excel/ HTTP/1.1" 500 14669
+INFO 2025-05-29 20:56:53,703 basehttp 6684 16324 "GET / HTTP/1.1" 200 56753
+INFO 2025-05-29 20:57:29,505 basehttp 6684 14104 "GET / HTTP/1.1" 200 10599
+INFO 2025-05-29 20:57:31,751 basehttp 6684 14104 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+WARNING 2025-05-29 20:57:36,240 log 6684 14104 Not Found: /favicon.ico
+WARNING 2025-05-29 20:57:36,242 basehttp 6684 14104 "GET /favicon.ico HTTP/1.1" 404 1221
+INFO 2025-05-29 20:58:10,291 basehttp 6684 16884 "GET / HTTP/1.1" 200 10675
+WARNING 2025-05-29 20:58:10,561 log 6684 3428 Not Found: /favicon.ico
+WARNING 2025-05-29 20:58:10,563 basehttp 6684 3428 "GET /favicon.ico HTTP/1.1" 404 1178
+INFO 2025-05-29 20:58:10,860 basehttp 6684 16884 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+WARNING 2025-05-29 20:58:12,830 log 6684 16884 Not Found: /favicon.ico
+WARNING 2025-05-29 20:58:12,832 basehttp 6684 16884 "GET /favicon.ico HTTP/1.1" 404 1161
+INFO 2025-05-29 20:58:28,812 basehttp 6684 16884 "GET /accounts/login/ HTTP/1.1" 200 8009
+WARNING 2025-05-29 20:58:30,018 log 6684 16884 Not Found: /favicon.ico
+WARNING 2025-05-29 20:58:30,019 basehttp 6684 16884 "GET /favicon.ico HTTP/1.1" 404 1219
+INFO 2025-05-29 21:00:16,037 basehttp 6684 11828 "GET / HTTP/1.1" 200 10663
+INFO 2025-05-29 21:00:16,492 basehttp 6684 17232 "GET /about/ HTTP/1.1" 200 9077
+INFO 2025-05-29 21:00:36,055 basehttp 6684 13408 "GET /accounts/register/ HTTP/1.1" 200 8802
+INFO 2025-05-29 21:08:17,098 autoreload 6684 7468 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:08:18,277 autoreload 13032 16396 Watching for file changes with StatReloader
+INFO 2025-05-29 21:08:39,473 autoreload 13032 16396 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:08:40,215 autoreload 3592 12596 Watching for file changes with StatReloader
+INFO 2025-05-29 21:08:59,334 autoreload 3592 12596 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:09:00,400 autoreload 12592 16988 Watching for file changes with StatReloader
+INFO 2025-05-29 21:09:18,607 autoreload 12592 16988 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:09:19,409 autoreload 3776 7408 Watching for file changes with StatReloader
+INFO 2025-05-29 21:10:09,218 autoreload 3776 7408 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:10:10,008 autoreload 16416 16776 Watching for file changes with StatReloader
+INFO 2025-05-29 21:10:36,452 autoreload 16416 16776 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:10:37,273 autoreload 1896 16488 Watching for file changes with StatReloader
+INFO 2025-05-29 21:11:14,806 autoreload 1896 16488 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 21:11:16,270 autoreload 8284 9792 Watching for file changes with StatReloader
+INFO 2025-05-29 21:15:42,274 basehttp 8284 16976 "GET /competitions/analytics/ HTTP/1.1" 200 13806
+INFO 2025-05-29 21:15:42,356 basehttp 8284 16976 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+ERROR 2025-05-29 21:16:14,452 log 8284 16976 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1674: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 21:16:14,496 basehttp 8284 16976 "GET /competitions/start/ HTTP/1.1" 500 22931
+INFO 2025-05-29 21:16:43,052 basehttp 8284 16976 "GET / HTTP/1.1" 200 11010
+INFO 2025-05-29 21:16:45,212 basehttp 8284 7924 "GET /competitions/analytics/ HTTP/1.1" 200 13784
+ERROR 2025-05-29 21:18:41,007 log 8284 7924 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1675: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 21:18:41,027 basehttp 8284 7924 "GET /competitions/start/ HTTP/1.1" 500 22498
+INFO 2025-05-29 21:21:13,217 basehttp 8284 6312 "GET / HTTP/1.1" 200 11012
+INFO 2025-05-29 21:21:16,684 basehttp 8284 6312 "GET /competitions/analytics/ HTTP/1.1" 200 13816
+INFO 2025-05-29 21:22:18,003 basehttp 8284 6312 "GET /competitions/export-excel/ HTTP/1.1" 200 4584
+INFO 2025-05-29 21:24:09,389 basehttp 8284 4012 "GET /about/ HTTP/1.1" 200 9317
+INFO 2025-05-29 21:24:09,411 basehttp 8284 4012 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+ERROR 2025-05-29 21:24:11,052 log 8284 4012 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1675: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 21:24:11,058 basehttp 8284 4012 "GET /competitions/start/ HTTP/1.1" 500 22497
+INFO 2025-05-29 21:25:09,740 basehttp 8284 10328 "GET / HTTP/1.1" 200 10987
+INFO 2025-05-29 21:25:16,951 basehttp 8284 10328 "POST /dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-29 21:25:16,972 basehttp 8284 10328 "GET /accounts/login/?next=/dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-29 21:25:16,995 basehttp 8284 10328 "GET /competitions/ HTTP/1.1" 200 10981
+INFO 2025-05-29 21:25:44,988 basehttp 8284 10328 "GET /competitions/history/ HTTP/1.1" 200 24933
+ERROR 2025-05-29 21:26:12,397 log 8284 10328 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1678: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 21:26:12,407 basehttp 8284 10328 "GET /competitions/start/ HTTP/1.1" 500 21887
+INFO 2025-05-29 21:56:03,501 autoreload 13172 14644 Watching for file changes with StatReloader
+INFO 2025-05-29 21:57:10,598 autoreload 5440 11820 Watching for file changes with StatReloader
+INFO 2025-05-29 21:58:17,096 autoreload 9180 12484 Watching for file changes with StatReloader
+INFO 2025-05-29 21:58:41,920 basehttp 9180 9552 "GET / HTTP/1.1" 200 10945
+INFO 2025-05-29 21:58:42,053 basehttp 9180 9552 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-05-29 21:58:46,998 basehttp 9180 388 "GET /competitions/analytics/ HTTP/1.1" 200 14456
+WARNING 2025-05-29 21:58:47,893 log 9180 388 Not Found: /favicon.ico
+WARNING 2025-05-29 21:58:47,894 basehttp 9180 388 "GET /favicon.ico HTTP/1.1" 404 1165
+INFO 2025-05-29 21:59:00,309 basehttp 9180 3156 "GET /competitions/export-grade-analytics/ HTTP/1.1" 200 5486
+INFO 2025-05-29 21:59:24,291 basehttp 9180 17112 "GET /competitions/export-operations-analytics/ HTTP/1.1" 200 6639
+INFO 2025-05-29 22:00:25,530 basehttp 9180 4640 "GET /competitions/history/ HTTP/1.1" 200 24910
+INFO 2025-05-29 22:00:34,782 basehttp 9180 4640 "GET /competitions/analytics/ HTTP/1.1" 200 14419
+ERROR 2025-05-29 22:00:38,167 log 9180 4640 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1678: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 22:00:38,177 basehttp 9180 4640 "GET /competitions/start/ HTTP/1.1" 500 22259
+INFO 2025-05-29 22:01:03,399 autoreload 9180 12484 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:01:04,295 autoreload 7036 17068 Watching for file changes with StatReloader
+INFO 2025-05-29 22:01:11,170 basehttp 7036 15476 "GET /about/ HTTP/1.1" 200 9311
+ERROR 2025-05-29 22:01:16,372 log 7036 15476 Internal Server Error: /competitions/start/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 111, in start_competition
+    return render(request, 'competitions/start.html', {
+        'participants': participants,
+    ...<3 lines>...
+        'current_grade': grade_filter
+    })
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1678: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-05-29 22:01:16,382 basehttp 7036 15476 "GET /competitions/start/ HTTP/1.1" 500 22217
+INFO 2025-05-29 22:01:20,184 autoreload 7036 17068 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:01:20,853 autoreload 15376 4456 Watching for file changes with StatReloader
+INFO 2025-05-29 22:01:35,625 autoreload 15376 4456 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:01:36,392 autoreload 13708 2360 Watching for file changes with StatReloader
+INFO 2025-05-29 22:01:52,123 autoreload 13708 2360 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:01:53,214 autoreload 9916 11472 Watching for file changes with StatReloader
+INFO 2025-05-29 22:03:11,825 autoreload 3572 8296 Watching for file changes with StatReloader
+ERROR 2025-05-29 22:04:35,174 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,247 log 1740 13536 Bad Request: /competitions/export-grade-analytics/
+ERROR 2025-05-29 22:04:35,248 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,266 log 1740 13536 Bad Request: /competitions/export-operations-analytics/
+ERROR 2025-05-29 22:04:35,267 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,287 log 1740 13536 Bad Request: /competitions/export-general-analytics/
+ERROR 2025-05-29 22:04:35,288 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,309 log 1740 13536 Bad Request: /competitions/api/chart-data/grade_stats/
+ERROR 2025-05-29 22:04:35,310 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,330 log 1740 13536 Bad Request: /competitions/api/chart-data/operations_stats/
+ERROR 2025-05-29 22:04:35,331 exception 1740 13536 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-05-29 22:04:35,351 log 1740 13536 Bad Request: /competitions/api/chart-data/time_trends/
+INFO 2025-05-29 22:05:06,846 autoreload 3572 8296 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-29 22:05:07,597 autoreload 14636 16676 Watching for file changes with StatReloader
+INFO 2025-05-29 22:05:11,257 basehttp 14636 13140 "GET /competitions/analytics/ HTTP/1.1" 200 14376
+ERROR 2025-05-29 22:05:27,648 log 5020 15780 Internal Server Error: /competitions/api/chart-data/time_trends/
+INFO 2025-05-29 22:05:51,370 autoreload 14636 16676 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:05:52,139 autoreload 6024 8096 Watching for file changes with StatReloader
+INFO 2025-05-29 22:06:05,158 basehttp 6024 10780 "GET /competitions/analytics/ HTTP/1.1" 200 14396
+INFO 2025-05-29 22:06:06,124 basehttp 6024 10780 "GET /competitions/history/ HTTP/1.1" 200 24937
+ERROR 2025-05-29 22:06:31,434 log 6024 10780 Internal Server Error: /competitions/export-history-excel/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: Expression tree is too large (maximum depth 1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 452, in export_history_excel
+    for comp in competitions:
+                ^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1947, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1326, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2393, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2594, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: Expression tree is too large (maximum depth 1000)
+ERROR 2025-05-29 22:06:31,450 basehttp 6024 10780 "GET /competitions/export-history-excel/ HTTP/1.1" 500 25597
+INFO 2025-05-29 22:06:54,921 autoreload 3156 10928 Watching for file changes with StatReloader
+INFO 2025-05-29 22:06:55,406 basehttp 3156 13180 "GET / HTTP/1.1" 200 11008
+INFO 2025-05-29 22:08:47,590 basehttp 3156 13844 "GET /competitions/analytics/ HTTP/1.1" 200 14455
+INFO 2025-05-29 22:08:47,615 basehttp 3156 13844 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 22:09:21,730 basehttp 3156 8848 "GET /competitions/export-excel/ HTTP/1.1" 200 4577
+INFO 2025-05-29 22:11:10,369 basehttp 3156 7212 "GET /competitions/start/ HTTP/1.1" 200 25307
+INFO 2025-05-29 22:11:10,417 basehttp 3156 7212 "GET /static/js/notifications.js HTTP/1.1" 200 7299
+INFO 2025-05-29 22:11:13,905 basehttp 3156 7212 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1273
+INFO 2025-05-29 22:13:49,459 autoreload 3156 10928 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:13:50,279 autoreload 10592 15396 Watching for file changes with StatReloader
+INFO 2025-05-29 22:14:07,423 basehttp 10592 8536 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1267
+INFO 2025-05-29 22:14:10,132 autoreload 10592 15396 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\urls.py changed, reloading.
+INFO 2025-05-29 22:14:10,795 autoreload 7264 7268 Watching for file changes with StatReloader
+WARNING 2025-05-29 22:16:53,459 log 7264 12464 Not Found: /competitions/advanced-analytics/
+WARNING 2025-05-29 22:16:53,459 basehttp 7264 12464 "GET /competitions/advanced-analytics/ HTTP/1.1" 404 1611
+INFO 2025-05-29 22:17:43,084 basehttp 7264 12516 "GET / HTTP/1.1" 200 10945
+INFO 2025-05-29 22:17:46,796 basehttp 7264 10620 "GET /competitions/analytics/ HTTP/1.1" 200 14460
+INFO 2025-05-29 22:17:53,991 basehttp 7264 10620 "GET /competitions/export-excel/ HTTP/1.1" 200 4572
+INFO 2025-05-29 22:18:49,306 basehttp 7264 12144 "GET /competitions/history/ HTTP/1.1" 200 24990
+INFO 2025-05-29 22:18:58,143 basehttp 7264 6264 "GET /competitions/history/ HTTP/1.1" 200 24902
+INFO 2025-05-29 22:19:02,814 basehttp 7264 6264 "GET /competitions/export-history-pdf/ HTTP/1.1" 200 1906
+INFO 2025-05-29 22:19:21,227 basehttp 7264 8100 "GET /competitions/history/ HTTP/1.1" 200 24994
+ERROR 2025-05-29 22:19:26,785 log 7264 16708 Internal Server Error: /competitions/export-history-excel/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: Expression tree is too large (maximum depth 1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 452, in export_history_excel
+    for comp in competitions:
+                ^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1947, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1326, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2393, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2594, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: Expression tree is too large (maximum depth 1000)
+ERROR 2025-05-29 22:19:26,794 basehttp 7264 16708 "GET /competitions/export-history-excel/ HTTP/1.1" 500 25668
+INFO 2025-05-29 22:21:14,225 basehttp 7264 4924 "GET /competitions/start/ HTTP/1.1" 200 25515
+INFO 2025-05-29 22:21:14,309 basehttp 7264 4924 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 22:21:15,793 basehttp 7264 4924 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1265
+INFO 2025-05-29 22:21:25,987 basehttp 7264 8052 "GET /competitions/get-participants-by-grade/?grade=5 HTTP/1.1" 200 772
+INFO 2025-05-29 22:28:11,776 basehttp 7264 7532 "GET /competitions/start/ HTTP/1.1" 200 25528
+INFO 2025-05-29 22:28:11,812 basehttp 7264 7532 "GET /static/js/notifications.js HTTP/1.1" 304 0
+INFO 2025-05-29 22:28:11,893 basehttp 7264 7532 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1205
+INFO 2025-05-29 22:28:21,256 basehttp 7264 7532 "GET /competitions/analytics/ HTTP/1.1" 200 14454
+INFO 2025-05-29 22:28:24,945 basehttp 7264 7532 "GET /competitions/export-excel/ HTTP/1.1" 200 4574
+INFO 2025-05-29 22:28:33,205 basehttp 7264 7532 "GET /competitions/history/ HTTP/1.1" 200 24916
+ERROR 2025-05-29 22:28:37,350 log 7264 7532 Internal Server Error: /competitions/export-history-excel/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: Expression tree is too large (maximum depth 1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 452, in export_history_excel
+    for comp in competitions:
+                ^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1947, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1326, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2393, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2594, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: Expression tree is too large (maximum depth 1000)
+ERROR 2025-05-29 22:28:37,357 basehttp 7264 7532 "GET /competitions/export-history-excel/ HTTP/1.1" 500 25676
+INFO 2025-05-29 22:29:40,833 autoreload 7264 7268 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:29:41,724 autoreload 7208 6716 Watching for file changes with StatReloader
+INFO 2025-05-29 22:30:04,417 autoreload 7208 6716 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:30:05,142 autoreload 372 12404 Watching for file changes with StatReloader
+INFO 2025-05-29 22:30:22,886 autoreload 372 12404 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:30:23,628 autoreload 16744 3348 Watching for file changes with StatReloader
+INFO 2025-05-29 22:31:13,166 basehttp 16744 8052 "GET /competitions/export-history-excel/ HTTP/1.1" 200 11144
+INFO 2025-05-29 22:33:42,143 basehttp 16744 10908 "GET /competitions/export-history-excel/ HTTP/1.1" 200 11161
+INFO 2025-05-29 22:33:51,131 basehttp 16744 10908 "GET /competitions/export-history-excel/ HTTP/1.1" 200 11139
+INFO 2025-05-29 22:33:58,616 basehttp 16744 10908 "GET /competitions/export-history-pdf/ HTTP/1.1" 200 1903
+INFO 2025-05-29 22:36:37,783 autoreload 16744 3348 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:36:38,852 autoreload 16216 1052 Watching for file changes with StatReloader
+INFO 2025-05-29 22:36:59,510 autoreload 16216 1052 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:37:00,285 autoreload 13100 7196 Watching for file changes with StatReloader
+INFO 2025-05-29 22:37:41,676 autoreload 13100 7196 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:37:42,402 autoreload 16404 12640 Watching for file changes with StatReloader
+INFO 2025-05-29 22:38:06,331 autoreload 16404 12640 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:38:07,073 autoreload 8600 17008 Watching for file changes with StatReloader
+INFO 2025-05-29 22:38:11,975 basehttp 8600 9148 "GET /competitions/start/ HTTP/1.1" 200 25512
+INFO 2025-05-29 22:38:12,007 basehttp 8600 9148 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 22:38:12,191 basehttp 8600 9148 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1275
+INFO 2025-05-29 22:38:25,253 autoreload 8600 17008 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:38:26,037 autoreload 4636 12024 Watching for file changes with StatReloader
+INFO 2025-05-29 22:39:19,285 basehttp 4636 7460 "GET /competitions/export-history-pdf/ HTTP/1.1" 200 43227
+INFO 2025-05-29 22:39:40,188 autoreload 4636 12024 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:39:40,936 autoreload 2572 10292 Watching for file changes with StatReloader
+INFO 2025-05-29 22:40:31,010 autoreload 2572 10292 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:40:31,720 autoreload 14640 7572 Watching for file changes with StatReloader
+INFO 2025-05-29 22:40:57,616 autoreload 14640 7572 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:40:58,406 autoreload 10472 2168 Watching for file changes with StatReloader
+INFO 2025-05-29 22:41:21,169 autoreload 10472 2168 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:41:21,980 autoreload 11704 6836 Watching for file changes with StatReloader
+INFO 2025-05-29 22:41:44,887 autoreload 11704 6836 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 22:41:45,657 autoreload 7676 6704 Watching for file changes with StatReloader
+INFO 2025-05-29 22:42:54,220 basehttp 7676 9180 "GET /competitions/export-analytics-pdf/ HTTP/1.1" 200 1547
+INFO 2025-05-29 22:45:36,864 autoreload 15268 14236 Watching for file changes with StatReloader
+INFO 2025-05-29 22:46:33,623 basehttp 15268 2772 "GET / HTTP/1.1" 200 10972
+INFO 2025-05-29 22:47:11,415 basehttp 15268 2140 "GET /competitions/start/ HTTP/1.1" 200 25493
+INFO 2025-05-29 22:47:11,549 basehttp 15268 2140 "GET /static/js/notifications.js HTTP/1.1" 304 0
+INFO 2025-05-29 22:47:11,582 basehttp 15268 2140 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1240
+INFO 2025-05-29 22:47:20,632 basehttp 15268 15108 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1012
+INFO 2025-05-29 22:47:29,929 basehttp 15268 7908 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1272
+INFO 2025-05-29 22:47:32,825 basehttp 15268 7908 "GET /competitions/get-participants-by-grade/?grade=5 HTTP/1.1" 200 843
+INFO 2025-05-29 22:52:56,621 basehttp 15268 17012 "GET /competitions/start/ HTTP/1.1" 200 27161
+INFO 2025-05-29 22:52:56,671 basehttp 15268 17012 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 22:52:57,127 basehttp 15268 17012 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1252
+INFO 2025-05-29 22:53:33,326 basehttp 15268 7420 "GET / HTTP/1.1" 200 10981
+INFO 2025-05-29 22:53:41,070 basehttp 15268 12012 "GET /competitions/start/ HTTP/1.1" 200 27231
+INFO 2025-05-29 22:53:41,151 basehttp 15268 12012 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1279
+INFO 2025-05-29 22:53:51,662 basehttp 15268 8040 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 976
+INFO 2025-05-29 22:54:24,227 basehttp 15268 15668 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-05-29 22:54:24,288 basehttp 15268 15668 "GET /competitions/question/1/ HTTP/1.1" 200 9901
+INFO 2025-05-29 22:54:27,182 basehttp 15268 15668 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:54:29,068 basehttp 15268 2600 "GET /competitions/question/2/ HTTP/1.1" 200 9960
+INFO 2025-05-29 22:54:29,463 basehttp 15268 2600 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:54:31,023 basehttp 15268 2600 "GET /competitions/question/3/ HTTP/1.1" 200 9923
+INFO 2025-05-29 22:54:31,382 basehttp 15268 2600 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:54:32,961 basehttp 15268 2600 "GET /competitions/question/4/ HTTP/1.1" 200 9998
+INFO 2025-05-29 22:54:33,504 basehttp 15268 2600 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:54:35,075 basehttp 15268 2600 "GET /competitions/question/5/ HTTP/1.1" 200 9986
+INFO 2025-05-29 22:54:50,483 basehttp 15268 6168 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 155
+INFO 2025-05-29 22:54:52,066 basehttp 15268 6168 "GET /competitions/question/6/ HTTP/1.1" 200 9956
+INFO 2025-05-29 22:55:07,201 basehttp 15268 6168 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:55:08,785 basehttp 15268 6168 "GET /competitions/question/7/ HTTP/1.1" 200 9910
+INFO 2025-05-29 22:55:23,905 basehttp 15268 6168 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 155
+INFO 2025-05-29 22:55:25,462 basehttp 15268 6168 "GET /competitions/question/8/ HTTP/1.1" 200 9980
+INFO 2025-05-29 22:55:40,572 basehttp 15268 6168 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 155
+INFO 2025-05-29 22:55:42,117 basehttp 15268 6168 "GET /competitions/question/9/ HTTP/1.1" 200 9922
+INFO 2025-05-29 22:55:57,249 basehttp 15268 6168 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-05-29 22:55:58,804 basehttp 15268 6168 "GET /competitions/question/10/ HTTP/1.1" 200 9985
+INFO 2025-05-29 22:56:13,902 basehttp 15268 6168 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 157
+INFO 2025-05-29 22:56:15,483 basehttp 15268 6168 "GET /competitions/question/11/ HTTP/1.1" 200 9959
+INFO 2025-05-29 22:56:30,563 basehttp 15268 6168 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 157
+INFO 2025-05-29 22:56:32,147 basehttp 15268 6168 "GET /competitions/question/12/ HTTP/1.1" 200 9919
+INFO 2025-05-29 22:56:47,284 basehttp 15268 6168 "POST /competitions/submit-answer/12/ HTTP/1.1" 200 157
+INFO 2025-05-29 22:56:48,861 basehttp 15268 6168 "GET /competitions/question/13/ HTTP/1.1" 200 9912
+INFO 2025-05-29 22:56:49,361 autoreload 15268 14236 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\question_generators.py changed, reloading.
+INFO 2025-05-29 22:56:50,298 autoreload 7200 8412 Watching for file changes with StatReloader
+INFO 2025-05-29 22:57:04,311 basehttp 7200 2052 "POST /competitions/submit-answer/13/ HTTP/1.1" 200 157
+INFO 2025-05-29 22:57:05,952 basehttp 7200 2052 "GET /competitions/question/14/ HTTP/1.1" 200 9953
+INFO 2025-05-29 22:57:21,058 basehttp 7200 2052 "POST /competitions/submit-answer/14/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:57:22,607 basehttp 7200 2052 "GET /competitions/question/15/ HTTP/1.1" 200 9912
+INFO 2025-05-29 22:57:38,050 basehttp 7200 11464 "POST /competitions/submit-answer/15/ HTTP/1.1" 200 137
+INFO 2025-05-29 22:57:39,673 basehttp 7200 11464 "GET /competitions/results/369/ HTTP/1.1" 200 10454
+INFO 2025-05-29 22:58:42,453 basehttp 7200 16568 "GET /competitions/start/ HTTP/1.1" 200 27260
+INFO 2025-05-29 22:58:42,843 basehttp 7200 16568 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1225
+INFO 2025-05-29 22:58:57,170 basehttp 7200 17248 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 984
+INFO 2025-05-29 22:59:03,273 basehttp 7200 17248 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-05-29 22:59:03,315 basehttp 7200 17248 "GET /competitions/question/1/ HTTP/1.1" 200 9962
+INFO 2025-05-29 22:59:19,109 basehttp 7200 15580 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:59:20,801 basehttp 7200 15580 "GET /competitions/question/2/ HTTP/1.1" 200 9910
+INFO 2025-05-29 22:59:37,124 basehttp 7200 13648 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:59:38,818 basehttp 7200 13648 "GET /competitions/question/3/ HTTP/1.1" 200 9942
+INFO 2025-05-29 22:59:43,386 autoreload 7200 8412 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\question_generators.py changed, reloading.
+INFO 2025-05-29 22:59:44,098 autoreload 13892 16764 Watching for file changes with StatReloader
+INFO 2025-05-29 22:59:55,165 basehttp 13892 8152 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-29 22:59:56,927 basehttp 13892 8152 "GET /competitions/question/4/ HTTP/1.1" 200 9963
+INFO 2025-05-29 23:00:12,823 basehttp 13892 8152 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:00:14,820 basehttp 13892 8152 "GET /competitions/question/5/ HTTP/1.1" 200 9989
+INFO 2025-05-29 23:00:31,131 basehttp 13892 516 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:00:32,842 basehttp 13892 516 "GET /competitions/question/6/ HTTP/1.1" 200 9995
+INFO 2025-05-29 23:00:48,823 basehttp 13892 516 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:00:50,837 basehttp 13892 516 "GET /competitions/question/7/ HTTP/1.1" 200 9916
+INFO 2025-05-29 23:01:07,112 basehttp 13892 4292 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:01:09,164 basehttp 13892 7176 "GET /competitions/question/8/ HTTP/1.1" 200 9978
+INFO 2025-05-29 23:01:24,791 basehttp 13892 7176 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:01:26,835 basehttp 13892 7176 "GET /competitions/question/9/ HTTP/1.1" 200 9957
+INFO 2025-05-29 23:01:42,789 basehttp 13892 7176 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:01:44,688 autoreload 13892 16764 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:01:45,546 autoreload 13564 14792 Watching for file changes with StatReloader
+INFO 2025-05-29 23:01:45,999 basehttp 13564 3572 "GET /competitions/question/10/ HTTP/1.1" 200 9935
+INFO 2025-05-29 23:02:01,817 basehttp 13564 3572 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:02:03,844 basehttp 13564 3572 "GET /competitions/question/11/ HTTP/1.1" 200 9996
+INFO 2025-05-29 23:02:09,099 autoreload 13564 14792 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:02:09,869 autoreload 5568 16872 Watching for file changes with StatReloader
+INFO 2025-05-29 23:02:19,314 basehttp 5568 10472 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:02:20,986 basehttp 5568 10472 "GET /competitions/question/12/ HTTP/1.1" 200 10000
+INFO 2025-05-29 23:02:24,667 basehttp 5568 10472 "GET /competitions/question/15/ HTTP/1.1" 200 9921
+INFO 2025-05-29 23:02:31,146 basehttp 5568 10472 "GET /competitions/question/11/ HTTP/1.1" 200 9992
+INFO 2025-05-29 23:02:35,217 basehttp 5568 16396 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:02:36,817 basehttp 5568 16396 "GET /competitions/question/12/ HTTP/1.1" 200 9968
+INFO 2025-05-29 23:02:38,687 autoreload 5568 16872 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:02:39,680 autoreload 10008 15772 Watching for file changes with StatReloader
+INFO 2025-05-29 23:02:41,658 basehttp 10008 9524 "GET /competitions/question/1/ HTTP/1.1" 200 9897
+INFO 2025-05-29 23:02:44,464 basehttp 10008 17328 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:02:46,043 basehttp 10008 17328 "GET /competitions/question/2/ HTTP/1.1" 200 9917
+INFO 2025-05-29 23:02:48,204 basehttp 10008 17328 "GET /competitions/question/1/ HTTP/1.1" 200 9973
+INFO 2025-05-29 23:02:50,967 basehttp 10008 17328 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:02:52,549 basehttp 10008 17328 "GET /competitions/question/2/ HTTP/1.1" 200 9919
+INFO 2025-05-29 23:02:59,627 autoreload 10008 15772 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:03:00,596 autoreload 3520 13224 Watching for file changes with StatReloader
+INFO 2025-05-29 23:03:08,015 basehttp 3520 16132 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:03:09,634 basehttp 3520 16132 "GET /competitions/question/3/ HTTP/1.1" 200 9965
+INFO 2025-05-29 23:03:25,054 basehttp 3520 7336 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:03:26,638 basehttp 3520 7336 "GET /competitions/question/4/ HTTP/1.1" 200 9958
+INFO 2025-05-29 23:03:31,002 autoreload 3520 13224 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:03:31,680 autoreload 7692 10608 Watching for file changes with StatReloader
+INFO 2025-05-29 23:03:42,095 basehttp 7692 3128 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:03:43,750 basehttp 7692 3128 "GET /competitions/question/5/ HTTP/1.1" 200 9971
+INFO 2025-05-29 23:03:56,272 basehttp 7692 4132 "GET / HTTP/1.1" 200 11024
+INFO 2025-05-29 23:11:09,138 basehttp 7692 3288 "GET /competitions/start/ HTTP/1.1" 200 27227
+INFO 2025-05-29 23:11:09,271 basehttp 7692 3288 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 23:11:09,289 basehttp 7692 3288 "GET /static/js/notifications.js HTTP/1.1" 304 0
+INFO 2025-05-29 23:11:09,627 basehttp 7692 3288 "GET /competitions/get-participants-by-grade/?grade=4 HTTP/1.1" 200 1221
+INFO 2025-05-29 23:11:30,965 basehttp 7692 13736 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 973
+INFO 2025-05-29 23:11:36,209 basehttp 7692 13736 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-05-29 23:11:36,252 basehttp 7692 13736 "GET /competitions/question/1/ HTTP/1.1" 200 9982
+ERROR 2025-05-29 23:11:39,533 log 7692 13736 Internal Server Error: /competitions/submit-answer/1/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 207, in submit_answer
+    response.user_answer = float(user_answer) if user_answer and user_answer.strip() else None
+                           ~~~~~^^^^^^^^^^^^^
+ValueError: could not convert string to float: '.'
+ERROR 2025-05-29 23:11:39,556 basehttp 7692 13736 "POST /competitions/submit-answer/1/ HTTP/1.1" 500 12237
+INFO 2025-05-29 23:11:41,074 basehttp 7692 13736 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:11:42,626 basehttp 7692 13736 "GET /competitions/question/2/ HTTP/1.1" 200 9988
+INFO 2025-05-29 23:11:43,317 basehttp 7692 13736 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:11:44,887 basehttp 7692 13736 "GET /competitions/question/3/ HTTP/1.1" 200 9974
+INFO 2025-05-29 23:11:45,178 basehttp 7692 13736 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:11:46,749 basehttp 7692 13736 "GET /competitions/question/4/ HTTP/1.1" 200 9941
+INFO 2025-05-29 23:11:47,506 basehttp 7692 13736 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-29 23:11:49,067 basehttp 7692 13736 "GET /competitions/question/5/ HTTP/1.1" 200 9935
+INFO 2025-05-29 23:11:54,648 basehttp 7692 13736 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:11:56,210 basehttp 7692 13736 "GET /competitions/question/6/ HTTP/1.1" 200 9919
+INFO 2025-05-29 23:11:56,561 basehttp 7692 13736 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:11:58,133 basehttp 7692 13736 "GET /competitions/question/7/ HTTP/1.1" 200 9985
+INFO 2025-05-29 23:11:58,568 basehttp 7692 13736 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:12:00,139 basehttp 7692 13736 "GET /competitions/question/8/ HTTP/1.1" 200 9915
+INFO 2025-05-29 23:12:00,500 basehttp 7692 13736 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:12:02,073 basehttp 7692 13736 "GET /competitions/question/9/ HTTP/1.1" 200 9995
+INFO 2025-05-29 23:12:03,881 basehttp 7692 13736 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:12:05,447 basehttp 7692 13736 "GET /competitions/question/10/ HTTP/1.1" 200 9960
+INFO 2025-05-29 23:12:05,952 basehttp 7692 13736 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:12:07,511 basehttp 7692 13736 "GET /competitions/question/11/ HTTP/1.1" 200 10001
+INFO 2025-05-29 23:12:07,953 basehttp 7692 13736 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:12:09,525 basehttp 7692 13736 "GET /competitions/question/12/ HTTP/1.1" 200 9916
+INFO 2025-05-29 23:12:10,150 basehttp 7692 13736 "POST /competitions/submit-answer/12/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:12:11,724 basehttp 7692 13736 "GET /competitions/question/13/ HTTP/1.1" 200 9982
+INFO 2025-05-29 23:12:12,193 basehttp 7692 13736 "POST /competitions/submit-answer/13/ HTTP/1.1" 200 157
+INFO 2025-05-29 23:12:13,749 basehttp 7692 13736 "GET /competitions/question/14/ HTTP/1.1" 200 9933
+INFO 2025-05-29 23:12:15,685 basehttp 7692 13736 "POST /competitions/submit-answer/14/ HTTP/1.1" 200 155
+INFO 2025-05-29 23:12:17,246 basehttp 7692 13736 "GET /competitions/question/15/ HTTP/1.1" 200 9984
+INFO 2025-05-29 23:12:19,898 basehttp 7692 13736 "POST /competitions/submit-answer/15/ HTTP/1.1" 200 136
+INFO 2025-05-29 23:12:21,506 basehttp 7692 13736 "GET /competitions/results/371/ HTTP/1.1" 200 10521
+INFO 2025-05-29 23:14:33,250 basehttp 7692 12036 "GET /competitions/analytics/ HTTP/1.1" 200 14429
+INFO 2025-05-29 23:14:44,987 basehttp 7692 4288 "GET /competitions/export-operations-analytics/ HTTP/1.1" 200 6630
+INFO 2025-05-29 23:15:03,630 basehttp 7692 2740 "GET /competitions/export-analytics-excel/ HTTP/1.1" 200 8409
+INFO 2025-05-29 23:16:05,559 basehttp 7692 2960 "GET /competitions/history/ HTTP/1.1" 200 25220
+INFO 2025-05-29 23:16:15,629 basehttp 7692 7268 "GET /competitions/history/?participant=&grade=5&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=azon2henHY9oQ8pu3h763N5Pou6OkrTGpcuObyUe245i7jDO4RhrUs5oNgBosXqV HTTP/1.1" 200 13888
+INFO 2025-05-29 23:16:40,568 basehttp 7692 8028 "GET /accounts/profile/ HTTP/1.1" 200 8427
+INFO 2025-05-29 23:16:40,682 basehttp 7692 8028 "GET /media/profile_images/logo_noor2.jpg HTTP/1.1" 200 138036
+INFO 2025-05-29 23:16:46,183 basehttp 7692 14216 "GET /competitions/analytics/ HTTP/1.1" 200 14507
+INFO 2025-05-29 23:17:49,182 autoreload 7692 10608 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:17:50,227 autoreload 10816 9428 Watching for file changes with StatReloader
+INFO 2025-05-29 23:18:28,923 autoreload 10816 9428 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:18:29,696 autoreload 16372 12840 Watching for file changes with StatReloader
+INFO 2025-05-29 23:19:03,974 autoreload 16372 12840 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:19:04,763 autoreload 5828 17384 Watching for file changes with StatReloader
+INFO 2025-05-29 23:19:42,005 autoreload 5828 17384 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:19:42,750 autoreload 14668 3572 Watching for file changes with StatReloader
+INFO 2025-05-29 23:20:04,356 autoreload 14668 3572 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:20:05,123 autoreload 6372 8336 Watching for file changes with StatReloader
+INFO 2025-05-29 23:21:04,388 basehttp 6372 15472 "GET /competitions/history/ HTTP/1.1" 200 25298
+INFO 2025-05-29 23:21:15,739 basehttp 6372 3756 "GET /competitions/history/?participant=&grade=&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=wxfJpD264g3PkVAaciKYoWESkSZkbSLTLalayUIXpmZJB6OudSUjfBErJEuUjoi8 HTTP/1.1" 200 24615
+INFO 2025-05-29 23:21:16,810 autoreload 6372 8336 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-29 23:21:17,535 autoreload 9744 2332 Watching for file changes with StatReloader
+INFO 2025-05-29 23:22:45,694 autoreload 9744 2332 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\models.py changed, reloading.
+INFO 2025-05-29 23:22:46,610 autoreload 16392 1520 Watching for file changes with StatReloader
+INFO 2025-05-29 23:26:00,844 autoreload 16816 7576 Watching for file changes with StatReloader
+INFO 2025-05-29 23:26:37,350 basehttp 16816 5008 "GET / HTTP/1.1" 200 2391
+INFO 2025-05-29 23:26:51,453 basehttp 16816 5008 "GET /student/login/ HTTP/1.1" 200 2384
+INFO 2025-05-29 23:26:58,541 basehttp 16816 5008 "GET / HTTP/1.1" 200 2457
+INFO 2025-05-29 23:27:04,517 basehttp 16816 5008 "GET /student/login/ HTTP/1.1" 200 2413
+INFO 2025-05-29 23:27:05,376 autoreload 16816 7576 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:27:06,259 autoreload 17284 268 Watching for file changes with StatReloader
+ERROR 2025-05-29 23:27:09,171 log 17284 7844 Internal Server Error: /student/login/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 2888, in student_login
+    return redirect('student_setup')
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'student_setup' not found. 'student_setup' is not a valid view function or pattern name.
+ERROR 2025-05-29 23:27:09,179 basehttp 17284 7844 "POST /student/login/ HTTP/1.1" 500 12882
+INFO 2025-05-29 23:27:19,808 basehttp 17284 7844 "GET /student/login/ HTTP/1.1" 200 2454
+INFO 2025-05-29 23:27:55,476 autoreload 17284 268 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\urls.py changed, reloading.
+INFO 2025-05-29 23:27:56,279 autoreload 10404 16676 Watching for file changes with StatReloader
+INFO 2025-05-29 23:28:25,123 basehttp 10404 14460 - Broken pipe from ('127.0.0.1', 57722)
+INFO 2025-05-29 23:28:25,336 basehttp 10404 15740 "GET /competitions/analytics/ HTTP/1.1" 200 14490
+INFO 2025-05-29 23:28:25,409 basehttp 10404 15740 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-29 23:29:15,800 basehttp 10404 17248 "GET /competitions/export-participants-results/ HTTP/1.1" 200 11764
+INFO 2025-05-29 23:33:15,869 basehttp 10404 2172 "GET /student/login/ HTTP/1.1" 200 2409
+INFO 2025-05-29 23:33:57,122 basehttp 10404 14904 "GET /student/login/ HTTP/1.1" 200 2375
+INFO 2025-05-29 23:34:04,695 basehttp 10404 14904 "POST /student/login/ HTTP/1.1" 200 2421
+ERROR 2025-05-29 23:34:13,199 log 10404 14904 Internal Server Error: /student/login/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 2888, in student_login
+    return redirect('student_setup')
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'student_setup' not found. 'student_setup' is not a valid view function or pattern name.
+ERROR 2025-05-29 23:34:13,215 basehttp 10404 14904 "POST /student/login/ HTTP/1.1" 500 12881
+INFO 2025-05-29 23:34:50,743 autoreload 10404 16676 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:34:52,083 autoreload 6548 372 Watching for file changes with StatReloader
+INFO 2025-05-29 23:35:17,892 autoreload 6548 372 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:35:18,749 autoreload 14976 15312 Watching for file changes with StatReloader
+INFO 2025-05-29 23:35:36,221 autoreload 14976 15312 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:35:36,993 autoreload 9516 8580 Watching for file changes with StatReloader
+INFO 2025-05-29 23:37:05,155 autoreload 9516 8580 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:37:06,136 autoreload 10556 14752 Watching for file changes with StatReloader
+INFO 2025-05-29 23:37:27,765 autoreload 10556 14752 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:37:28,507 autoreload 7532 15428 Watching for file changes with StatReloader
+INFO 2025-05-29 23:37:45,960 autoreload 7532 15428 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-29 23:37:46,842 autoreload 14656 16340 Watching for file changes with StatReloader
+INFO 2025-05-29 23:38:07,329 autoreload 14656 16340 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-29 23:38:08,517 autoreload 8672 16676 Watching for file changes with StatReloader
+INFO 2025-05-29 23:38:44,436 autoreload 8672 16676 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-29 23:38:45,361 autoreload 14840 14784 Watching for file changes with StatReloader
+INFO 2025-05-29 23:49:18,545 autoreload 10096 5520 Watching for file changes with StatReloader
+INFO 2025-05-29 23:58:58,157 autoreload 1956 15552 Watching for file changes with StatReloader
+INFO 2025-05-30 00:08:53,189 autoreload 13216 16328 Watching for file changes with StatReloader
+INFO 2025-05-30 00:19:27,518 autoreload 17312 1952 Watching for file changes with StatReloader
+INFO 2025-05-30 00:21:01,335 autoreload 17312 1952 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-30 00:21:02,291 autoreload 15040 9056 Watching for file changes with StatReloader
+INFO 2025-05-30 00:21:22,672 autoreload 15040 9056 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-30 00:21:23,525 autoreload 8692 3552 Watching for file changes with StatReloader
+INFO 2025-05-30 00:22:36,063 autoreload 14552 13780 Watching for file changes with StatReloader
+INFO 2025-05-30 00:23:30,656 basehttp 14552 15616 "GET / HTTP/1.1" 200 2405
+WARNING 2025-05-30 00:23:30,993 log 14552 15616 Not Found: /favicon.ico
+WARNING 2025-05-30 00:23:30,994 basehttp 14552 15616 "GET /favicon.ico HTTP/1.1" 404 1158
+INFO 2025-05-30 00:23:40,131 basehttp 14552 15616 "GET /student/login/ HTTP/1.1" 200 2417
+INFO 2025-05-30 00:23:46,303 basehttp 14552 15616 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:23:46,331 basehttp 14552 15616 "GET /student/setup/ HTTP/1.1" 200 3348
+INFO 2025-05-30 00:24:42,344 basehttp 14552 15616 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:24:42,373 basehttp 14552 15616 "GET /student/competition/ HTTP/1.1" 200 3865
+INFO 2025-05-30 00:24:42,425 basehttp 14552 15616 "POST /student/api/get-question/ HTTP/1.1" 200 146
+INFO 2025-05-30 00:24:55,001 basehttp 14552 15616 "POST /student/api/submit-answer/ HTTP/1.1" 200 122
+INFO 2025-05-30 00:24:57,038 basehttp 14552 15616 "POST /student/api/get-question/ HTTP/1.1" 200 143
+INFO 2025-05-30 00:25:50,555 basehttp 14552 15616 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 00:25:52,600 basehttp 14552 15616 "POST /student/api/get-question/ HTTP/1.1" 200 154
+INFO 2025-05-30 00:25:58,163 basehttp 14552 15616 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 00:26:00,214 basehttp 14552 15616 "POST /student/api/get-question/ HTTP/1.1" 200 143
+INFO 2025-05-30 00:26:16,711 basehttp 14552 15616 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:26:16,759 basehttp 14552 15616 "GET /student/results/ HTTP/1.1" 200 3325
+INFO 2025-05-30 00:26:29,345 basehttp 14552 15616 "GET /student/setup/ HTTP/1.1" 200 3312
+INFO 2025-05-30 00:28:23,490 basehttp 14552 15616 "GET /student/login/ HTTP/1.1" 200 2446
+INFO 2025-05-30 00:28:29,584 basehttp 14552 15616 "GET / HTTP/1.1" 200 2402
+ERROR 2025-05-30 00:28:32,181 log 14552 15616 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\accounts\views.py", line 29, in login_view
+    return render(request, 'accounts/login.html')
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about' not found. 'about' is not a valid view function or pattern name.
+ERROR 2025-05-30 00:28:32,209 basehttp 14552 15616 "GET /accounts/login/ HTTP/1.1" 500 17444
+INFO 2025-05-30 00:29:42,995 autoreload 14552 13780 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:29:43,860 autoreload 12312 13092 Watching for file changes with StatReloader
+INFO 2025-05-30 00:30:11,580 autoreload 12312 13092 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\models.py changed, reloading.
+INFO 2025-05-30 00:30:12,672 autoreload 14576 1072 Watching for file changes with StatReloader
+INFO 2025-05-30 00:31:07,038 autoreload 14576 1072 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:31:07,896 autoreload 16708 13560 Watching for file changes with StatReloader
+INFO 2025-05-30 00:32:13,505 basehttp 16708 17232 "GET /student/login/ HTTP/1.1" 200 2427
+INFO 2025-05-30 00:32:24,253 basehttp 16708 17232 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:32:24,280 basehttp 16708 17232 "GET /student/setup/ HTTP/1.1" 200 3401
+INFO 2025-05-30 00:32:50,135 basehttp 16708 17232 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:32:50,165 basehttp 16708 17232 "GET /student/competition/ HTTP/1.1" 200 3880
+INFO 2025-05-30 00:32:50,229 basehttp 16708 17232 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 00:33:08,286 basehttp 16708 17232 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:33:08,323 basehttp 16708 17232 "GET /student/results/ HTTP/1.1" 200 3389
+INFO 2025-05-30 00:33:21,502 basehttp 16708 17232 "GET / HTTP/1.1" 200 2432
+ERROR 2025-05-30 00:33:24,245 log 16708 17232 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\accounts\views.py", line 29, in login_view
+    return render(request, 'accounts/login.html')
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about' not found. 'about' is not a valid view function or pattern name.
+ERROR 2025-05-30 00:33:24,268 basehttp 16708 17232 "GET /accounts/login/ HTTP/1.1" 500 17725
+INFO 2025-05-30 00:34:37,756 basehttp 16708 3144 "GET /student/setup/ HTTP/1.1" 200 3345
+INFO 2025-05-30 00:34:51,557 basehttp 16708 3144 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:34:51,594 basehttp 16708 3144 "GET /student/competition/ HTTP/1.1" 200 3841
+INFO 2025-05-30 00:34:51,662 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:35:11,392 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 122
+INFO 2025-05-30 00:35:13,434 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 145
+INFO 2025-05-30 00:35:21,854 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 122
+INFO 2025-05-30 00:35:23,892 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 00:35:38,710 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 00:35:40,768 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 145
+INFO 2025-05-30 00:35:49,282 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 123
+INFO 2025-05-30 00:35:51,337 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 00:35:53,652 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 00:35:55,695 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 153
+INFO 2025-05-30 00:35:59,583 basehttp 16708 3144 "POST /student/api/submit-answer/ HTTP/1.1" 200 122
+INFO 2025-05-30 00:36:01,628 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 145
+INFO 2025-05-30 00:36:05,858 basehttp 16708 3144 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:36:05,894 basehttp 16708 3144 "GET /student/results/ HTTP/1.1" 200 3325
+INFO 2025-05-30 00:36:09,401 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 200 8286
+INFO 2025-05-30 00:36:09,458 basehttp 16708 3144 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-30 00:36:22,135 basehttp 16708 3144 "GET / HTTP/1.1" 200 2399
+INFO 2025-05-30 00:36:24,694 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 200 8192
+INFO 2025-05-30 00:36:30,615 basehttp 16708 3144 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:36:30,682 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11231
+ERROR 2025-05-30 00:36:35,188 log 16708 3144 Internal Server Error: /competitions/student-analytics/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3229, in student_analytics
+    return render(request, 'competitions/student_analytics.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2025-05-30 00:36:35,209 basehttp 16708 3144 "GET /competitions/student-analytics/ HTTP/1.1" 500 19154
+INFO 2025-05-30 00:37:10,622 basehttp 16708 3144 "POST /dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:37:10,645 basehttp 16708 3144 "GET /accounts/login/?next=/dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:37:10,698 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11220
+INFO 2025-05-30 00:37:17,332 basehttp 16708 3144 "GET / HTTP/1.1" 200 2384
+INFO 2025-05-30 00:37:19,714 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:37:19,774 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11267
+INFO 2025-05-30 00:37:27,025 basehttp 16708 3144 "POST /dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:37:27,052 basehttp 16708 3144 "GET /accounts/login/?next=/dashboard/execute-start-script/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:37:27,109 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11258
+INFO 2025-05-30 00:38:18,197 basehttp 16708 3144 "GET /student/setup/ HTTP/1.1" 200 3408
+INFO 2025-05-30 00:38:27,896 basehttp 16708 3144 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:38:27,928 basehttp 16708 3144 "GET /student/competition/ HTTP/1.1" 200 3805
+INFO 2025-05-30 00:38:27,992 basehttp 16708 3144 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 00:38:37,256 basehttp 16708 3144 "GET / HTTP/1.1" 200 2460
+INFO 2025-05-30 00:39:07,293 basehttp 16708 3144 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:39:07,337 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11046
+INFO 2025-05-30 00:39:11,526 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 200 8203
+INFO 2025-05-30 00:40:24,220 basehttp 16708 3144 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:40:24,282 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11275
+ERROR 2025-05-30 00:40:26,430 log 16708 3144 Internal Server Error: /competitions/student-analytics/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3229, in student_analytics
+    return render(request, 'competitions/student_analytics.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2025-05-30 00:40:26,446 basehttp 16708 3144 "GET /competitions/student-analytics/ HTTP/1.1" 500 19110
+INFO 2025-05-30 00:42:01,132 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:42:01,182 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11285
+INFO 2025-05-30 00:42:13,650 basehttp 16708 3144 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:42:13,685 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 10927
+INFO 2025-05-30 00:42:16,085 basehttp 16708 3144 "GET /student/login/ HTTP/1.1" 200 2317
+INFO 2025-05-30 00:42:18,877 basehttp 16708 3144 "GET / HTTP/1.1" 200 2398
+INFO 2025-05-30 00:42:21,150 basehttp 16708 3144 "GET /accounts/login/ HTTP/1.1" 200 7982
+INFO 2025-05-30 00:42:28,573 basehttp 16708 3144 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:42:28,633 basehttp 16708 3144 "GET /competitions/ HTTP/1.1" 200 11218
+INFO 2025-05-30 00:42:32,254 basehttp 16708 3144 "GET /competitions/analytics/ HTTP/1.1" 200 14747
+INFO 2025-05-30 00:42:40,163 basehttp 16708 3144 "GET /competitions/export-operations-analytics/ HTTP/1.1" 200 6545
+ERROR 2025-05-30 00:42:52,091 log 16708 5724 Internal Server Error: /competitions/student-analytics/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3229, in student_analytics
+    return render(request, 'competitions/student_analytics.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2025-05-30 00:42:52,108 basehttp 16708 5724 "GET /competitions/student-analytics/ HTTP/1.1" 500 19138
+INFO 2025-05-30 00:44:50,039 basehttp 16708 5724 "GET / HTTP/1.1" 200 2376
+INFO 2025-05-30 00:44:53,273 basehttp 16708 5724 "GET /student/login/ HTTP/1.1" 200 2286
+INFO 2025-05-30 00:45:07,951 basehttp 16708 5724 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:45:07,973 basehttp 16708 5724 "GET /student/setup/ HTTP/1.1" 200 3388
+INFO 2025-05-30 00:48:19,829 basehttp 16708 9632 "GET /student/login/ HTTP/1.1" 200 2320
+INFO 2025-05-30 00:49:05,624 autoreload 16708 13560 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\models.py changed, reloading.
+INFO 2025-05-30 00:49:06,657 autoreload 13972 6120 Watching for file changes with StatReloader
+INFO 2025-05-30 00:50:03,002 autoreload 13972 6120 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:50:03,862 autoreload 13512 14164 Watching for file changes with StatReloader
+INFO 2025-05-30 00:50:40,256 autoreload 13512 14164 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:50:41,047 autoreload 15488 10540 Watching for file changes with StatReloader
+INFO 2025-05-30 00:51:02,487 autoreload 15488 10540 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:51:03,213 autoreload 12184 16332 Watching for file changes with StatReloader
+INFO 2025-05-30 00:51:25,688 autoreload 12184 16332 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 00:51:26,554 autoreload 2168 12744 Watching for file changes with StatReloader
+INFO 2025-05-30 00:51:30,350 basehttp 2168 9240 "GET / HTTP/1.1" 200 2426
+INFO 2025-05-30 00:51:31,198 basehttp 2168 9240 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:51:31,268 basehttp 2168 9240 "GET /competitions/ HTTP/1.1" 200 11269
+INFO 2025-05-30 00:51:35,838 basehttp 2168 9240 "GET /competitions/start/ HTTP/1.1" 200 22894
+INFO 2025-05-30 00:51:36,044 basehttp 2168 9240 "GET /static/js/notifications.js HTTP/1.1" 304 0
+INFO 2025-05-30 00:51:43,797 basehttp 2168 9240 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1036
+INFO 2025-05-30 00:51:50,603 basehttp 2168 9240 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:51:50,652 basehttp 2168 9240 "GET /competitions/question/1/ HTTP/1.1" 200 10259
+INFO 2025-05-30 00:51:54,466 basehttp 2168 9240 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:51:56,025 basehttp 2168 9240 "GET /competitions/question/2/ HTTP/1.1" 200 10183
+INFO 2025-05-30 00:51:56,608 basehttp 2168 9240 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:51:58,187 basehttp 2168 9240 "GET /competitions/question/3/ HTTP/1.1" 200 10223
+INFO 2025-05-30 00:51:58,861 basehttp 2168 9240 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:52:00,419 basehttp 2168 9240 "GET /competitions/question/4/ HTTP/1.1" 200 10230
+INFO 2025-05-30 00:52:00,632 basehttp 2168 9240 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:52:02,202 basehttp 2168 9240 "GET /competitions/question/5/ HTTP/1.1" 200 10260
+INFO 2025-05-30 00:52:02,722 basehttp 2168 9240 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 155
+INFO 2025-05-30 00:52:04,278 basehttp 2168 9240 "GET /competitions/question/6/ HTTP/1.1" 200 10264
+INFO 2025-05-30 00:52:04,530 basehttp 2168 9240 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:52:06,114 basehttp 2168 9240 "GET /competitions/question/7/ HTTP/1.1" 200 10272
+INFO 2025-05-30 00:52:06,772 basehttp 2168 9240 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 155
+INFO 2025-05-30 00:52:08,358 basehttp 2168 9240 "GET /competitions/question/8/ HTTP/1.1" 200 10268
+INFO 2025-05-30 00:52:09,141 basehttp 2168 9240 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 155
+INFO 2025-05-30 00:52:10,726 basehttp 2168 9240 "GET /competitions/question/9/ HTTP/1.1" 200 10283
+INFO 2025-05-30 00:52:17,189 basehttp 2168 9240 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-05-30 00:52:18,766 basehttp 2168 9240 "GET /competitions/question/10/ HTTP/1.1" 200 10215
+INFO 2025-05-30 00:52:19,261 basehttp 2168 9240 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 157
+INFO 2025-05-30 00:52:20,828 basehttp 2168 9240 "GET /competitions/question/11/ HTTP/1.1" 200 10259
+INFO 2025-05-30 00:52:21,065 basehttp 2168 9240 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 157
+INFO 2025-05-30 00:52:22,625 basehttp 2168 9240 "GET /competitions/question/12/ HTTP/1.1" 200 10227
+INFO 2025-05-30 00:52:23,035 basehttp 2168 9240 "POST /competitions/submit-answer/12/ HTTP/1.1" 200 157
+INFO 2025-05-30 00:52:24,614 basehttp 2168 9240 "GET /competitions/question/13/ HTTP/1.1" 200 10257
+INFO 2025-05-30 00:52:24,774 basehttp 2168 9240 "POST /competitions/submit-answer/13/ HTTP/1.1" 200 157
+INFO 2025-05-30 00:52:26,351 basehttp 2168 9240 "GET /competitions/question/14/ HTTP/1.1" 200 10233
+INFO 2025-05-30 00:52:26,816 basehttp 2168 9240 "POST /competitions/submit-answer/14/ HTTP/1.1" 200 156
+INFO 2025-05-30 00:52:28,409 basehttp 2168 9240 "GET /competitions/question/15/ HTTP/1.1" 200 10259
+INFO 2025-05-30 00:52:31,318 basehttp 2168 9240 "POST /competitions/submit-answer/15/ HTTP/1.1" 200 136
+INFO 2025-05-30 00:52:32,948 basehttp 2168 9240 "GET /competitions/results/372/ HTTP/1.1" 200 10832
+INFO 2025-05-30 00:52:40,444 basehttp 2168 9240 "GET /competitions/history/ HTTP/1.1" 200 25679
+INFO 2025-05-30 00:52:41,209 basehttp 2168 9240 "GET /student/login/ HTTP/1.1" 200 2284
+INFO 2025-05-30 00:54:29,371 basehttp 2168 8200 "GET / HTTP/1.1" 200 2408
+INFO 2025-05-30 00:54:30,499 basehttp 2168 8200 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 00:54:30,552 basehttp 2168 8200 "GET /competitions/ HTTP/1.1" 200 11264
+ERROR 2025-05-30 00:54:33,606 log 2168 8200 Internal Server Error: /competitions/student-analytics/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3404, in student_analytics
+    return render(request, 'competitions/student_analytics.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2025-05-30 00:54:33,635 basehttp 2168 8200 "GET /competitions/student-analytics/ HTTP/1.1" 500 19163
+INFO 2025-05-30 00:56:14,223 basehttp 2168 8200 "GET /competitions/student-analytics/ HTTP/1.1" 200 9903
+INFO 2025-05-30 00:56:34,049 basehttp 2168 8200 "GET /competitions/student-analytics/ HTTP/1.1" 200 9928
+INFO 2025-05-30 00:58:17,634 basehttp 2168 6032 "GET /competitions/student-analytics/ HTTP/1.1" 200 9880
+ERROR 2025-05-30 00:58:39,466 log 2168 6032 Internal Server Error: /competitions/student-session/3/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3445, in student_session_detail
+    return render(request, 'competitions/student_session_detail.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: competitions/student_session_detail.html
+ERROR 2025-05-30 00:58:39,476 basehttp 2168 6032 "GET /competitions/student-session/3/ HTTP/1.1" 500 13203
+INFO 2025-05-30 01:01:03,631 basehttp 2168 5024 "GET /student/login/ HTTP/1.1" 200 2321
+INFO 2025-05-30 01:01:18,001 basehttp 2168 14568 "GET /competitions/student-analytics/ HTTP/1.1" 200 9842
+ERROR 2025-05-30 01:01:34,612 log 2168 13308 Internal Server Error: /competitions/student-session/3/
+Traceback (most recent call last):
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py", line 3445, in student_session_detail
+    return render(request, 'competitions/student_session_detail.html', context)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\aiitc\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: competitions/student_session_detail.html
+ERROR 2025-05-30 01:01:34,624 basehttp 2168 13308 "GET /competitions/student-session/3/ HTTP/1.1" 500 13247
+INFO 2025-05-30 01:04:32,665 autoreload 2168 12744 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\urls.py changed, reloading.
+INFO 2025-05-30 01:04:33,667 autoreload 14776 8564 Watching for file changes with StatReloader
+INFO 2025-05-30 01:05:20,257 autoreload 14776 8564 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 01:05:21,355 autoreload 6392 16484 Watching for file changes with StatReloader
+INFO 2025-05-30 01:06:12,469 autoreload 6392 16484 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-30 01:06:13,399 autoreload 12244 15060 Watching for file changes with StatReloader
+INFO 2025-05-30 01:06:42,277 basehttp 12244 6740 "GET /competitions/student-analytics/ HTTP/1.1" 200 9811
+INFO 2025-05-30 01:06:42,406 basehttp 12244 6740 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-30 01:07:13,725 basehttp 12244 16276 "GET /competitions/student-analytics/ HTTP/1.1" 200 9820
+INFO 2025-05-30 01:07:18,485 basehttp 12244 16276 "GET /competitions/student-session/3/ HTTP/1.1" 200 9015
+INFO 2025-05-30 01:07:23,491 basehttp 12244 13244 "GET /competitions/export-student-session-excel/3/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:07:23,538 basehttp 12244 13244 "GET /competitions/student-session/3/ HTTP/1.1" 200 9114
+INFO 2025-05-30 01:07:28,104 basehttp 12244 13244 "GET /competitions/export-student-session-excel/3/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:07:28,143 basehttp 12244 13244 "GET /competitions/student-session/3/ HTTP/1.1" 200 9100
+INFO 2025-05-30 01:07:36,691 basehttp 12244 2688 "GET /competitions/export-student-session-pdf/3/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:07:36,732 basehttp 12244 2688 "GET /competitions/student-session/3/ HTTP/1.1" 200 9136
+INFO 2025-05-30 01:07:43,024 basehttp 12244 14084 "GET / HTTP/1.1" 200 2391
+INFO 2025-05-30 01:07:44,537 basehttp 12244 14084 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:07:44,613 basehttp 12244 14084 "GET /competitions/ HTTP/1.1" 200 11219
+INFO 2025-05-30 01:07:46,271 basehttp 12244 14084 "GET /teacher/ HTTP/1.1" 200 11179
+INFO 2025-05-30 01:07:57,699 basehttp 12244 13680 "GET /competitions/start/ HTTP/1.1" 200 22835
+INFO 2025-05-30 01:08:14,960 basehttp 12244 14060 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1001
+INFO 2025-05-30 01:08:23,789 basehttp 12244 9740 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:08:23,835 basehttp 12244 9740 "GET /competitions/question/1/ HTTP/1.1" 200 10237
+INFO 2025-05-30 01:08:27,068 basehttp 12244 9740 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-05-30 01:08:28,650 basehttp 12244 9740 "GET /competitions/question/2/ HTTP/1.1" 200 10184
+INFO 2025-05-30 01:08:28,970 basehttp 12244 9740 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-05-30 01:08:30,573 basehttp 12244 9740 "GET /competitions/question/3/ HTTP/1.1" 200 10217
+INFO 2025-05-30 01:08:30,916 basehttp 12244 9740 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 156
+INFO 2025-05-30 01:08:32,513 basehttp 12244 9740 "GET /competitions/question/4/ HTTP/1.1" 200 10225
+INFO 2025-05-30 01:08:32,793 basehttp 12244 9740 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 156
+INFO 2025-05-30 01:08:34,372 basehttp 12244 9740 "GET /competitions/question/5/ HTTP/1.1" 200 10180
+INFO 2025-05-30 01:08:34,724 basehttp 12244 9740 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 155
+INFO 2025-05-30 01:08:36,319 basehttp 12244 9740 "GET /competitions/question/6/ HTTP/1.1" 200 10258
+INFO 2025-05-30 01:08:36,721 basehttp 12244 9740 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 155
+INFO 2025-05-30 01:08:38,316 basehttp 12244 9740 "GET /competitions/question/7/ HTTP/1.1" 200 10195
+INFO 2025-05-30 01:08:38,716 basehttp 12244 9740 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 156
+INFO 2025-05-30 01:08:40,298 basehttp 12244 9740 "GET /competitions/question/8/ HTTP/1.1" 200 10227
+INFO 2025-05-30 01:08:40,707 basehttp 12244 9740 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 155
+INFO 2025-05-30 01:08:42,291 basehttp 12244 9740 "GET /competitions/question/9/ HTTP/1.1" 200 10237
+INFO 2025-05-30 01:08:42,513 basehttp 12244 9740 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-05-30 01:08:44,086 basehttp 12244 9740 "GET /competitions/question/10/ HTTP/1.1" 200 10214
+INFO 2025-05-30 01:08:44,356 basehttp 12244 9740 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 157
+INFO 2025-05-30 01:08:45,940 basehttp 12244 9740 "GET /competitions/question/11/ HTTP/1.1" 200 10186
+INFO 2025-05-30 01:08:48,362 basehttp 12244 9740 "GET / HTTP/1.1" 200 2417
+INFO 2025-05-30 01:08:50,630 basehttp 12244 9740 "GET /student/login/ HTTP/1.1" 200 2288
+INFO 2025-05-30 01:08:54,932 basehttp 12244 9740 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:08:54,953 basehttp 12244 9740 "GET /student/setup/ HTTP/1.1" 200 3427
+INFO 2025-05-30 01:09:10,953 basehttp 12244 9740 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:09:10,994 basehttp 12244 9740 "GET /student/competition/ HTTP/1.1" 200 4251
+INFO 2025-05-30 01:09:11,089 basehttp 12244 9740 "POST /student/api/get-question/ HTTP/1.1" 200 153
+INFO 2025-05-30 01:09:19,919 basehttp 12244 9740 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:09:21,963 basehttp 12244 9740 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:09:33,696 basehttp 12244 9740 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-30 01:09:35,743 basehttp 12244 9740 "POST /student/api/get-question/ HTTP/1.1" 200 153
+INFO 2025-05-30 01:09:40,204 basehttp 12244 9740 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:09:42,261 basehttp 12244 9740 "POST /student/api/get-question/ HTTP/1.1" 200 144
+INFO 2025-05-30 01:09:45,762 basehttp 12244 9740 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:09:47,808 basehttp 12244 9740 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:09:53,064 basehttp 12244 9740 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:09:53,105 basehttp 12244 9740 "GET /student/results/ HTTP/1.1" 200 3914
+INFO 2025-05-30 01:10:55,507 basehttp 12244 2688 "GET / HTTP/1.1" 200 2435
+INFO 2025-05-30 01:11:01,182 basehttp 12244 2688 "GET /student/login/ HTTP/1.1" 200 2393
+INFO 2025-05-30 01:12:31,679 basehttp 12244 2412 "GET /student/login/ HTTP/1.1" 200 2291
+INFO 2025-05-30 01:12:36,276 basehttp 12244 9428 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:12:36,307 basehttp 12244 9428 "GET /student/setup/ HTTP/1.1" 200 3384
+INFO 2025-05-30 01:12:47,339 basehttp 12244 7396 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:12:47,374 basehttp 12244 7396 "GET /student/competition/ HTTP/1.1" 200 4278
+INFO 2025-05-30 01:12:47,423 basehttp 12244 7396 "POST /student/api/get-question/ HTTP/1.1" 200 144
+INFO 2025-05-30 01:12:51,316 basehttp 12244 7396 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:12:53,349 basehttp 12244 7396 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:12:57,005 basehttp 12244 6292 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:12:57,039 basehttp 12244 6292 "GET /student/results/ HTTP/1.1" 200 3347
+INFO 2025-05-30 01:13:05,610 basehttp 12244 1192 "GET /student/setup/ HTTP/1.1" 200 3437
+INFO 2025-05-30 01:13:19,149 basehttp 12244 5316 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:13:19,181 basehttp 12244 5316 "GET /student/competition/ HTTP/1.1" 200 4223
+INFO 2025-05-30 01:13:19,248 basehttp 12244 5316 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:21,478 basehttp 12244 5316 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-30 01:13:23,526 basehttp 12244 5316 "POST /student/api/get-question/ HTTP/1.1" 200 146
+INFO 2025-05-30 01:13:27,842 basehttp 12244 16412 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-30 01:13:29,872 basehttp 12244 16412 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:31,598 basehttp 12244 16412 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-30 01:13:33,638 basehttp 12244 16412 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:35,912 basehttp 12244 2568 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:13:37,946 basehttp 12244 2568 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:40,346 basehttp 12244 2568 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:13:42,376 basehttp 12244 2568 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:44,958 basehttp 12244 10076 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:13:46,992 basehttp 12244 10076 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:13:48,747 basehttp 12244 10076 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:13:50,797 basehttp 12244 10076 "POST /student/api/get-question/ HTTP/1.1" 200 148
+INFO 2025-05-30 01:13:54,065 basehttp 12244 10076 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:13:56,092 basehttp 12244 10076 "POST /student/api/get-question/ HTTP/1.1" 200 148
+INFO 2025-05-30 01:13:59,128 basehttp 12244 10076 "POST /student/api/submit-answer/ HTTP/1.1" 200 121
+INFO 2025-05-30 01:14:01,156 basehttp 12244 10076 "POST /student/api/get-question/ HTTP/1.1" 200 147
+INFO 2025-05-30 01:14:04,701 basehttp 12244 10076 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-30 01:14:04,729 basehttp 12244 10076 "GET /student/results/ HTTP/1.1" 200 3320
+INFO 2025-05-30 01:20:38,786 basehttp 12244 18408 "GET /student/login/ HTTP/1.1" 200 2404
+INFO 2025-05-30 01:22:03,498 autoreload 12244 15060 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:22:04,953 autoreload 17172 10400 Watching for file changes with StatReloader
+INFO 2025-05-30 01:27:43,141 autoreload 17172 10400 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:27:44,088 autoreload 4608 10592 Watching for file changes with StatReloader
+INFO 2025-05-30 01:28:02,708 autoreload 4608 10592 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:28:03,803 autoreload 11356 1180 Watching for file changes with StatReloader
+INFO 2025-05-30 01:28:25,512 autoreload 11356 1180 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:28:26,607 autoreload 3124 12436 Watching for file changes with StatReloader
+INFO 2025-05-30 01:29:02,363 autoreload 3124 12436 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:29:03,257 autoreload 7152 10004 Watching for file changes with StatReloader
+INFO 2025-05-30 01:29:23,685 autoreload 7152 10004 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 01:29:24,466 autoreload 12776 18220 Watching for file changes with StatReloader
+INFO 2025-05-30 02:02:20,499 autoreload 12776 18220 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\urls.py changed, reloading.
+INFO 2025-05-30 02:02:21,683 autoreload 15088 17436 Watching for file changes with StatReloader
+INFO 2025-05-30 02:10:12,254 autoreload 12852 16260 Watching for file changes with StatReloader
+INFO 2025-05-30 02:19:03,943 autoreload 5060 13248 Watching for file changes with StatReloader
+INFO 2025-05-30 02:20:12,069 autoreload 16344 13520 Watching for file changes with StatReloader
+INFO 2025-05-30 02:20:40,206 basehttp 16344 4012 "GET /accounts/login/ HTTP/1.1" 200 7986
+INFO 2025-05-30 02:20:40,239 basehttp 16344 4012 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+WARNING 2025-05-30 02:20:40,452 log 16344 4012 Not Found: /favicon.ico
+WARNING 2025-05-30 02:20:40,453 basehttp 16344 4012 "GET /favicon.ico HTTP/1.1" 404 1130
+INFO 2025-05-30 02:21:48,198 basehttp 16344 17304 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 02:21:48,257 basehttp 16344 17304 "GET /competitions/ HTTP/1.1" 200 11218
+INFO 2025-05-30 02:21:51,490 basehttp 16344 7932 "GET /competitions/student-analytics/ HTTP/1.1" 200 10417
+INFO 2025-05-30 02:21:57,376 basehttp 16344 7932 "GET /competitions/student-session/7/ HTTP/1.1" 200 9021
+INFO 2025-05-30 02:21:59,857 basehttp 16344 7460 "GET /competitions/export-student-session-excel/7/ HTTP/1.1" 302 0
+INFO 2025-05-30 02:21:59,876 basehttp 16344 7460 "GET /competitions/student-session/7/ HTTP/1.1" 200 9168
+INFO 2025-05-30 02:22:04,339 basehttp 16344 7460 "GET /competitions/analytics/ HTTP/1.1" 200 14705
+INFO 2025-05-30 02:22:11,228 autoreload 2688 5724 Watching for file changes with StatReloader
+INFO 2025-05-30 02:22:28,474 basehttp 16344 12332 "GET /competitions/export-excel/ HTTP/1.1" 200 4559
+INFO 2025-05-30 02:22:34,820 basehttp 16344 5500 "GET /competitions/history/ HTTP/1.1" 200 25667
+INFO 2025-05-30 02:22:48,924 basehttp 16344 8568 "GET /competitions/history/?participant=&grade=3&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=3pQyPxW2BSnSB9p6W2w8R0eHyKpRniL0svbhBVsJLi645DGFdarvLGk2R8znwPZo HTTP/1.1" 200 14416
+INFO 2025-05-30 02:22:57,459 basehttp 16344 11780 "GET /competitions/export-history-excel/ HTTP/1.1" 200 11402
+INFO 2025-05-30 02:23:06,214 basehttp 16344 3824 "GET /competitions/analytics/ HTTP/1.1" 200 14762
+INFO 2025-05-30 02:23:12,569 basehttp 16344 11660 "GET /competitions/export-general-analytics/ HTTP/1.1" 200 8966
+INFO 2025-05-30 02:23:18,170 basehttp 16344 11660 "GET /competitions/export-participants-results/ HTTP/1.1" 200 11820
+INFO 2025-05-30 02:23:25,517 basehttp 16344 2548 "GET /competitions/export-analytics-excel/ HTTP/1.1" 200 8457
+INFO 2025-05-30 02:30:09,656 autoreload 8388 11888 Watching for file changes with StatReloader
+INFO 2025-05-30 02:34:54,716 autoreload 12552 4872 Watching for file changes with StatReloader
+INFO 2025-05-30 02:36:01,463 basehttp 16344 7572 "GET /student/login/ HTTP/1.1" 200 2344
+WARNING 2025-05-30 02:36:03,063 log 16344 7572 Not Found: /favicon.ico
+WARNING 2025-05-30 02:36:03,064 basehttp 16344 7572 "GET /favicon.ico HTTP/1.1" 404 1157
+WARNING 2025-05-30 02:36:17,146 log 16344 13556 Forbidden (Origin checking failed - https://482e-105-157-119-224.ngrok-free.app does not match any trusted origins.): /student/login/
+WARNING 2025-05-30 02:36:17,149 basehttp 16344 13556 "POST /student/login/ HTTP/1.1" 403 1364
+INFO 2025-05-30 02:37:23,891 autoreload 8388 11888 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 02:37:23,908 autoreload 12852 16260 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 02:37:23,905 autoreload 15088 17436 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 02:37:24,043 autoreload 12552 4872 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 02:37:24,354 autoreload 16344 13520 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-30 02:37:25,280 autoreload 11188 16880 Watching for file changes with StatReloader
+INFO 2025-05-30 02:37:25,280 autoreload 6992 7312 Watching for file changes with StatReloader
+INFO 2025-05-30 02:37:25,309 autoreload 15208 3484 Watching for file changes with StatReloader
+INFO 2025-05-30 02:37:25,390 autoreload 7920 1112 Watching for file changes with StatReloader
+INFO 2025-05-30 02:37:26,145 autoreload 13596 13036 Watching for file changes with StatReloader
+INFO 2025-05-30 02:41:22,619 basehttp 6992 9836 "GET /competitions/student-analytics/ HTTP/1.1" 200 10374
+INFO 2025-05-30 02:41:26,978 basehttp 6992 7400 "GET /competitions/student-session/3/ HTTP/1.1" 200 9056
+INFO 2025-05-30 02:41:29,309 basehttp 6992 7400 "GET /competitions/analytics/ HTTP/1.1" 200 14691
+INFO 2025-05-30 02:41:29,826 autoreload 6984 14356 Watching for file changes with StatReloader
+INFO 2025-05-30 02:41:54,172 basehttp 6992 13560 "GET /competitions/history/ HTTP/1.1" 200 25627
+INFO 2025-05-30 02:42:06,277 basehttp 6992 15564 "GET /teacher/ HTTP/1.1" 200 11220
+INFO 2025-05-30 02:42:15,975 basehttp 6992 1720 "GET /accounts/profile/ HTTP/1.1" 200 8645
+INFO 2025-05-30 02:42:24,097 basehttp 6992 7240 "GET /competitions/analytics/ HTTP/1.1" 200 14677
+INFO 2025-05-30 02:44:42,710 autoreload 14756 9672 Watching for file changes with StatReloader
+INFO 2025-05-30 02:46:26,760 basehttp 6992 9840 "GET /student/login/ HTTP/1.1" 200 2326
+INFO 2025-05-30 18:35:43,816 autoreload 16416 17180 Watching for file changes with StatReloader
+INFO 2025-05-30 18:37:00,126 autoreload 6312 17768 Watching for file changes with StatReloader
+INFO 2025-05-30 18:42:21,283 basehttp 16416 18904 "GET /student/login/ HTTP/1.1" 200 2313
+WARNING 2025-05-30 18:42:27,031 log 16416 18904 Not Found: /favicon.ico
+WARNING 2025-05-30 18:42:27,032 basehttp 16416 18904 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-05-30 18:42:34,219 basehttp 16416 18904 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-30 18:42:34,720 basehttp 16416 18904 "GET /student/setup/ HTTP/1.1" 200 3401
+INFO 2025-05-31 01:43:54,940 autoreload 1312 17152 Watching for file changes with StatReloader
+INFO 2025-05-31 01:44:50,328 basehttp 1312 10752 "GET /student/login/ HTTP/1.1" 200 2345
+WARNING 2025-05-31 01:44:50,641 log 1312 10752 Not Found: /favicon.ico
+WARNING 2025-05-31 01:44:50,641 basehttp 1312 10752 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-05-31 01:44:58,090 basehttp 1312 10752 "POST /student/login/ HTTP/1.1" 302 0
+INFO 2025-05-31 01:44:58,219 basehttp 1312 10752 "GET /student/setup/ HTTP/1.1" 200 3364
+INFO 2025-05-31 01:45:18,935 basehttp 1312 10752 "POST /student/setup/ HTTP/1.1" 302 0
+INFO 2025-05-31 01:45:19,135 basehttp 1312 10752 "GET /student/competition/ HTTP/1.1" 200 4279
+INFO 2025-05-31 01:45:19,202 basehttp 1312 10752 "POST /student/api/get-question/ HTTP/1.1" 200 146
+INFO 2025-05-31 01:45:23,976 basehttp 1312 10752 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-31 01:45:26,014 basehttp 1312 10752 "POST /student/api/get-question/ HTTP/1.1" 200 146
+INFO 2025-05-31 01:45:30,628 basehttp 1312 10752 "POST /student/api/submit-answer/ HTTP/1.1" 200 120
+INFO 2025-05-31 01:45:32,673 basehttp 1312 10752 "POST /student/api/get-question/ HTTP/1.1" 200 144
+INFO 2025-05-31 01:45:42,016 basehttp 1312 10752 "GET /student/finish/ HTTP/1.1" 302 0
+INFO 2025-05-31 01:45:42,133 basehttp 1312 10752 "GET /student/results/ HTTP/1.1" 200 3361
+INFO 2025-05-31 01:45:55,792 basehttp 1312 10752 "GET / HTTP/1.1" 200 2448
+INFO 2025-05-31 01:45:59,281 basehttp 1312 10752 "GET /accounts/login/ HTTP/1.1" 200 8098
+INFO 2025-05-31 01:45:59,342 basehttp 1312 10752 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-05-31 01:46:04,108 basehttp 1312 10752 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-31 01:46:04,245 basehttp 1312 10752 "GET /competitions/ HTTP/1.1" 200 11234
+INFO 2025-05-31 01:46:13,185 basehttp 1312 10752 "GET /competitions/analytics/ HTTP/1.1" 200 14707
+INFO 2025-05-31 01:47:20,129 basehttp 1312 10752 "GET /competitions/student-analytics/ HTTP/1.1" 200 10467
+INFO 2025-05-31 01:47:20,181 basehttp 1312 10752 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 01:47:26,322 basehttp 1312 10752 "GET /competitions/history/ HTTP/1.1" 200 25649
+INFO 2025-05-31 01:47:42,101 basehttp 1312 10752 "GET /competitions/results/347/ HTTP/1.1" 200 10587
+INFO 2025-05-31 01:47:48,692 basehttp 1312 7032 "GET /competitions/history/ HTTP/1.1" 200 25646
+INFO 2025-05-31 01:48:01,092 basehttp 1312 10324 "GET /competitions/results/351/ HTTP/1.1" 200 10834
+INFO 2025-05-31 01:50:15,386 basehttp 1312 10324 "GET /teacher/ HTTP/1.1" 200 11230
+INFO 2025-05-31 01:50:15,420 basehttp 1312 10324 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 01:50:27,492 basehttp 1312 10324 "GET /accounts/profile/ HTTP/1.1" 200 8654
+WARNING 2025-05-31 01:50:27,553 log 1312 10324 Not Found: /media/profile_images/logo_noor2.jpg
+WARNING 2025-05-31 01:50:27,554 basehttp 1312 10324 "GET /media/profile_images/logo_noor2.jpg HTTP/1.1" 404 179
+INFO 2025-05-31 01:50:42,517 basehttp 1312 10324 "GET /competitions/analytics/ HTTP/1.1" 200 14726
+INFO 2025-05-31 01:53:39,440 autoreload 1312 17152 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-31 01:53:39,450 autoreload 16416 17180 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-31 01:53:40,405 autoreload 14540 2824 Watching for file changes with StatReloader
+INFO 2025-05-31 01:53:55,308 autoreload 14540 2824 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-31 01:53:56,152 autoreload 14480 4920 Watching for file changes with StatReloader
+INFO 2025-05-31 01:54:09,853 autoreload 14480 4920 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-31 01:54:10,747 autoreload 16056 19432 Watching for file changes with StatReloader
+INFO 2025-05-31 02:05:17,788 basehttp 16056 3164 "GET /competitions/history/ HTTP/1.1" 200 25632
+INFO 2025-05-31 02:05:17,832 basehttp 16056 3164 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 02:06:21,460 basehttp 16056 18156 "GET /competitions/history/?participant=&grade=4&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=2XW00h5fkHQsFEKnbySIn8i5uBqkErjZGv6lwPn7vcdPAtDb67poAiDR8a1XCxwp HTTP/1.1" 200 18649
+INFO 2025-05-31 02:06:21,511 basehttp 16056 18156 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 02:10:19,267 basehttp 16056 10324 "GET /competitions/history/?participant=&grade=6&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=pTsG8GzHRYQn4tCcW07jx0EJlpM5bUPA3rC1EeRz2tdKZiv0RzEZKaZvZYnI9020 HTTP/1.1" 200 15179
+INFO 2025-05-31 02:10:19,315 basehttp 16056 10324 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 22:47:04,215 autoreload 11596 7556 Watching for file changes with StatReloader
+INFO 2025-05-31 22:47:06,858 basehttp 11596 9448 "GET /competitions/history/?participant=&grade=6&difficulty=&operation=&min_score=&max_score=&sort_by=score_highest&csrfmiddlewaretoken=pTsG8GzHRYQn4tCcW07jx0EJlpM5bUPA3rC1EeRz2tdKZiv0RzEZKaZvZYnI9020 HTTP/1.1" 302 0
+INFO 2025-05-31 22:47:06,872 basehttp 11596 9832 "GET /student/login/ HTTP/1.1" 200 2309
+INFO 2025-05-31 22:47:06,880 basehttp 11596 9448 "GET /accounts/login/?next=/competitions/history/%3Fparticipant%3D%26grade%3D6%26difficulty%3D%26operation%3D%26min_score%3D%26max_score%3D%26sort_by%3Dscore_highest%26csrfmiddlewaretoken%3DpTsG8GzHRYQn4tCcW07jx0EJlpM5bUPA3rC1EeRz2tdKZiv0RzEZKaZvZYnI9020 HTTP/1.1" 200 7987
+WARNING 2025-05-31 22:47:07,186 log 11596 9448 Not Found: /favicon.ico
+WARNING 2025-05-31 22:47:07,186 basehttp 11596 9448 "GET /favicon.ico HTTP/1.1" 404 1201
+INFO 2025-05-31 22:47:16,235 basehttp 11596 6376 "GET / HTTP/1.1" 200 2384
+INFO 2025-05-31 22:47:19,349 basehttp 11596 6376 "GET /student/login/ HTTP/1.1" 200 2341
+INFO 2025-05-31 22:47:28,864 basehttp 11596 4320 "GET / HTTP/1.1" 200 2417
+INFO 2025-05-31 22:47:33,520 basehttp 11596 13804 "GET /accounts/login/ HTTP/1.1" 200 8004
+INFO 2025-05-31 22:47:33,565 basehttp 11596 13804 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 22:47:39,872 basehttp 11596 13804 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-31 22:47:40,118 basehttp 11596 13804 "GET /competitions/ HTTP/1.1" 200 11181
+INFO 2025-05-31 22:47:47,893 basehttp 11596 14476 "GET /competitions/analytics/ HTTP/1.1" 200 14732
+INFO 2025-05-31 22:48:08,066 autoreload 6664 2964 Watching for file changes with StatReloader
+INFO 2025-05-31 22:51:34,490 autoreload 6664 2964 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-31 22:51:34,507 autoreload 11596 7556 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-31 22:51:35,600 autoreload 11936 13276 Watching for file changes with StatReloader
+INFO 2025-05-31 22:52:02,084 autoreload 11936 13276 C:\Users\aiitc\OneDrive\Bureau\math - Copy\competitions\views.py changed, reloading.
+INFO 2025-05-31 22:52:03,082 autoreload 4708 7208 Watching for file changes with StatReloader
+INFO 2025-05-31 22:54:04,921 autoreload 4708 7208 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-05-31 22:54:05,839 autoreload 5064 9812 Watching for file changes with StatReloader
+INFO 2025-05-31 23:02:50,025 autoreload 9928 14420 Watching for file changes with StatReloader
+INFO 2025-05-31 23:09:19,767 autoreload 17004 13188 Watching for file changes with StatReloader
+INFO 2025-05-31 23:09:28,445 basehttp 17004 1388 "GET / HTTP/1.1" 200 2405
+INFO 2025-05-31 23:10:25,273 basehttp 17004 14380 "GET / HTTP/1.1" 200 2375
+WARNING 2025-05-31 23:10:27,619 log 17004 14380 Not Found: /favicon.ico
+WARNING 2025-05-31 23:10:27,620 basehttp 17004 14380 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-05-31 23:10:30,966 basehttp 17004 14380 "GET /accounts/login/ HTTP/1.1" 200 8005
+INFO 2025-05-31 23:10:31,068 basehttp 17004 14380 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-05-31 23:10:36,661 basehttp 17004 14380 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-31 23:10:36,807 basehttp 17004 14380 "GET /competitions/ HTTP/1.1" 200 11258
+INFO 2025-05-31 23:10:38,950 basehttp 17004 14380 "GET /competitions/start/ HTTP/1.1" 200 22874
+INFO 2025-05-31 23:10:39,101 basehttp 17004 14380 "GET /static/js/notifications.js HTTP/1.1" 200 7299
+WARNING 2025-05-31 23:18:37,814 log 17004 12612 Not Found: /competitions/participants/
+WARNING 2025-05-31 23:18:37,815 basehttp 17004 12612 "GET /competitions/participants/ HTTP/1.1" 404 179
+INFO 2025-05-31 23:18:48,465 basehttp 17004 9008 "GET / HTTP/1.1" 200 2463
+INFO 2025-05-31 23:18:50,432 basehttp 17004 9008 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-05-31 23:18:50,530 basehttp 17004 9008 "GET /competitions/ HTTP/1.1" 200 11238
+INFO 2025-05-31 23:18:50,575 basehttp 17004 9008 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-05-31 23:18:53,260 basehttp 17004 9008 "GET /competitions/start/ HTTP/1.1" 200 22861
+INFO 2025-05-31 23:18:53,322 basehttp 17004 9008 "GET /static/js/notifications.js HTTP/1.1" 304 0
+INFO 2025-05-31 23:19:49,459 basehttp 17004 9008 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1040
+INFO 2025-06-01 03:14:12,353 autoreload 17004 13188 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-06-01 03:14:14,598 autoreload 5592 17548 Watching for file changes with StatReloader
+INFO 2025-06-01 03:14:25,778 autoreload 5592 17548 C:\Users\aiitc\OneDrive\Bureau\math - Copy\alhassan\settings.py changed, reloading.
+INFO 2025-06-01 03:14:26,570 autoreload 14116 12704 Watching for file changes with StatReloader
+INFO 2025-06-01 14:29:18,973 autoreload 11788 14460 Watching for file changes with StatReloader
+INFO 2025-06-01 14:30:09,824 autoreload 12964 13096 Watching for file changes with StatReloader
+INFO 2025-06-01 14:30:36,607 autoreload 13012 11460 Watching for file changes with StatReloader
+INFO 2025-06-01 14:31:44,932 autoreload 10532 13808 Watching for file changes with StatReloader
+INFO 2025-06-01 14:32:38,247 autoreload 6600 10828 Watching for file changes with StatReloader
+INFO 2025-06-01 14:37:25,779 autoreload 2752 9780 Watching for file changes with StatReloader
+INFO 2025-06-01 14:41:43,689 autoreload 8176 3872 Watching for file changes with StatReloader
+INFO 2025-06-01 14:42:05,876 basehttp 8176 3336 "GET / HTTP/1.1" 200 2376
+WARNING 2025-06-01 14:42:06,078 log 8176 3336 Not Found: /favicon.ico
+WARNING 2025-06-01 14:42:06,098 basehttp 8176 3336 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-06-01 14:42:10,473 basehttp 8176 3336 "GET /accounts/login/ HTTP/1.1" 200 8020
+INFO 2025-06-01 14:42:10,545 basehttp 8176 3336 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-06-01 14:42:15,319 basehttp 8176 3336 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-06-01 14:42:15,469 basehttp 8176 3336 "GET /competitions/ HTTP/1.1" 200 11241
+INFO 2025-06-01 14:42:18,858 basehttp 8176 3336 "GET /competitions/student-analytics/ HTTP/1.1" 200 10487
+INFO 2025-06-01 14:42:23,876 basehttp 8176 3336 "GET /competitions/analytics/ HTTP/1.1" 200 14699
+INFO 2025-06-01 14:42:31,639 basehttp 8176 3336 "GET /competitions/history/ HTTP/1.1" 200 25694
+INFO 2025-06-01 14:42:40,631 basehttp 8176 4732 "GET /competitions/repeat/372/ HTTP/1.1" 302 0
+INFO 2025-06-01 14:42:40,781 basehttp 8176 4732 "GET /competitions/question/1/ HTTP/1.1" 200 10281
+INFO 2025-06-01 14:42:43,441 basehttp 8176 4732 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 156
+INFO 2025-06-01 14:42:45,011 basehttp 8176 4732 "GET /competitions/question/2/ HTTP/1.1" 200 10180
+INFO 2025-06-01 14:42:46,254 basehttp 8176 4732 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 156
+INFO 2025-06-01 14:42:47,842 basehttp 8176 4732 "GET /competitions/question/3/ HTTP/1.1" 200 10183
+INFO 2025-06-01 16:44:25,505 autoreload 13348 15764 Watching for file changes with StatReloader
+INFO 2025-06-01 16:44:26,462 basehttp 13348 17012 "GET / HTTP/1.1" 200 2445
+INFO 2025-06-01 16:44:42,802 basehttp 13348 17012 "GET / HTTP/1.1" 200 2419
+INFO 2025-06-01 16:44:46,573 basehttp 13348 17012 "GET /accounts/login/ HTTP/1.1" 200 7995
+INFO 2025-06-01 16:44:46,622 basehttp 13348 17012 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-06-01 16:44:51,547 basehttp 13348 17012 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-06-01 16:44:51,667 basehttp 13348 17012 "GET /competitions/ HTTP/1.1" 200 11201
+INFO 2025-06-01 16:44:53,871 basehttp 13348 17012 "GET /competitions/student-analytics/ HTTP/1.1" 200 10485
+INFO 2025-06-01 16:44:55,160 basehttp 13348 17012 "GET /competitions/analytics/ HTTP/1.1" 200 14751
+INFO 2025-06-01 16:44:57,542 basehttp 13348 17012 "GET /competitions/start/ HTTP/1.1" 200 22797
+INFO 2025-06-01 16:49:53,481 basehttp 13348 10904 "GET / HTTP/1.1" 200 2419
+INFO 2025-06-01 16:49:55,819 basehttp 13348 10904 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-06-01 16:49:55,887 basehttp 13348 10904 "GET /competitions/ HTTP/1.1" 200 11193
+INFO 2025-06-01 16:49:55,955 basehttp 13348 10904 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 304 0
+INFO 2025-06-01 16:49:59,829 basehttp 13348 10904 "GET /competitions/history/ HTTP/1.1" 200 25627
+INFO 2025-06-01 16:50:03,138 basehttp 13348 10904 "GET /competitions/start/ HTTP/1.1" 200 22863
+INFO 2025-06-01 16:53:43,474 autoreload 13348 15764 C:\Users\aiitc\OneDrive\Bureau\math2\alhassan\settings.py changed, reloading.
+INFO 2025-06-01 16:53:45,023 autoreload 4152 1844 Watching for file changes with StatReloader
+INFO 2025-06-01 16:53:54,870 autoreload 4152 1844 C:\Users\aiitc\OneDrive\Bureau\math2\alhassan\settings.py changed, reloading.
+INFO 2025-06-01 16:53:55,831 autoreload 8252 15028 Watching for file changes with StatReloader
+INFO 2025-06-01 16:54:07,421 autoreload 8252 15028 C:\Users\aiitc\OneDrive\Bureau\math2\alhassan\settings.py changed, reloading.
+INFO 2025-06-01 16:54:08,578 autoreload 7088 16908 Watching for file changes with StatReloader
+INFO 2025-06-01 16:54:19,077 autoreload 7088 16908 C:\Users\aiitc\OneDrive\Bureau\math2\competitions\views.py changed, reloading.
+INFO 2025-06-01 16:54:20,216 autoreload 16984 12184 Watching for file changes with StatReloader
+INFO 2025-06-01 16:54:29,898 autoreload 16984 12184 C:\Users\aiitc\OneDrive\Bureau\math2\competitions\views.py changed, reloading.
+INFO 2025-06-01 16:54:30,987 autoreload 3364 836 Watching for file changes with StatReloader
+INFO 2025-06-01 16:54:39,438 autoreload 3364 836 C:\Users\aiitc\OneDrive\Bureau\math2\competitions\views.py changed, reloading.
+INFO 2025-06-01 16:54:40,524 autoreload 16240 16660 Watching for file changes with StatReloader
+INFO 2025-06-01 16:54:47,808 autoreload 16240 16660 C:\Users\aiitc\OneDrive\Bureau\math2\competitions\models.py changed, reloading.
+INFO 2025-06-01 16:54:48,896 autoreload 9748 12064 Watching for file changes with StatReloader
+INFO 2025-06-01 18:43:30,576 basehttp 9748 20168 "GET /competitions/start/ HTTP/1.1" 301 0
+INFO 2025-06-01 18:43:30,913 basehttp 9748 5420 code 400, message Bad request version ('¡4)fò\x88]ñ')
+ERROR 2025-06-01 18:43:30,916 basehttp 9748 5420 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:31,164 basehttp 9748 4216 code 400, message Bad request version ('\x02h2\x08http/1.1\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04í\x9a\x9a\x00\x01\x00\x11ì\x04À\x81D4\x86\x93\x81à²\x17äb\x9d±É;õÂË\x87ó\x01\x15\\r²é.\x10Ð')
+ERROR 2025-06-01 18:43:31,165 basehttp 9748 4216 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:31,237 basehttp 9748 1072 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03éÛ+»¨§e{\x06«\x86·\x15@èÚ+ñ·®à\x17T\x01/¿ç$Ä£°:')
+ERROR 2025-06-01 18:43:31,238 basehttp 9748 1072 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:31,474 basehttp 9748 16876 code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01ÿ\x01\x00\x01\x00DÍ\x00\x05\x00\x03\x02h2\x00\x1b\x00\x03\x02\x00\x02\x00#\x00\x00\x00-\x00\x02\x01\x01\x003\x04ï\x04í\x8a\x8a\x00\x01\x00\x11ì\x04À¦\x97:\x190VÝ\x19¬$t3Òò$\x82\x8c\x831Ä')
+ERROR 2025-06-01 18:43:31,475 basehttp 9748 16876 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:36,329 basehttp 9748 20328 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03ÀMRü\x87/R\x10e-pÎ-í{ä©1Ô,pRµÐ\x8f°ºÓ;\x86_\x7f')
+ERROR 2025-06-01 18:43:36,330 basehttp 9748 20328 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:36,588 basehttp 9748 15608 code 400, message Bad request version ('\x8d\x9b$æ6')
+ERROR 2025-06-01 18:43:36,589 basehttp 9748 15608 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:36,645 basehttp 9748 17992 code 400, message Bad request syntax ('\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03±©pÇÊtiÜy?*$')
+ERROR 2025-06-01 18:43:36,646 basehttp 9748 17992 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:43:36,907 basehttp 9748 20388 code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+ERROR 2025-06-01 18:43:36,908 basehttp 9748 20388 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:49:47,386 autoreload 18940 11104 Watching for file changes with StatReloader
+INFO 2025-06-01 18:49:59,484 basehttp 18940 6408 "GET / HTTP/1.1" 301 0
+INFO 2025-06-01 18:49:59,495 basehttp 18940 4180 code 400, message Bad request version ('\x0ft\x82w¤\x8dé\x87¤Êµ^Iý\x8a\\\x91\x11')
+ERROR 2025-06-01 18:49:59,497 basehttp 18940 4180 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:49:59,500 basehttp 18940 17172 code 400, message Bad request version ('ä')
+ERROR 2025-06-01 18:49:59,501 basehttp 18940 17172 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:50:03,035 basehttp 18940 7516 code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06e**\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00')
+ERROR 2025-06-01 18:50:03,036 basehttp 18940 7516 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:50:03,285 basehttp 18940 6656 code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00')
+ERROR 2025-06-01 18:50:03,286 basehttp 18940 6656 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:50:03,348 basehttp 18940 11560 code 400, message Bad request version ('zz\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥ªª\x00\x00\x00')
+ERROR 2025-06-01 18:50:03,349 basehttp 18940 11560 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 18:50:03,594 basehttp 18940 19896 code 400, message Bad request syntax ('\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03>½ùaK!')
+ERROR 2025-06-01 18:50:03,595 basehttp 18940 19896 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:03:49,974 autoreload 3536 11244 Watching for file changes with StatReloader
+INFO 2025-06-01 19:03:50,726 basehttp 3536 13608 "GET / HTTP/1.1" 301 0
+INFO 2025-06-01 19:03:51,037 basehttp 3536 17168 code 400, message Bad request version ('R\x04z½U\x12º\x9bÚíòÌ\x92\x9d?¾\x11µªo\x8f/´AåÁyÿïóÄD\x00')
+ERROR 2025-06-01 19:03:51,037 basehttp 3536 17168 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:03:51,291 basehttp 3536 2516 code 400, message Bad request version ('\x94p\x89\\bè&')
+ERROR 2025-06-01 19:03:51,292 basehttp 3536 2516 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:03:51,347 basehttp 3536 9948 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03h\x01tI(\x94µQUF\x9dC¾ü)Æ×{^¢ÚáTç>ÃILd{ýq')
+ERROR 2025-06-01 19:03:51,347 basehttp 3536 9948 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:03:51,607 basehttp 3536 14604 code 400, message Bad request version ('\x97\x13')
+ERROR 2025-06-01 19:03:51,608 basehttp 3536 14604 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:04:20,259 basehttp 3536 14140 code 400, message Bad request version ('Í?\x8ciÍËµµPvU¾²öÑBêúÄ\x9c')
+ERROR 2025-06-01 19:04:20,260 basehttp 3536 14140 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:04:20,525 basehttp 3536 17752 code 400, message Bad request version ('¨\x9a\x88Ì\x9e')
+ERROR 2025-06-01 19:04:20,526 basehttp 3536 17752 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:04:20,578 basehttp 3536 14376 code 400, message Bad request version ('£û¹ë\x08@ýªR\x05á?y÷Aãr.¬Ì8a)=Möhoå6*¡\x8dº\x94@(«©')
+ERROR 2025-06-01 19:04:20,579 basehttp 3536 14376 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:04:20,837 basehttp 3536 10644 code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06e')
+ERROR 2025-06-01 19:04:20,838 basehttp 3536 10644 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:05:17,224 autoreload 2448 772 Watching for file changes with StatReloader
+INFO 2025-06-01 19:05:36,512 basehttp 2448 1620 "GET / HTTP/1.1" 301 0
+INFO 2025-06-01 19:05:36,516 basehttp 2448 5708 code 400, message Bad request version (';\x05\x1búWÒ\x81\x86äP·1')
+ERROR 2025-06-01 19:05:36,516 basehttp 2448 5708 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:05:36,520 basehttp 2448 12772 code 400, message Bad request version ("'«BÒa")
+ERROR 2025-06-01 19:05:36,521 basehttp 2448 12772 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:50,480 basehttp 2448 10100 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+ERROR 2025-06-01 19:09:50,481 basehttp 2448 10100 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:50,483 basehttp 2448 18164 code 400, message Bad request version ('\x90TlY\x83â\x17\x98_ôËï\x84á\x8fK-\x97T\x1aÇ\x1b\x8aì%\xad\x8d¦@Ìü')
+ERROR 2025-06-01 19:09:50,484 basehttp 2448 18164 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:51,429 basehttp 2448 18484 code 400, message Bad request version ('ù6\x8eÉ³NÃ\x11D\x8fSh\x83Å>÷R\x9f\x18\x93"ÒV\x15Ûj6j\x82\x0fg´\x8agì\x15¬{cNµ\x96¾\x05g¬¹»í;\x13²')
+ERROR 2025-06-01 19:09:51,430 basehttp 2448 18484 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:51,434 basehttp 2448 10984 code 400, message Bad request version ('êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063êê\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00')
+ERROR 2025-06-01 19:09:51,434 basehttp 2448 10984 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:52,398 basehttp 2448 9800 code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+ERROR 2025-06-01 19:09:52,399 basehttp 2448 9800 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:09:52,404 basehttp 2448 20420 code 400, message Bad request version ('û¶c')
+ERROR 2025-06-01 19:09:52,405 basehttp 2448 20420 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:10:49,684 autoreload 16468 17712 Watching for file changes with StatReloader
+INFO 2025-06-01 19:11:09,764 basehttp 16468 18680 code 400, message Bad request version ('\x97±\x7f0ì<ßUÑ5gã\x9fÏõDØ')
+ERROR 2025-06-01 19:11:09,765 basehttp 16468 18680 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:11:10,013 basehttp 16468 2772 code 400, message Bad request version ('H!\x9aã')
+ERROR 2025-06-01 19:11:10,014 basehttp 16468 2772 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:11:10,072 basehttp 16468 12028 code 400, message Bad request version ('8\x94YÀ4\x95a\x9eÚö½\x9do')
+ERROR 2025-06-01 19:11:10,073 basehttp 16468 12028 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:11:10,329 basehttp 16468 20412 code 400, message Bad request version ('localhost\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x17\x00\x00\x00')
+ERROR 2025-06-01 19:11:10,330 basehttp 16468 20412 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:13:33,132 autoreload 16360 17868 Watching for file changes with StatReloader
+INFO 2025-06-01 19:13:54,295 basehttp 16360 19196 "HEAD / HTTP/1.1" 200 0
+INFO 2025-06-01 19:14:06,643 basehttp 16360 2428 code 400, message Bad request version ('ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ÊÊ\x00\x00\x00-\x00\x02\x01\x01ÿ\x01\x00\x01\x00\x00')
+ERROR 2025-06-01 19:14:06,645 basehttp 16360 2428 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:14:06,649 basehttp 16360 20324 code 400, message Bad request version ('úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x9a\x9a\x00\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00-\x00\x02\x01\x01\x003\x04ï\x04ízz\x00\x01\x00\x11ì\x04ÀUÈ4E')
+ERROR 2025-06-01 19:14:06,649 basehttp 16360 20324 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-06-01 19:14:36,214 autoreload 17524 8720 Watching for file changes with StatReloader
+INFO 2025-06-01 19:15:10,174 basehttp 17524 20408 "HEAD / HTTP/1.1" 200 0
+INFO 2025-06-01 19:15:16,689 basehttp 17524 10136 "GET / HTTP/1.1" 200 2399
+WARNING 2025-06-01 19:15:17,177 log 17524 10136 Not Found: /favicon.ico
+WARNING 2025-06-01 19:15:17,177 basehttp 17524 10136 "GET /favicon.ico HTTP/1.1" 404 1150
+INFO 2025-06-01 19:15:22,805 basehttp 17524 10136 "GET /accounts/login/ HTTP/1.1" 200 8022
+INFO 2025-06-01 19:15:22,842 basehttp 17524 10136 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-06-01 19:15:32,969 basehttp 17524 10136 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-06-01 19:15:33,075 basehttp 17524 10136 "GET /competitions/ HTTP/1.1" 200 11209
+INFO 2025-06-01 19:15:41,827 basehttp 17524 10136 "GET /competitions/student-analytics/ HTTP/1.1" 200 10508
+INFO 2025-06-01 19:15:44,935 basehttp 17524 10136 "GET /competitions/analytics/ HTTP/1.1" 200 14707
+INFO 2025-06-01 19:16:03,455 basehttp 17524 10136 "GET /competitions/history/ HTTP/1.1" 200 25638
+INFO 2025-06-01 19:16:19,462 basehttp 17524 6848 "GET /competitions/export-history-excel/ HTTP/1.1" 200 11437
+INFO 2025-06-01 19:18:12,509 basehttp 17524 16308 "GET /competitions/analytics/ HTTP/1.1" 200 14696
+INFO 2025-06-01 19:18:16,899 basehttp 17524 16308 "GET /competitions/start/ HTTP/1.1" 200 22832
+INFO 2025-06-01 19:18:17,094 basehttp 17524 16308 "GET /static/js/notifications.js HTTP/1.1" 200 7299
+INFO 2025-06-01 19:18:51,902 basehttp 17524 18496 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1031
+INFO 2025-06-01 19:19:01,447 basehttp 17524 18496 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-06-01 19:19:01,485 basehttp 17524 18496 "GET /competitions/question/1/ HTTP/1.1" 200 10184
+INFO 2025-06-01 19:19:02,862 basehttp 17524 18496 "POST /competitions/submit-answer/1/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:04,459 basehttp 17524 18496 "GET /competitions/question/2/ HTTP/1.1" 200 10167
+INFO 2025-06-01 19:19:04,816 basehttp 17524 18496 "POST /competitions/submit-answer/2/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:06,394 basehttp 17524 18496 "GET /competitions/question/3/ HTTP/1.1" 200 10209
+INFO 2025-06-01 19:19:06,771 basehttp 17524 18496 "POST /competitions/submit-answer/3/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:08,345 basehttp 17524 18496 "GET /competitions/question/4/ HTTP/1.1" 200 10219
+INFO 2025-06-01 19:19:08,831 basehttp 17524 18496 "POST /competitions/submit-answer/4/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:10,417 basehttp 17524 18496 "GET /competitions/question/5/ HTTP/1.1" 200 10251
+INFO 2025-06-01 19:19:10,935 basehttp 17524 18496 "POST /competitions/submit-answer/5/ HTTP/1.1" 200 155
+INFO 2025-06-01 19:19:12,515 basehttp 17524 7616 "GET /competitions/question/6/ HTTP/1.1" 200 10206
+INFO 2025-06-01 19:19:13,155 basehttp 17524 7616 "POST /competitions/submit-answer/6/ HTTP/1.1" 200 156
+INFO 2025-06-01 19:19:14,741 basehttp 17524 7616 "GET /competitions/question/7/ HTTP/1.1" 200 10240
+INFO 2025-06-01 19:19:15,706 basehttp 17524 7616 "POST /competitions/submit-answer/7/ HTTP/1.1" 200 156
+INFO 2025-06-01 19:19:17,284 basehttp 17524 7616 "GET /competitions/question/8/ HTTP/1.1" 200 10252
+INFO 2025-06-01 19:19:17,722 basehttp 17524 7616 "POST /competitions/submit-answer/8/ HTTP/1.1" 200 156
+INFO 2025-06-01 19:19:19,300 basehttp 17524 7616 "GET /competitions/question/9/ HTTP/1.1" 200 10182
+INFO 2025-06-01 19:19:19,878 basehttp 17524 7616 "POST /competitions/submit-answer/9/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:21,465 basehttp 17524 3908 "GET /competitions/question/10/ HTTP/1.1" 200 10164
+INFO 2025-06-01 19:19:22,025 basehttp 17524 3908 "POST /competitions/submit-answer/10/ HTTP/1.1" 200 158
+INFO 2025-06-01 19:19:23,617 basehttp 17524 3908 "GET /competitions/question/11/ HTTP/1.1" 200 10179
+INFO 2025-06-01 19:19:24,278 basehttp 17524 3908 "POST /competitions/submit-answer/11/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:25,867 basehttp 17524 3908 "GET /competitions/question/12/ HTTP/1.1" 200 10244
+INFO 2025-06-01 19:19:26,497 basehttp 17524 3908 "POST /competitions/submit-answer/12/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:28,064 basehttp 17524 3908 "GET /competitions/question/13/ HTTP/1.1" 200 10237
+INFO 2025-06-01 19:19:29,402 basehttp 17524 3908 "POST /competitions/submit-answer/13/ HTTP/1.1" 200 157
+INFO 2025-06-01 19:19:30,993 basehttp 17524 3908 "GET /competitions/question/14/ HTTP/1.1" 200 10194
+INFO 2025-06-01 19:19:34,735 basehttp 17524 17876 "GET / HTTP/1.1" 200 2428
+WARNING 2025-06-01 19:21:57,437 log 17524 7472 Not Found: /favicon.ico
+WARNING 2025-06-01 19:21:57,438 basehttp 17524 7472 "GET /favicon.ico HTTP/1.1" 404 1152
+INFO 2025-06-06 01:41:07,536 autoreload 5252 3340 Watching for file changes with StatReloader
+INFO 2025-06-06 01:42:34,236 autoreload 14884 15656 Watching for file changes with StatReloader
+INFO 2025-06-06 01:43:01,428 autoreload 15412 14512 Watching for file changes with StatReloader
+INFO 2025-06-06 01:43:16,674 basehttp 15412 2520 "GET / HTTP/1.1" 200 2414
+WARNING 2025-06-06 01:43:18,078 log 15412 2520 Not Found: /favicon.ico
+WARNING 2025-06-06 01:43:18,078 basehttp 15412 2520 "GET /favicon.ico HTTP/1.1" 404 1144
+INFO 2025-06-06 01:43:21,819 basehttp 15412 13100 "GET /accounts/login/ HTTP/1.1" 200 7990
+INFO 2025-06-06 01:43:22,012 basehttp 15412 13100 "GET /static/css/math_platform.css?v=1.0 HTTP/1.1" 200 44647
+INFO 2025-06-06 01:43:36,624 basehttp 15412 13100 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-06-06 01:43:37,059 basehttp 15412 13100 "GET /competitions/ HTTP/1.1" 200 11237
+INFO 2025-06-06 01:43:45,159 basehttp 15412 13840 "GET /competitions/student-analytics/ HTTP/1.1" 200 10509
+INFO 2025-06-06 01:43:48,859 basehttp 15412 13840 "GET /competitions/analytics/ HTTP/1.1" 200 14757
+INFO 2025-06-06 01:43:51,015 basehttp 15412 13840 "GET /competitions/history/ HTTP/1.1" 200 25646
+INFO 2025-06-06 01:44:06,308 basehttp 15412 8112 "GET /competitions/start/ HTTP/1.1" 200 22805
+INFO 2025-06-06 01:44:06,417 basehttp 15412 8112 "GET /static/js/notifications.js HTTP/1.1" 200 7299
+INFO 2025-06-06 01:44:17,269 basehttp 15412 8428 "GET /competitions/get-participants-by-grade/?grade=3 HTTP/1.1" 200 1021
+INFO 2025-06-06 01:44:22,226 basehttp 15412 8428 "POST /competitions/start/ HTTP/1.1" 302 0
+INFO 2025-06-06 01:44:22,272 basehttp 15412 8428 "GET /competitions/question/1/ HTTP/1.1" 200 10231
+INFO 2025-06-06 01:44:31,678 basehttp 15412 16220 "GET / HTTP/1.1" 200 2403

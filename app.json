@@ -1,0 +1,45 @@
+{
+  "name": "منصة المسابقات الرياضية",
+  "description": "Math Competition Platform - منصة تفاعلية للمسابقات الرياضية",
+  "keywords": ["django", "python", "math", "education", "competition"],
+  "website": "https://github.com/BEAC018/math-competition-platform",
+  "repository": "https://github.com/BEAC018/math-competition-platform",
+  "logo": "https://via.placeholder.com/128x128.png?text=Math",
+  "success_url": "/",
+  "env": {
+    "DJANGO_SETTINGS_MODULE": {
+      "description": "Django settings module",
+      "value": "alhassan.settings"
+    },
+    "DEBUG": {
+      "description": "Debug mode",
+      "value": "False"
+    },
+    "SECRET_KEY": {
+      "description": "Django secret key",
+      "generator": "secret"
+    },
+    "STUDENT_ACCESS_CODE": {
+      "description": "Student access code",
+      "value": "ben25"
+    },
+    "WSGI_APPLICATION": {
+      "description": "WSGI application path",
+      "value": "alhassan.wsgi.application"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "python manage.py migrate && python manage.py collectstatic --noinput"
+  }
+}

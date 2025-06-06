@@ -1,0 +1,17 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn alhassan.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 120"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[env]
+DJANGO_SETTINGS_MODULE = "alhassan.production_settings"
+PYTHONPATH = "."
+DEBUG = "False"
+STUDENT_ACCESS_CODE = "ben25"
+ALLOWED_HOSTS = ".railway.app"
+CSRF_TRUSTED_ORIGINS = "https://*.railway.app"

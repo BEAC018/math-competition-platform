@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: math-competition-platform
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn alhassan.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: alhassan.production_settings
+      - key: DEBUG
+        value: False
+      - key: STUDENT_ACCESS_CODE
+        value: ben25
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: math-competition-db
+          property: connectionString
+
+  - type: pserv
+    name: math-competition-db
+    env: postgresql
+    plan: free
+    databaseName: math_competition
+    user: math_user
