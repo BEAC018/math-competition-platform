@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 نشر التطبيق على الإنترنت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #4F46E5;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #6B7280;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .step-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 100%);
+            border-radius: 15px;
+            border-right: 5px solid #4F46E5;
+        }
+        
+        .step-title {
+            font-size: 1.4rem;
+            color: #1F2937;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            background: #4F46E5;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .success-button {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .success-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+        
+        .warning-button {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .warning-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid #10B981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 1px solid #F59E0B;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #065F46;
+            margin-bottom: 10px;
+        }
+        
+        .warning-title {
+            font-weight: 600;
+            color: #92400E;
+            margin-bottom: 10px;
+        }
+        
+        .info-text {
+            color: #047857;
+            line-height: 1.6;
+        }
+        
+        .warning-text {
+            color: #B45309;
+            line-height: 1.6;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .status-indicator::before {
+            content: '🟢';
+            margin-left: 8px;
+        }
+        
+        .copy-button {
+            background: #6B7280;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+        
+        .copy-button:hover {
+            background: #4B5563;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .link-button {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .code-block {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌐 نشر التطبيق على الإنترنت</h1>
+        <p class="subtitle">شارك تطبيق المسابقات الرياضية مع العالم</p>
+        
+        <div class="status-indicator">التطبيق جاهز للنشر</div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">1</span>
+                🚀 الطريقة الموصى بها - Ngrok
+            </h2>
+            
+            <p><strong>الأسهل والأسرع للاستخدام</strong></p>
+            
+            <a href="https://dashboard.ngrok.com/signup" class="link-button" target="_blank">
+                📝 إنشاء حساب مجاني
+            </a>
+            
+            <div class="info-box">
+                <div class="info-title">📋 خطوات التفعيل:</div>
+                <div class="info-text">
+                    1. اضغط على الرابط أعلاه وأنشئ حساب مجاني<br>
+                    2. بعد التسجيل، اذهب إلى صفحة Auth Token<br>
+                    3. انسخ الـ Token الخاص بك<br>
+                    4. شغل الأوامر التالية في Terminal
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyToClipboard('ngrok config add-authtoken YOUR_TOKEN_HERE')">نسخ</button>
+                ngrok config add-authtoken YOUR_TOKEN_HERE
+            </div>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyToClipboard('ngrok http 8000')">نسخ</button>
+                ngrok http 8000
+            </div>
+            
+            <p><strong>بعد تشغيل الأمر الأخير، ستحصل على رابط مثل:</strong></p>
+            <div class="code-block">
+                https://abc123.ngrok.io
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">2</span>
+                🔗 بديل مجاني - Serveo
+            </h2>
+            
+            <p><strong>لا يحتاج تسجيل أو تثبيت</strong></p>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyToClipboard('ssh -R 80:localhost:8000 serveo.net')">نسخ</button>
+                ssh -R 80:localhost:8000 serveo.net
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">✅ المميزات:</div>
+                <div class="info-text">
+                    • لا يحتاج تسجيل أو تثبيت<br>
+                    • مجاني تماماً<br>
+                    • سريع وآمن<br>
+                    • يعطيك رابط فوري
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">3</span>
+                🌐 روابط الوصول بعد النشر
+            </h2>
+            
+            <p><strong>استبدل YOUR_URL بالرابط الذي حصلت عليه:</strong></p>
+            
+            <div class="info-box">
+                <div class="info-title">👨‍🏫 للمعلمين:</div>
+                <div class="info-text">
+                    • <strong>تسجيل الدخول:</strong> https://YOUR_URL/accounts/login/<br>
+                    • <strong>لوحة الإدارة:</strong> https://YOUR_URL/admin/<br>
+                    • <strong>اسم المستخدم:</strong> admin<br>
+                    • <strong>كلمة المرور:</strong> [راجع ملف ADMIN_CREDENTIALS.txt]
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">👥 للطلاب:</div>
+                <div class="info-text">
+                    • <strong>دخول الطلاب:</strong> https://YOUR_URL/student/login/<br>
+                    • <strong>رمز الدخول:</strong> ben25
+                </div>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <div class="warning-title">⚠️ تحذيرات مهمة:</div>
+            <div class="warning-text">
+                • التطبيق سيصبح متاحاً للجميع على الإنترنت<br>
+                • غير كلمة مرور المدير قبل النشر<br>
+                • راقب من يصل للتطبيق<br>
+                • احتفظ بنسخة احتياطية من البيانات<br>
+                • للاستخدام المكثف، فكر في خدمة مدفوعة
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">4</span>
+                🧪 اختبار الوصول
+            </h2>
+            
+            <div class="info-box">
+                <div class="info-title">📱 خطوات الاختبار:</div>
+                <div class="info-text">
+                    1. جرب الرابط من جهازك أولاً<br>
+                    2. شارك مع صديق للاختبار<br>
+                    3. تأكد من عمل جميع الميزات<br>
+                    4. اختبر على أجهزة مختلفة (هاتف، جهاز لوحي)
+                </div>
+            </div>
+            
+            <a href="#" class="link-button success-button" onclick="testConnection()">
+                🧪 اختبار الاتصال
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">🎯 النتيجة النهائية:</div>
+            <div class="info-text">
+                بعد اتباع هذه الخطوات، سيصبح تطبيق المسابقات الرياضية متاحاً على الإنترنت للجميع!<br>
+                التطبيق سيبقى كما هو تماماً، فقط سيصبح قابلاً للوصول من أي مكان في العالم! 🌟
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('تم نسخ الأمر! الصقه في Terminal');
+            }, function(err) {
+                console.error('فشل في النسخ: ', err);
+            });
+        }
+        
+        function testConnection() {
+            const url = prompt('أدخل الرابط الذي حصلت عليه من Ngrok أو Serveo:');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+        
+        // فحص حالة الخادم المحلي
+        function checkLocalServer() {
+            fetch('http://localhost:8000')
+                .then(response => {
+                    if (response.ok) {
+                        document.querySelector('.status-indicator').innerHTML = '🟢 الخادم المحلي يعمل - جاهز للنشر';
+                        document.querySelector('.status-indicator').style.background = '#10B981';
+                    }
+                })
+                .catch(() => {
+                    document.querySelector('.status-indicator').innerHTML = '🔴 الخادم المحلي غير متاح';
+                    document.querySelector('.status-indicator').style.background = '#EF4444';
+                });
+        }
+        
+        // فحص أولي
+        checkLocalServer();
+        
+        // فحص كل 30 ثانية
+        setInterval(checkLocalServer, 30000);
+    </script>
+</body>
+</html>

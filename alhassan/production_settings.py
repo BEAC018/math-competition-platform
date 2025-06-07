@@ -49,6 +49,11 @@ if os.environ.get('DATABASE_URL'):
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+    # إعدادات إضافية لـ PostgreSQL
+    DATABASES['default']['CONN_MAX_AGE'] = 600
+    DATABASES['default']['OPTIONS'] = {
+        'sslmode': 'require',
+    }
 else:
     # SQLite للتطوير والاختبار
     DATABASES = {

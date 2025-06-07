@@ -2887,7 +2887,8 @@ def student_login(request):
         access_code = request.POST.get('access_code', '').strip().lower()
 
         # التحقق من رمز الدخول
-        if access_code == 'ben25':
+        from django.conf import settings
+        if access_code == settings.STUDENT_ACCESS_CODE:
             # حفظ رمز الدخول في الجلسة
             request.session['student_access_code'] = access_code
             request.session['student_authenticated'] = True
@@ -2930,11 +2931,12 @@ def student_setup(request):
                 return render(request, 'student/setup.html')
 
             # إنشاء جلسة جديدة للتلميذ
+            from django.conf import settings
             session = StudentSession.objects.create(
                 student_name=student_name,
                 grade=grade,
                 difficulty=difficulty,
-                session_code=request.session.get('student_access_code', 'ben25'),
+                session_code=request.session.get('student_access_code', settings.STUDENT_ACCESS_CODE),
                 ip_address=request.META.get('REMOTE_ADDR'),
                 user_agent=request.META.get('HTTP_USER_AGENT', '')
             )

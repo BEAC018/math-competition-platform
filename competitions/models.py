@@ -495,7 +495,7 @@ class StudentSession(models.Model):
     difficulty = models.IntegerField(choices=DIFFICULTY_CHOICES, verbose_name="مستوى الصعوبة")
 
     # معلومات الجلسة
-    session_code = models.CharField(max_length=20, default="ben25", verbose_name="رمز الدخول")
+    session_code = models.CharField(max_length=20, verbose_name="رمز الدخول")
     start_time = models.DateTimeField(default=timezone.now, verbose_name="وقت البداية")
     end_time = models.DateTimeField(null=True, blank=True, verbose_name="وقت الانتهاء")
     is_completed = models.BooleanField(default=False, verbose_name="مكتملة")

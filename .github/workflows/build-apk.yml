@@ -1,0 +1,130 @@
+name: 📱 Build Math Competition APK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: ☕ Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+        
+    - name: 📦 Install system dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y \
+          git zip unzip autoconf libtool pkg-config \
+          zlib1g-dev libncurses5-dev libncursesw5-dev \
+          libtinfo5 cmake libffi-dev libssl-dev \
+          build-essential ccache m4 libtool \
+          libpng-dev libjpeg-dev libfreetype6-dev \
+          libportmidi-dev libsdl2-dev libsdl2-image-dev \
+          libsdl2-mixer-dev libsdl2-ttf-dev
+          
+    - name: 🔧 Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install buildozer cython kivy kivymd
+        pip install -r requirements.txt
+        
+    - name: 📱 Setup Android SDK
+      run: |
+        # Download Android command line tools
+        wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
+        unzip -q commandlinetools-linux-8512546_latest.zip
+        
+        # Setup Android SDK
+        mkdir -p $HOME/android-sdk/cmdline-tools
+        mv cmdline-tools $HOME/android-sdk/cmdline-tools/latest
+        
+        # Set environment variables
+        echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+        echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+        echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
+        
+    - name: 📋 Accept Android licenses
+      run: |
+        yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+        
+    - name: 🏗️ Build APK
+      run: |
+        # Initialize buildozer
+        buildozer init
+        
+        # Build debug APK
+        buildozer android debug
+        
+    - name: 📱 Rename APK
+      run: |
+        # Find the generated APK and rename it
+        find bin -name "*.apk" -exec cp {} math-competition-app.apk \;
+        
+    - name: 📊 APK Info
+      run: |
+        if [ -f "math-competition-app.apk" ]; then
+          echo "✅ APK built successfully!"
+          echo "📁 File: math-competition-app.apk"
+          echo "📏 Size: $(du -h math-competition-app.apk | cut -f1)"
+          echo "🔍 Details:"
+          file math-competition-app.apk
+        else
+          echo "❌ APK build failed!"
+          exit 1
+        fi
+        
+    - name: 📤 Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: math-competition-apk
+        path: math-competition-app.apk
+        retention-days: 30
+        
+    - name: 📝 Create Release (if tag)
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: math-competition-app.apk
+        name: Math Competition App ${{ github.ref_name }}
+        body: |
+          📱 **تطبيق المسابقات الرياضية للهاتف النقال**
+          
+          🎯 **الميزات:**
+          - ✅ نفس التطبيق 100% - لا تغيير
+          - ✅ واجهة محسنة للهاتف
+          - ✅ يعمل بدون إنترنت
+          - ✅ خادم Django مدمج
+          - ✅ جميع الميزات الأصلية
+          
+          📋 **متطلبات التشغيل:**
+          - Android 5.0+ (API 21)
+          - 100MB مساحة فارغة
+          - لا يحتاج إنترنت للعمل
+          
+          🚀 **طريقة التثبيت:**
+          1. حمل ملف APK
+          2. فعل "Unknown Sources" في إعدادات Android
+          3. ثبت التطبيق
+          4. استمتع بجميع الميزات!
+          
+          🔑 **بيانات الدخول:**
+          - رمز الطلاب: ben25
+          - المدير: admin / [راجع التوثيق]
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

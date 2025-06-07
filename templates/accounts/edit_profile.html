@@ -20,14 +20,17 @@
                                 
                                 <div class="profile-image-container mb-3">
                                     {% if user.profile.profile_image %}
-                                        <img id="profile-preview" src="{{ user.profile.profile_image.url }}" alt="{{ user.get_full_name }}" 
-                                             class="img-fluid rounded-circle shadow profile-image mb-2" 
-                                             style="width: 180px; height: 180px; object-fit: cover;">
-                                    {% else %}
-                                        <div id="profile-preview-placeholder" class="profile-image-placeholder rounded-circle shadow mx-auto d-flex align-items-center justify-content-center bg-light mb-2" 
-                                             style="width: 180px; height: 180px;">
-                                            <i class="fas fa-user fa-4x text-secondary"></i>
-                                        </div>
+                                        <img id="profile-preview" src="{{ user.profile.profile_image.url }}" alt="{{ user.get_full_name }}"
+                                             class="img-fluid rounded-circle shadow profile-image mb-2 img-hover-zoom"
+                                             style="width: 180px; height: 180px; object-fit: cover;"
+                                             onerror="this.style.display='none'; document.getElementById('profile-preview-placeholder').style.display='flex';">
+                                    {% endif %}
+
+                                    <div id="profile-preview-placeholder" class="profile-image-placeholder rounded-circle shadow mx-auto avatar-style-2 mb-2"
+                                         style="width: 180px; height: 180px; {% if user.profile.profile_image %}display: none;{% else %}display: flex;{% endif %}"
+                                         title="صورة شخصية افتراضية">
+                                        <i class="fas fa-user fa-4x" style="color: white; opacity: 0.9;"></i>
+                                    </div>
                                         <img id="profile-preview" class="d-none img-fluid rounded-circle shadow profile-image mb-2" 
                                              style="width: 180px; height: 180px; object-fit: cover;">
                                     {% endif %}

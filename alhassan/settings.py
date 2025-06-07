@@ -32,25 +32,53 @@ if getattr(sys, 'frozen', False):
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=&p@v@5!yyoz8r&x#8khzk9ae%61*su($5@b%h!#kg1b2nb!+g'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-=&p@v@5!yyoz8r&x#8khzk9ae%61*su($5@b%h!#kg1b2nb!+g')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 'yes', 'on')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '.ngrok.io', '.ngrok-free.app', '.ngrok.app', '.railway.app', '.onrender.com', 'math-competition-platform.onrender.com', 'testserver', '*']
+# Allowed hosts configuration
+ALLOWED_HOSTS = []
+if os.environ.get('ALLOWED_HOSTS'):
+    ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS').split(',')]
+else:
+    ALLOWED_HOSTS = [
+        'localhost',
+        '127.0.0.1',
+        '0.0.0.0',
+        '.ngrok.io',
+        '.ngrok-free.app',
+        '.ngrok.app',
+        '.railway.app',
+        '.onrender.com',
+        '.herokuapp.com',
+        'math-competition-platform.onrender.com',
+        'testserver'
+    ]
+    # Add wildcard only for development
+    if DEBUG:
+        ALLOWED_HOSTS.append('*')
 
-# CSRF trusted origins for ngrok and other platforms
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.ngrok-free.app',
-    'https://*.ngrok.io',
-    'https://*.ngrok.app',
-    'https://*.railway.app',
-    'https://*.herokuapp.com',
-    'https://*.onrender.com',
-    'https://math-competition-platform.onrender.com',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-]
+# CSRF trusted origins configuration
+CSRF_TRUSTED_ORIGINS = []
+if os.environ.get('CSRF_TRUSTED_ORIGINS'):
+    CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in os.environ.get('CSRF_TRUSTED_ORIGINS').split(',')]
+else:
+    CSRF_TRUSTED_ORIGINS = [
+        'https://*.ngrok-free.app',
+        'https://*.ngrok.io',
+        'https://*.ngrok.app',
+        'https://*.serveo.net',
+        'https://0192a2598d2cc3565d9e68b552d81d70.serveo.net',
+        'https://*.railway.app',
+        'https://*.herokuapp.com',
+        'https://*.onrender.com',
+        'https://math-competition-platform.onrender.com',
+        'http://localhost:8000',
+        'http://localhost:8090',
+        'http://127.0.0.1:8000',
+        'http://127.0.0.1:8090',
+    ]
 
 
 # Application definition
@@ -160,6 +188,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# تجنب مشاكل collectstatic
+STATICFILES_DIRS = []
 
 # إعدادات الملفات الثابتة للملف التنفيذي
 if getattr(sys, 'frozen', False):
@@ -191,10 +223,32 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
+# إعدادات CSRF للعمل مع الروابط الخارجية
+CSRF_COOKIE_SAMESITE = 'Lax'
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False
+
+# إعدادات أمان إضافية للإنتاج
+if not DEBUG:
+    SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False').lower() in ('true', '1', 'yes', 'on')  # تعطيل إعادة التوجيه للتطوير
+    SECURE_HSTS_SECONDS = int(os.environ.get('SECURE_HSTS_SECONDS', '0'))  # تعطيل HSTS للتطوير
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get('SECURE_HSTS_INCLUDE_SUBDOMAINS', 'False').lower() in ('true', '1', 'yes', 'on')
+    SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'False').lower() in ('true', '1', 'yes', 'on')
+    SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() in ('true', '1', 'yes', 'on')  # تعطيل للتطوير
+    CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False').lower() in ('true', '1', 'yes', 'on')  # تعطيل للتطوير
+    SECURE_REFERRER_POLICY = os.environ.get('SECURE_REFERRER_POLICY', 'strict-origin-when-cross-origin')
+else:
+    # إعدادات التطوير
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+
 # إعدادات الجلسات
 SESSION_COOKIE_AGE = 3600  # ساعة واحدة
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# إعدادات التطبيق المخصصة
+STUDENT_ACCESS_CODE = os.environ.get('STUDENT_ACCESS_CODE', 'ben25')
 
 # إعدادات التخزين المؤقت
 CACHES = {

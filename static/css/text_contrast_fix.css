@@ -1,0 +1,383 @@
+/**
+ * 🔤 إصلاح تباين النصوص والقراءة
+ * Text Contrast and Readability Fixes
+ */
+
+/* ========================================
+   🎯 إصلاح ألوان النصوص الأساسية
+   ======================================== */
+
+/* النصوص الأساسية */
+body {
+    color: #1F2937 !important; /* نص غامق جداً للقراءة الواضحة */
+    background: #FFFFFF !important; /* خلفية بيضاء نظيفة */
+}
+
+/* العناوين */
+h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important; /* أغمق للعناوين */
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+
+/* النصوص في البطاقات */
+.card {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+}
+
+.card-body {
+    color: #1F2937 !important;
+}
+
+.card-text {
+    color: #374151 !important;
+}
+
+/* ========================================
+   🔗 إصلاح ألوان الروابط
+   ======================================== */
+
+a {
+    color: #2563EB !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #1D4ED8 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #7C3AED !important;
+}
+
+/* روابط التنقل */
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+.nav-link:hover {
+    color: #F3F4F6 !important;
+}
+
+/* ========================================
+   📝 إصلاح النماذج والحقول
+   ======================================== */
+
+.form-label {
+    color: #111827 !important;
+    font-weight: 600 !important;
+}
+
+.form-control {
+    color: #1F2937 !important;
+    background-color: #FFFFFF !important;
+    border: 2px solid #D1D5DB !important;
+}
+
+.form-control:focus {
+    color: #1F2937 !important;
+    background-color: #FFFFFF !important;
+    border-color: #2563EB !important;
+}
+
+.form-control::placeholder {
+    color: #6B7280 !important;
+}
+
+/* ========================================
+   📊 إصلاح الجداول
+   ======================================== */
+
+.table {
+    color: #1F2937 !important;
+}
+
+.table th {
+    background-color: #F9FAFB !important;
+    color: #111827 !important;
+    border-bottom: 2px solid #E5E7EB !important;
+}
+
+.table td {
+    color: #374151 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F9FAFB !important;
+    color: #1F2937 !important;
+}
+
+/* ========================================
+   🏷️ إصلاح الشارات والتسميات
+   ======================================== */
+
+.badge {
+    font-weight: 600 !important;
+}
+
+.badge-primary {
+    background-color: #2563EB !important;
+    color: #FFFFFF !important;
+}
+
+.badge-success {
+    background-color: #059669 !important;
+    color: #FFFFFF !important;
+}
+
+.badge-warning {
+    background-color: #D97706 !important;
+    color: #FFFFFF !important;
+}
+
+.badge-danger {
+    background-color: #DC2626 !important;
+    color: #FFFFFF !important;
+}
+
+/* ========================================
+   🔘 إصلاح الأزرار
+   ======================================== */
+
+.btn {
+    font-weight: 600 !important;
+}
+
+.btn-primary {
+    background-color: #2563EB !important;
+    border-color: #2563EB !important;
+    color: #FFFFFF !important;
+}
+
+.btn-primary:hover {
+    background-color: #1D4ED8 !important;
+    border-color: #1D4ED8 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-success {
+    background-color: #059669 !important;
+    border-color: #059669 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-success:hover {
+    background-color: #047857 !important;
+    border-color: #047857 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-warning {
+    background-color: #D97706 !important;
+    border-color: #D97706 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-warning:hover {
+    background-color: #B45309 !important;
+    border-color: #B45309 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-danger {
+    background-color: #DC2626 !important;
+    border-color: #DC2626 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-danger:hover {
+    background-color: #B91C1C !important;
+    border-color: #B91C1C !important;
+    color: #FFFFFF !important;
+}
+
+/* ========================================
+   📋 إصلاح القوائم والعناصر
+   ======================================== */
+
+.list-group-item {
+    color: #1F2937 !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+}
+
+.list-group-item:hover {
+    background-color: #F9FAFB !important;
+    color: #1F2937 !important;
+}
+
+.list-group-item.active {
+    background-color: #2563EB !important;
+    border-color: #2563EB !important;
+    color: #FFFFFF !important;
+}
+
+/* ========================================
+   🎨 إصلاح ألوان المستويات
+   ======================================== */
+
+.grade-1, .grade-2, .grade-3, .grade-4, .grade-5,
+.grade-6, .grade-7, .grade-8, .grade-9 {
+    color: #111827 !important;
+}
+
+.grade-1 {
+    background-color: #EEF2FF !important;
+    border-left: 4px solid #2563EB !important;
+}
+
+.grade-2 {
+    background-color: #ECFDF5 !important;
+    border-left: 4px solid #059669 !important;
+}
+
+.grade-3 {
+    background-color: #FFF7ED !important;
+    border-left: 4px solid #D97706 !important;
+}
+
+/* ========================================
+   💬 إصلاح الرسائل والتنبيهات
+   ======================================== */
+
+.alert {
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+}
+
+.alert-success {
+    background-color: #ECFDF5 !important;
+    border-color: #10B981 !important;
+    color: #065F46 !important;
+}
+
+.alert-warning {
+    background-color: #FFFBEB !important;
+    border-color: #F59E0B !important;
+    color: #92400E !important;
+}
+
+.alert-danger {
+    background-color: #FEF2F2 !important;
+    border-color: #EF4444 !important;
+    color: #991B1B !important;
+}
+
+.alert-info {
+    background-color: #EFF6FF !important;
+    border-color: #3B82F6 !important;
+    color: #1E40AF !important;
+}
+
+/* ========================================
+   🔍 إصلاح النصوص الصغيرة
+   ======================================== */
+
+.small, small {
+    color: #6B7280 !important;
+}
+
+.text-muted {
+    color: #6B7280 !important;
+}
+
+.text-secondary {
+    color: #6B7280 !important;
+}
+
+/* ========================================
+   📱 إصلاحات متجاوبة
+   ======================================== */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.4 !important;
+    }
+    
+    .btn {
+        padding: 12px 20px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ========================================
+   🌟 تحسينات إضافية للقراءة
+   ======================================== */
+
+/* تحسين تباين النص */
+p, span, div, li {
+    color: #374151 !important;
+}
+
+/* تحسين النصوص في الكروت */
+.card-title {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+.card-subtitle {
+    color: #6B7280 !important;
+}
+
+/* تحسين النصوص في التنقل */
+.navbar-brand {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* إزالة الخلفيات المتداخلة */
+.container, .row, .col {
+    background: transparent !important;
+}
+
+/* تحسين الظلال للقراءة */
+.card, .btn, .form-control {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ========================================
+   🎯 إصلاحات خاصة للتطبيق
+   ======================================== */
+
+/* إصلاح نصوص المسابقة */
+.question-text {
+    color: #111827 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+}
+
+.answer-option {
+    color: #374151 !important;
+    background-color: #F9FAFB !important;
+    border: 2px solid #E5E7EB !important;
+}
+
+.answer-option:hover {
+    background-color: #F3F4F6 !important;
+    border-color: #2563EB !important;
+}
+
+.answer-option.selected {
+    background-color: #EFF6FF !important;
+    border-color: #2563EB !important;
+    color: #1E40AF !important;
+}
+
+/* إصلاح نصوص الإحصائيات */
+.stats-number {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+.stats-label {
+    color: #6B7280 !important;
+    font-weight: 500 !important;
+}

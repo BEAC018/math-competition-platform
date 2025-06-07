@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 النشر الدائم على Render</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #4F46E5;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #6B7280;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .step-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 100%);
+            border-radius: 15px;
+            border-right: 5px solid #4F46E5;
+        }
+        
+        .step-title {
+            font-size: 1.4rem;
+            color: #1F2937;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            background: #4F46E5;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .success-button {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .success-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+        
+        .warning-button {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .warning-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid #10B981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 1px solid #F59E0B;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #065F46;
+            margin-bottom: 10px;
+        }
+        
+        .warning-title {
+            font-weight: 600;
+            color: #92400E;
+            margin-bottom: 10px;
+        }
+        
+        .info-text {
+            color: #047857;
+            line-height: 1.6;
+        }
+        
+        .warning-text {
+            color: #B45309;
+            line-height: 1.6;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .status-indicator::before {
+            content: '🟢';
+            margin-left: 8px;
+        }
+        
+        .copy-button {
+            background: #6B7280;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+        
+        .copy-button:hover {
+            background: #4B5563;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checklist li::before {
+            content: '✅';
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .link-button {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .code-block {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌐 النشر الدائم على Render</h1>
+        <p class="subtitle">نشر تطبيق المسابقات الرياضية بصفة دائمة ومجانية</p>
+        
+        <div class="status-indicator">التطبيق جاهز للنشر الدائم</div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">1</span>
+                🚀 إنشاء حساب Render
+            </h2>
+            
+            <p><strong>مجاني 100% - 750 ساعة شهرياً</strong></p>
+            
+            <a href="https://render.com" class="link-button" target="_blank">
+                🌐 اذهب إلى Render.com
+            </a>
+            
+            <div class="info-box">
+                <div class="info-title">📋 خطوات التسجيل:</div>
+                <div class="info-text">
+                    1. اضغط "Get Started"<br>
+                    2. سجل بـ GitHub (الأسهل)<br>
+                    3. أكمل إعداد الحساب<br>
+                    4. مجاني تماماً للاستخدام الأساسي
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">2</span>
+                📁 رفع الكود إلى GitHub
+            </h2>
+            
+            <p><strong>إنشاء مستودع جديد</strong></p>
+            
+            <a href="https://github.com/new" class="link-button" target="_blank">
+                📁 إنشاء Repository جديد
+            </a>
+            
+            <div class="info-box">
+                <div class="info-title">⚙️ إعدادات Repository:</div>
+                <div class="info-text">
+                    • <strong>اسم Repository:</strong> math-competition-platform<br>
+                    • <strong>النوع:</strong> Public (مطلوب للخطة المجانية)<br>
+                    • <strong>الوصف:</strong> منصة المسابقات الرياضية<br>
+                    • <strong>ارفع جميع الملفات</strong> من مجلد المشروع
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyToClipboard('git init\ngit add .\ngit commit -m \"Initial commit\"\ngit remote add origin https://github.com/YOUR_USERNAME/math-competition-platform.git\ngit push -u origin main')">نسخ</button>
+                git init<br>
+                git add .<br>
+                git commit -m "Initial commit"<br>
+                git remote add origin https://github.com/YOUR_USERNAME/math-competition-platform.git<br>
+                git push -u origin main
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">3</span>
+                🔗 ربط Render بـ GitHub
+            </h2>
+            
+            <div class="info-box">
+                <div class="info-title">📋 خطوات الربط:</div>
+                <div class="info-text">
+                    1. في Render Dashboard، اضغط <strong>"New +"</strong><br>
+                    2. اختر <strong>"Web Service"</strong><br>
+                    3. اختر <strong>"Connect a repository"</strong><br>
+                    4. اختر المشروع الذي رفعته<br>
+                    5. اضغط <strong>"Connect"</strong>
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">4</span>
+                ⚙️ إعداد الخدمة
+            </h2>
+            
+            <div class="code-block">
+                Name: math-competition-platform<br>
+                Environment: Python 3<br>
+                Build Command: ./build.sh<br>
+                Start Command: gunicorn alhassan.wsgi:application
+            </div>
+            
+            <div class="warning-box">
+                <div class="warning-title">⚠️ مهم جداً:</div>
+                <div class="warning-text">
+                    تأكد من كتابة الأوامر بالضبط كما هو موضح أعلاه
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">5</span>
+                🔐 متغيرات البيئة
+            </h2>
+            
+            <p><strong>أضف هذه المتغيرات في Environment Variables:</strong></p>
+            
+            <div class="code-block">
+                DEBUG=False<br>
+                ALLOWED_HOSTS=.onrender.com<br>
+                SECRET_KEY=your-secret-key-here<br>
+                STUDENT_ACCESS_CODE=ben25
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">🔑 ملاحظة:</div>
+                <div class="info-text">
+                    DATABASE_URL سيتم إنشاؤه تلقائياً بواسطة Render
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">6</span>
+                🎯 النشر والانتظار
+            </h2>
+            
+            <div class="info-box">
+                <div class="info-title">⏱️ مدة النشر:</div>
+                <div class="info-text">
+                    • <strong>البناء:</strong> 3-5 دقائق<br>
+                    • <strong>النشر:</strong> 1-2 دقيقة<br>
+                    • <strong>المجموع:</strong> 5-7 دقائق تقريباً
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <div class="warning-title">📱 بعد النشر:</div>
+                <div class="warning-text">
+                    ستحتاج إنشاء مدير جديد باستخدام Shell في Render Dashboard
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">7</span>
+                🔗 الرابط النهائي
+            </h2>
+            
+            <div class="info-box">
+                <div class="info-title">🌐 الرابط المتوقع:</div>
+                <div class="info-text">
+                    <strong>https://math-competition-platform.onrender.com</strong><br><br>
+                    
+                    <strong>📋 روابط الوصول:</strong><br>
+                    • الرئيسية: //<br>
+                    • المعلمين: /accounts/login/<br>
+                    • الطلاب: /student/login/<br>
+                    • الإدارة: /admin/
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-section">
+            <h2 class="step-title">
+                <span class="step-number">✅</span>
+                📋 قائمة التحقق
+            </h2>
+            
+            <ul class="checklist">
+                <li>إنشاء حساب Render</li>
+                <li>رفع الكود إلى GitHub</li>
+                <li>ربط Render بـ GitHub</li>
+                <li>إعداد Web Service</li>
+                <li>إضافة متغيرات البيئة</li>
+                <li>انتظار اكتمال النشر</li>
+                <li>إنشاء مدير جديد</li>
+                <li>اختبار التطبيق</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">🎉 النتيجة النهائية:</div>
+            <div class="info-text">
+                تطبيق المسابقات الرياضية سيصبح متاحاً على الإنترنت بصفة دائمة!<br>
+                • يعمل 24/7<br>
+                • رابط ثابت لا يتغير<br>
+                • أداء ممتاز<br>
+                • أمان كامل مع HTTPS<br>
+                • نفس التطبيق بالضبط - لا تغيير أو إضافة أو حذف! 🌟
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('تم نسخ الأوامر! الصقها في Terminal');
+            }, function(err) {
+                console.error('فشل في النسخ: ', err);
+            });
+        }
+        
+        // تحديث حالة الخطوات
+        function updateStepStatus(stepNumber, completed) {
+            const steps = document.querySelectorAll('.step-number');
+            if (steps[stepNumber - 1]) {
+                if (completed) {
+                    steps[stepNumber - 1].style.background = '#10B981';
+                    steps[stepNumber - 1].innerHTML = '✓';
+                }
+            }
+        }
+        
+        // محاكاة تقدم الخطوات
+        function simulateProgress() {
+            const steps = [1, 2, 3, 4, 5, 6, 7];
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    // يمكن إضافة منطق لتتبع التقدم الفعلي هنا
+                }, index * 1000);
+            });
+        }
+    </script>
+</body>
+</html>

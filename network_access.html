@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 الوصول لمنصة المسابقات الرياضية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #4F46E5;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+        
+        .access-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 100%);
+            border-radius: 15px;
+            border-left: 5px solid #4F46E5;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #1F2937;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .teacher-button {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .teacher-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+        
+        .student-button {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .student-button:hover {
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 1px solid #10B981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #065F46;
+            margin-bottom: 10px;
+        }
+        
+        .info-text {
+            color: #047857;
+            line-height: 1.6;
+        }
+        
+        .credentials {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 1px solid #F59E0B;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: right;
+        }
+        
+        .cred-label {
+            font-weight: 600;
+            color: #92400E;
+        }
+        
+        .cred-value {
+            color: #B45309;
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .status {
+            display: inline-flex;
+            align-items: center;
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .status::before {
+            content: '🟢';
+            margin-left: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .link-button {
+                display: block;
+                margin: 10px 0;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🧮 منصة المسابقات الرياضية</h1>
+        <p class="subtitle">متاحة الآن على الشبكة المحلية</p>
+        
+        <div class="status">الخادم يعمل بنجاح</div>
+        
+        <div class="access-section">
+            <h2 class="section-title">🌐 الوصول السريع</h2>
+            <a href="http://192.168.1.124:8000" class="link-button" target="_blank">
+                🏠 الصفحة الرئيسية
+            </a>
+        </div>
+        
+        <div class="access-section">
+            <h2 class="section-title">👨‍🏫 دخول المعلمين</h2>
+            <a href="http://192.168.1.124:8000/accounts/login/" class="link-button teacher-button" target="_blank">
+                🔐 تسجيل دخول المعلمين
+            </a>
+            <a href="http://192.168.1.124:8000/admin/" class="link-button teacher-button" target="_blank">
+                ⚙️ لوحة الإدارة
+            </a>
+            
+            <div class="credentials">
+                <div class="cred-label">اسم المستخدم: <span class="cred-value">admin</span></div>
+                <div class="cred-label">كلمة المرور: <span class="cred-value">[محجوبة]</span></div>
+                <div style="font-size: 0.9rem; color: #92400E; margin-top: 8px;">
+                    💡 اطلب كلمة المرور من مدير النظام
+                </div>
+            </div>
+        </div>
+        
+        <div class="access-section">
+            <h2 class="section-title">👥 دخول الطلاب</h2>
+            <a href="http://192.168.1.124:8000/student/login/" class="link-button student-button" target="_blank">
+                📚 دخول الطلاب
+            </a>
+            
+            <div class="credentials">
+                <div class="cred-label">رمز الدخول: <span class="cred-value">ben25</span></div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">📋 معلومات مهمة:</div>
+            <div class="info-text">
+                • يمكن الوصول للتطبيق من أي جهاز متصل بنفس الشبكة المحلية<br>
+                • استخدم عنوان IP: <strong>192.168.1.124:8000</strong><br>
+                • التطبيق يعمل بكامل ميزاته مع التحسينات الجديدة<br>
+                • يدعم جميع الأجهزة: كمبيوتر، هاتف، جهاز لوحي
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">🔧 للوصول من أجهزة أخرى:</div>
+            <div class="info-text">
+                1. تأكد من اتصال الجهاز بنفس الشبكة<br>
+                2. افتح المتصفح واكتب: <strong>http://192.168.1.124:8000</strong><br>
+                3. اضغط Enter وستصل للتطبيق مباشرة
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // فحص حالة الاتصال
+        function checkConnection() {
+            fetch('http://192.168.1.124:8000')
+                .then(response => {
+                    if (response.ok) {
+                        document.querySelector('.status').innerHTML = '🟢 الخادم يعمل بنجاح';
+                        document.querySelector('.status').style.background = '#10B981';
+                    }
+                })
+                .catch(() => {
+                    document.querySelector('.status').innerHTML = '🔴 الخادم غير متاح';
+                    document.querySelector('.status').style.background = '#EF4444';
+                });
+        }
+        
+        // فحص الاتصال كل 30 ثانية
+        setInterval(checkConnection, 30000);
+        
+        // فحص أولي
+        checkConnection();
+    </script>
+</body>
+</html>

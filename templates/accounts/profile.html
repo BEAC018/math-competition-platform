@@ -14,11 +14,14 @@
                     <div class="col-md-4 text-center mb-4">
                         {% if user.profile.profile_image %}
                             <img src="{{ user.profile.profile_image.url }}" alt="{{ user.get_full_name }}"
-                                 class="img-fluid rounded-circle shadow-lg profile-image"
-                                 style="width: 200px; height: 200px; object-fit: cover;">
-                        {% else %}
-                            <div class="profile-image-placeholder rounded-circle shadow-lg mx-auto d-flex align-items-center justify-content-center bg-light"
-                                 style="width: 200px; height: 200px;">
+                                 class="img-fluid rounded-circle shadow-lg profile-image img-hover-zoom"
+                                 style="width: 200px; height: 200px; object-fit: cover;"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        {% endif %}
+
+                        <div class="profile-image-placeholder rounded-circle shadow-lg mx-auto avatar-style-1"
+                             style="width: 200px; height: 200px; {% if user.profile.profile_image %}display: none;{% else %}display: flex;{% endif %}"
+                             title="{{ user.get_full_name|default:user.username }}">
                                 <i class="fas fa-user fa-5x text-secondary"></i>
                             </div>
                         {% endif %}

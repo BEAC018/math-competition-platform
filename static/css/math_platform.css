@@ -7,40 +7,65 @@
 /* استيراد الخطوط العربية والإنجليزية */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* متغيرات الألوان */
+/* متغيرات الألوان المحسنة */
 :root {
-    /* الألوان الأساسية */
-    --primary-bg: #F4F9FF;           /* خلفية رئيسية - أبيض ناعم مع لمسة زرقاء */
-    --primary-blue: #2D8CFF;         /* أزرق تربوي */
-    --educational-green: #4CAF50;    /* أخضر تعليمي */
-    --soft-red: #FF6B6B;            /* أحمر هادئ */
-    --text-dark: #333333;           /* نص غامق */
-    --text-light: #666666;          /* نص فاتح */
+    /* الألوان الأساسية المحدثة */
+    --primary-bg: #F8FAFF;           /* خلفية رئيسية - أبيض ناعم محسن */
+    --primary-blue: #4F46E5;         /* أزرق حديث وجذاب */
+    --primary-blue-light: #6366F1;   /* أزرق فاتح */
+    --primary-blue-dark: #3730A3;    /* أزرق غامق */
+    --educational-green: #10B981;    /* أخضر تعليمي محسن */
+    --educational-green-light: #34D399; /* أخضر فاتح */
+    --educational-green-dark: #059669;  /* أخضر غامق */
+    --soft-red: #EF4444;            /* أحمر هادئ محسن */
+    --soft-red-light: #F87171;      /* أحمر فاتح */
+    --soft-red-dark: #DC2626;       /* أحمر غامق */
+    --text-dark: #1F2937;           /* نص غامق محسن */
+    --text-medium: #4B5563;         /* نص متوسط */
+    --text-light: #6B7280;          /* نص فاتح محسن */
+    --text-lighter: #9CA3AF;        /* نص أفتح */
     --white: #FFFFFF;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
 
-    /* ألوان المستويات الدراسية */
-    --grade-1: #E3F2FD;            /* أزرق فاتح جداً */
-    --grade-2: #E8F5E8;            /* أخضر فاتح جداً */
-    --grade-3: #FFF3E0;            /* برتقالي فاتح جداً */
-    --grade-4: #F3E5F5;            /* بنفسجي فاتح جداً */
-    --grade-5: #E0F2F1;            /* تركوازي فاتح جداً */
-    --grade-6: #FFF8E1;            /* أصفر فاتح جداً */
-    --grade-7: #FCE4EC;            /* وردي فاتح جداً */
-    --grade-8: #E1F5FE;            /* سماوي فاتح جداً */
-    --grade-9: #F1F8E9;            /* أخضر ليموني فاتح جداً */
+    /* ألوان المستويات الدراسية المحسنة */
+    --grade-1: #EEF2FF;            /* أزرق فاتح محسن */
+    --grade-2: #ECFDF5;            /* أخضر فاتح محسن */
+    --grade-3: #FFF7ED;            /* برتقالي فاتح محسن */
+    --grade-4: #FAF5FF;            /* بنفسجي فاتح محسن */
+    --grade-5: #F0FDFA;            /* تركوازي فاتح محسن */
+    --grade-6: #FFFBEB;            /* أصفر فاتح محسن */
+    --grade-7: #FDF2F8;            /* وردي فاتح محسن */
+    --grade-8: #F0F9FF;            /* سماوي فاتح محسن */
+    --grade-9: #F7FEE7;            /* أخضر ليموني فاتح محسن */
 
-    /* ألوان الحالة */
-    --success: #4CAF50;
-    --warning: #FF9800;
-    --danger: #F44336;
-    --info: #2196F3;
+    /* ألوان الحالة المحسنة */
+    --success: #10B981;
+    --success-light: #34D399;
+    --success-dark: #059669;
+    --warning: #F59E0B;
+    --warning-light: #FBBF24;
+    --warning-dark: #D97706;
+    --danger: #EF4444;
+    --danger-light: #F87171;
+    --danger-dark: #DC2626;
+    --info: #3B82F6;
+    --info-light: #60A5FA;
+    --info-dark: #2563EB;
 
-    /* الظلال والحدود */
-    --shadow-light: 0 2px 10px rgba(45, 140, 255, 0.1);
-    --shadow-medium: 0 4px 20px rgba(45, 140, 255, 0.15);
-    --shadow-heavy: 0 8px 30px rgba(45, 140, 255, 0.2);
-    --border-radius: 15px;
-    --border-radius-small: 8px;
+    /* الظلال والحدود المحسنة */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-colored: 0 10px 15px -3px rgba(79, 70, 229, 0.1), 0 4px 6px -2px rgba(79, 70, 229, 0.05);
+    --border-radius: 12px;
+    --border-radius-small: 6px;
+    --border-radius-large: 16px;
+    --border-radius-xl: 20px;
 
     /* المسافات */
     --spacing-xs: 0.25rem;
@@ -66,8 +91,8 @@ html, body {
 
 body {
     font-family: 'Cairo', 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--primary-bg) 0%, #E3F2FD 100%);
-    color: var(--text-dark);
+    background: #FFFFFF;
+    color: #1F2937;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -115,39 +140,13 @@ body {
     padding-right: var(--spacing-sm) !important;
 }
 
-/* خلفية مع أنماط رياضية خفيفة */
+/* خلفية بسيطة ونظيفة للقراءة الواضحة */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        radial-gradient(circle at 20% 80%, rgba(45, 140, 255, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 152, 0, 0.02) 0%, transparent 50%);
-    z-index: -1;
-    pointer-events: none;
+    display: none;
 }
 
-/* خلفية رياضية ثابتة */
 body::after {
-    content: '➕ ➖ ✖️ ➗ = √ ∑ π ∞ ∆ ∫ ∂ ≈ ≠ ≤ ≥ ± ∓ × ÷ ° ∠ ∟ ⊥ ∥ ∴ ∵ ∈ ∉ ⊂ ⊃ ∪ ∩';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 2rem;
-    color: rgba(45, 140, 255, 0.02);
-    z-index: -1;
-    pointer-events: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    line-height: 4;
+    display: none;
 }
 
 /* العناوين */
@@ -174,23 +173,43 @@ h3 {
 /* البطاقات */
 .card {
     background: var(--white);
-    border: none;
+    border: 1px solid var(--gray-200);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-light);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue-light);
 }
 
 .card-header {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #1976D2 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
     border: none;
     padding: var(--spacing-lg);
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.card:hover .card-header::before {
+    transform: translateX(100%);
 }
 
 .card-body {
@@ -213,27 +232,63 @@ h3 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #1976D2 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
     color: var(--white);
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-colored);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
 }
 
 .btn-success {
-    background: linear-gradient(135deg, var(--educational-green) 0%, #388E3C 100%);
+    background: linear-gradient(135deg, var(--educational-green) 0%, var(--educational-green-light) 100%);
     color: var(--white);
-    box-shadow: var(--shadow-light);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-success::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-success:hover::before {
+    left: 100%;
 }
 
 .btn-success:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-    background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04);
+    background: linear-gradient(135deg, var(--educational-green-dark) 0%, var(--educational-green) 100%);
 }
 
 .btn-warning {
@@ -281,16 +336,59 @@ h3 {
     transition: width 0.6s ease;
 }
 
-/* ألوان المستويات الدراسية */
-.grade-1 { background-color: var(--grade-1); border-left: 4px solid #2196F3; }
-.grade-2 { background-color: var(--grade-2); border-left: 4px solid #4CAF50; }
-.grade-3 { background-color: var(--grade-3); border-left: 4px solid #FF9800; }
-.grade-4 { background-color: var(--grade-4); border-left: 4px solid #9C27B0; }
-.grade-5 { background-color: var(--grade-5); border-left: 4px solid #009688; }
-.grade-6 { background-color: var(--grade-6); border-left: 4px solid #FFC107; }
-.grade-7 { background-color: var(--grade-7); border-left: 4px solid #E91E63; }
-.grade-8 { background-color: var(--grade-8); border-left: 4px solid #03A9F4; }
-.grade-9 { background-color: var(--grade-9); border-left: 4px solid #8BC34A; }
+/* ألوان المستويات الدراسية المحسنة */
+.grade-1 {
+    background: linear-gradient(135deg, var(--grade-1) 0%, #E0E7FF 100%);
+    border-left: 4px solid var(--primary-blue);
+    transition: all 0.3s ease;
+}
+.grade-2 {
+    background: linear-gradient(135deg, var(--grade-2) 0%, #D1FAE5 100%);
+    border-left: 4px solid var(--educational-green);
+    transition: all 0.3s ease;
+}
+.grade-3 {
+    background: linear-gradient(135deg, var(--grade-3) 0%, #FED7AA 100%);
+    border-left: 4px solid var(--warning);
+    transition: all 0.3s ease;
+}
+.grade-4 {
+    background: linear-gradient(135deg, var(--grade-4) 0%, #E9D5FF 100%);
+    border-left: 4px solid #8B5CF6;
+    transition: all 0.3s ease;
+}
+.grade-5 {
+    background: linear-gradient(135deg, var(--grade-5) 0%, #CCFBF1 100%);
+    border-left: 4px solid #14B8A6;
+    transition: all 0.3s ease;
+}
+.grade-6 {
+    background: linear-gradient(135deg, var(--grade-6) 0%, #FEF3C7 100%);
+    border-left: 4px solid #F59E0B;
+    transition: all 0.3s ease;
+}
+.grade-7 {
+    background: linear-gradient(135deg, var(--grade-7) 0%, #FCE7F3 100%);
+    border-left: 4px solid #EC4899;
+    transition: all 0.3s ease;
+}
+.grade-8 {
+    background: linear-gradient(135deg, var(--grade-8) 0%, #DBEAFE 100%);
+    border-left: 4px solid #3B82F6;
+    transition: all 0.3s ease;
+}
+.grade-9 {
+    background: linear-gradient(135deg, var(--grade-9) 0%, #DCFCE7 100%);
+    border-left: 4px solid #22C55E;
+    transition: all 0.3s ease;
+}
+
+/* تأثيرات hover للمستويات */
+.grade-1:hover, .grade-2:hover, .grade-3:hover, .grade-4:hover, .grade-5:hover,
+.grade-6:hover, .grade-7:hover, .grade-8:hover, .grade-9:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
 
 /* الدائرة الشخصية */
 .avatar-circle {

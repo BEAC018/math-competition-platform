@@ -1,178 +1,0 @@
-{% extends 'base/base.html' %}
-{% load score_display %}
-
-{% block title %}اختبار عرض النتائج{% endblock %}
-
-{% block content %}
-<div class="container-fluid p-0">
-    <div class="row g-0">
-        <div class="col-12">
-            <div class="card border-0 shadow-lg">
-                <div class="card-header bg-gradient-primary text-white text-center">
-                    <h1 class="display-5 mb-0">🧮 اختبار عرض النتائج بالصيغ المختلفة</h1>
-                </div>
-                <div class="card-body p-4">
-                    
-                    <!-- أمثلة على النتائج المختلفة -->
-                    <div class="row g-4">
-                        
-                        <!-- نتيجة ممتازة -->
-                        <div class="col-md-4">
-                            <h5 class="text-center mb-3">نتيجة ممتازة (42/45)</h5>
-                            {% score_summary 42 45 "نتيجة ممتازة" %}
-                        </div>
-                        
-                        <!-- نتيجة جيدة -->
-                        <div class="col-md-4">
-                            <h5 class="text-center mb-3">نتيجة جيدة (33/45)</h5>
-                            {% score_summary 33 45 "نتيجة جيدة" %}
-                        </div>
-                        
-                        <!-- نتيجة ضعيفة -->
-                        <div class="col-md-4">
-                            <h5 class="text-center mb-3">نتيجة ضعيفة (18/45)</h5>
-                            {% score_summary 18 45 "نتيجة ضعيفة" %}
-                        </div>
-                        
-                    </div>
-                    
-                    <!-- شرح النظام -->
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <div class="card bg-light border-0">
-                                <div class="card-body">
-                                    <h3 class="text-center mb-4">📘 شرح نظام عرض النتائج</h3>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h5>🎯 الهدف من النظام:</h5>
-                                            <ul class="list-unstyled">
-                                                <li>✅ <strong>النتيجة الأصلية:</strong> من أصل 45 نقطة</li>
-                                                <li>💯 <strong>النسبة المئوية:</strong> من 100%</li>
-                                                <li>🔟 <strong>على 10:</strong> تحويل للنظام العشري</li>
-                                                <li>🔢 <strong>على 20:</strong> تحويل للنظام العشريني</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="col-md-6">
-                                            <h5>🎨 الألوان المستخدمة:</h5>
-                                            <ul class="list-unstyled">
-                                                <li><span class="badge bg-success me-2">أخضر</span> للنتائج ≥ 75%</li>
-                                                <li><span class="badge bg-warning me-2">أصفر</span> للنتائج 50% - 74%</li>
-                                                <li><span class="badge bg-danger me-2">أحمر</span> للنتائج < 50%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row mt-4">
-                                        <div class="col-12">
-                                            <h5>📊 مستويات الأداء:</h5>
-                                            <div class="row g-2">
-                                                <div class="col-md-2">
-                                                    <div class="text-center p-2 bg-success text-white rounded">
-                                                        <div>🌟</div>
-                                                        <small>ممتاز (90%+)</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="text-center p-2 bg-success text-white rounded">
-                                                        <div>😊</div>
-                                                        <small>جيد جداً (75%+)</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="text-center p-2 bg-warning text-white rounded">
-                                                        <div>🙂</div>
-                                                        <small>جيد (60%+)</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="text-center p-2 bg-warning text-white rounded">
-                                                        <div>😐</div>
-                                                        <small>مقبول (50%+)</small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="text-center p-2 bg-danger text-white rounded">
-                                                        <div>😞</div>
-                                                        <small>ضعيف (<50%)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- أمثلة على الحسابات -->
-                    <div class="row mt-4">
-                        <div class="col-12">
-                            <div class="card border-0 shadow-sm">
-                                <div class="card-header bg-info text-white">
-                                    <h4 class="mb-0">🧮 أمثلة على الحسابات</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>النتيجة الأصلية</th>
-                                                    <th>النسبة المئوية</th>
-                                                    <th>على 10</th>
-                                                    <th>على 20</th>
-                                                    <th>المستوى</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>45 / 45</td>
-                                                    <td>{% calculate_percentage 45 45 100 %}%</td>
-                                                    <td>{% calculate_percentage 45 45 10 %} / 10</td>
-                                                    <td>{% calculate_percentage 45 45 20 %} / 20</td>
-                                                    <td>{% performance_level 45 45 %} {% performance_emoji 45 45 %}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>36 / 45</td>
-                                                    <td>{% calculate_percentage 36 45 100 %}%</td>
-                                                    <td>{% calculate_percentage 36 45 10 %} / 10</td>
-                                                    <td>{% calculate_percentage 36 45 20 %} / 20</td>
-                                                    <td>{% performance_level 36 45 %} {% performance_emoji 36 45 %}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>27 / 45</td>
-                                                    <td>{% calculate_percentage 27 45 100 %}%</td>
-                                                    <td>{% calculate_percentage 27 45 10 %} / 10</td>
-                                                    <td>{% calculate_percentage 27 45 20 %} / 20</td>
-                                                    <td>{% performance_level 27 45 %} {% performance_emoji 27 45 %}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>18 / 45</td>
-                                                    <td>{% calculate_percentage 18 45 100 %}%</td>
-                                                    <td>{% calculate_percentage 18 45 10 %} / 10</td>
-                                                    <td>{% calculate_percentage 18 45 20 %} / 20</td>
-                                                    <td>{% performance_level 18 45 %} {% performance_emoji 18 45 %}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="card-footer text-center">
-                    <a href="{% url 'competitions:start_competition' %}" class="btn btn-primary me-3">
-                        <i class="fas fa-play me-2"></i> جرب المسابقة
-                    </a>
-                    <a href="{% url 'competitions:history' %}" class="btn btn-outline-info">
-                        <i class="fas fa-history me-2"></i> سجل المسابقات
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}

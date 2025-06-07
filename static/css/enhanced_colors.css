@@ -1,0 +1,286 @@
+/**
+ * 🎨 تحسينات الألوان المتقدمة لمنصة المسابقات الرياضية
+ * Enhanced Color System for Math Competition Platform
+ * Version: 2.0
+ */
+
+/* ========================================
+   🌈 نظام الألوان المتقدم
+   ======================================== */
+
+:root {
+    /* ألوان متدرجة حديثة */
+    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+    --gradient-success: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+    --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+    --gradient-danger: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
+    --gradient-info: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+    
+    /* خلفيات متدرجة ناعمة */
+    --bg-gradient-light: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 50%, #E0E7FF 100%);
+    --bg-gradient-warm: linear-gradient(135deg, #FEF7FF 0%, #FAF5FF 50%, #F3E8FF 100%);
+    --bg-gradient-cool: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 50%, #99F6E4 100%);
+    
+    /* ألوان تفاعلية محسنة */
+    --hover-primary: #6366F1;
+    --hover-success: #34D399;
+    --hover-warning: #FBBF24;
+    --hover-danger: #F87171;
+    --hover-info: #60A5FA;
+    
+    /* ألوان النص المحسنة */
+    --text-gradient: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+    --text-accent: #4F46E5;
+    --text-muted: #9CA3AF;
+    
+    /* ظلال ملونة */
+    --shadow-primary: 0 10px 15px -3px rgba(79, 70, 229, 0.1), 0 4px 6px -2px rgba(79, 70, 229, 0.05);
+    --shadow-success: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05);
+    --shadow-warning: 0 10px 15px -3px rgba(245, 158, 11, 0.1), 0 4px 6px -2px rgba(245, 158, 11, 0.05);
+    --shadow-danger: 0 10px 15px -3px rgba(239, 68, 68, 0.1), 0 4px 6px -2px rgba(239, 68, 68, 0.05);
+}
+
+/* ========================================
+   🎯 تحسينات البطاقات المتقدمة
+   ======================================== */
+
+.card-enhanced {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: var(--shadow-primary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-enhanced:hover::before {
+    opacity: 1;
+}
+
+.card-enhanced:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+/* ========================================
+   🔘 أزرار متقدمة مع تأثيرات
+   ======================================== */
+
+.btn-enhanced {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.btn-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn-enhanced:hover::before {
+    left: 100%;
+}
+
+.btn-enhanced:active {
+    transform: scale(0.98);
+}
+
+/* أزرار ملونة محسنة */
+.btn-primary-enhanced {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-primary-enhanced:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.3);
+}
+
+.btn-success-enhanced {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: var(--shadow-success);
+}
+
+.btn-success-enhanced:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.3);
+}
+
+/* ========================================
+   📊 ألوان المستويات المحسنة
+   ======================================== */
+
+.grade-card-1 {
+    background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+    border-left: 4px solid #4F46E5;
+    color: #1E1B4B;
+}
+
+.grade-card-2 {
+    background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    border-left: 4px solid #10B981;
+    color: #064E3B;
+}
+
+.grade-card-3 {
+    background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%);
+    border-left: 4px solid #F59E0B;
+    color: #92400E;
+}
+
+.grade-card-4 {
+    background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%);
+    border-left: 4px solid #8B5CF6;
+    color: #581C87;
+}
+
+.grade-card-5 {
+    background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+    border-left: 4px solid #14B8A6;
+    color: #134E4A;
+}
+
+/* ========================================
+   🌟 تأثيرات تفاعلية متقدمة
+   ======================================== */
+
+.interactive-element {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.interactive-element:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+    opacity: 0.3;
+    filter: blur(8px);
+}
+
+/* ========================================
+   🎨 خلفيات متحركة
+   ======================================== */
+
+.animated-bg {
+    background: var(--bg-gradient-light);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   📱 تحسينات متجاوبة
+   ======================================== */
+
+@media (max-width: 768px) {
+    .card-enhanced:hover {
+        transform: translateY(-6px) scale(1.01);
+    }
+    
+    .btn-enhanced {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ========================================
+   🌙 وضع الألوان الداكنة (اختياري)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #0F172A;
+        --text-dark: #F1F5F9;
+        --text-light: #CBD5E1;
+        --white: #1E293B;
+    }
+    
+    .card-enhanced {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(71, 85, 105, 0.3);
+    }
+}
+
+/* ========================================
+   ✨ تأثيرات خاصة
+   ======================================== */
+
+.sparkle-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.sparkle-effect::before {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.sparkle-effect:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: sparkle 1s ease-in-out;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+}

@@ -1,22 +1,18 @@
 #!/bin/bash
-echo "🚀 بدء تشغيل منصة المسابقات الرياضية..."
 
-# تثبيت المتطلبات
-echo "📦 تثبيت المتطلبات..."
-pip install -r requirements.txt
+# تحديد متغيرات البيئة
+export DJANGO_SETTINGS_MODULE=alhassan.settings
+export PYTHONPATH=.
 
-# إعداد قاعدة البيانات
-echo "🗄️ إعداد قاعدة البيانات..."
-python manage.py migrate
+# تطبيق migrations
+python manage.py migrate --noinput
 
 # جمع الملفات الثابتة
-echo "📁 جمع الملفات الثابتة..."
-python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput --clear
 
 # تشغيل الخادم
-echo "🌐 تشغيل الخادم..."
-echo "📍 رابط المنصة: https://$REPL_SLUG.$REPL_OWNER.repl.co"
-echo "👥 رابط التلاميذ: https://$REPL_SLUG.$REPL_OWNER.repl.co/student/login/"
-echo "🔑 رمز الدخول: ben25"
-
-python manage.py runserver 0.0.0.0:8000
+if [ "$PORT" ]; then
+    gunicorn alhassan.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 120
+else
+    gunicorn alhassan.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 120
+fi

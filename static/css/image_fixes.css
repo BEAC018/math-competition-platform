@@ -1,0 +1,363 @@
+/**
+ * 🖼️ إصلاحات الصور ومعالجة الصور المفقودة
+ * Image Fixes and Missing Image Handling
+ */
+
+/* ========================================
+   🖼️ معالجة الصور المفقودة
+   ======================================== */
+
+/* إخفاء الصور المكسورة وإظهار placeholder */
+img {
+    transition: all 0.3s ease;
+}
+
+img[src=""], img:not([src]), img[src="#"] {
+    display: none;
+}
+
+/* معالجة الصور المكسورة */
+img {
+    position: relative;
+}
+
+img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+    border-radius: inherit;
+    display: none;
+}
+
+img::after {
+    content: '🖼️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #9CA3AF;
+    display: none;
+}
+
+img[alt]::after {
+    content: attr(alt);
+    font-size: 0.875rem;
+    color: #6B7280;
+    text-align: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* عند فشل تحميل الصورة */
+img:not([src]):before,
+img[src=""]:before,
+img[src="#"]:before {
+    display: block;
+}
+
+img:not([src]):after,
+img[src=""]:after,
+img[src="#"]:after {
+    display: block;
+}
+
+/* ========================================
+   👤 الصور الشخصية المحسنة
+   ======================================== */
+
+.profile-image-placeholder {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.profile-image-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+/* صورة شخصية افتراضية محسنة */
+.default-avatar {
+    width: 100%;
+    height: 100%;
+    background: url('../img/placeholder-avatar.svg') center/cover;
+    border-radius: inherit;
+    transition: all 0.3s ease;
+}
+
+.default-avatar:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* ========================================
+   🎨 أنواع مختلفة من الصور الافتراضية
+   ======================================== */
+
+.avatar-style-1 {
+    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+}
+
+.avatar-style-2 {
+    background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+}
+
+.avatar-style-3 {
+    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+.avatar-style-4 {
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+}
+
+.avatar-style-5 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+}
+
+/* ========================================
+   🖼️ معرض الصور المحسن
+   ======================================== */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.image-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   📱 تحسينات متجاوبة للصور
+   ======================================== */
+
+@media (max-width: 768px) {
+    .profile-image-placeholder {
+        font-size: 1.5rem;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+    
+    .image-card img {
+        height: 150px;
+    }
+}
+
+/* ========================================
+   🔧 إصلاحات خاصة للتطبيق
+   ======================================== */
+
+/* إصلاح صور الملف الشخصي في النماذج */
+.profile-form .profile-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-form .profile-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px dashed #D1D5DB;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.profile-form .profile-image-container:hover::after {
+    opacity: 1;
+}
+
+/* إصلاح الأيقونات المفقودة */
+.icon-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+.icon-fallback::before {
+    content: '?';
+    color: white;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* ========================================
+   🎯 تحسينات خاصة للوجو والأيقونات
+   ======================================== */
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-fallback {
+    width: 40px;
+    height: 40px;
+    background: url('../img/logo-placeholder.svg') center/cover;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.logo-fallback:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ========================================
+   ✨ تأثيرات تحميل الصور
+   ======================================== */
+
+.image-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* إزالة تأثير التحميل عند اكتمال الصورة */
+.image-loaded::before {
+    display: none;
+}
+
+/* ========================================
+   🛠️ أدوات مساعدة للصور
+   ======================================== */
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-rounded {
+    border-radius: 8px;
+}
+
+.img-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.img-hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.img-hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   🎨 فلاتر الصور
+   ======================================== */
+
+.img-filter-grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.img-filter-grayscale:hover {
+    filter: grayscale(0%);
+}
+
+.img-filter-sepia {
+    filter: sepia(50%);
+}
+
+.img-filter-blur {
+    filter: blur(2px);
+    transition: filter 0.3s ease;
+}
+
+.img-filter-blur:hover {
+    filter: blur(0px);
+}
+
+.img-filter-brightness {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.img-filter-brightness:hover {
+    filter: brightness(1);
+}
